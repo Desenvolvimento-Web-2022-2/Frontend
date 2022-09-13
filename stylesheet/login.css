@@ -1,0 +1,86 @@
+@import "index.css";
+
+body {
+  background: linear-gradient(90deg, rgba(9,118,121,1) 1%, rgba(36,192,235,1) 100%);
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-body {
+  background-color: var(--darkGray);
+  height: 234px;
+  align-items: center;
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 12px;
+  width: 280px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.login-body h3 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.input-login:nth-child(n) {
+  margin-bottom: 16px;
+}
+
+.input-login {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: stretch;
+}
+
+.input-login label {
+  margin-bottom: 8px;
+}
+.password-forget{
+  color:#0000FF;
+  text-decoration:underline blue; 
+  cursor: pointer;
+  font-size:12px
+}
+button{
+  border: none;
+  width: 128px;
+  height: auto;
+  padding: 8px 0;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px #00000029;
+
+}
+.login-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.login-body button{
+  background-color: var(--lightBlue);
+}
+.login-body button:hover{
+  background-color: var(--darkBlue);
+  cursor: pointer;
+  border: 1px solid var(--lightGray);
+}
+.new-user button{
+  background-color: var(--lightGray);
+  width: 280px;
+}
+.new-user button:hover{
+  background-color: var(--darkGray);
+  cursor: pointer;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}

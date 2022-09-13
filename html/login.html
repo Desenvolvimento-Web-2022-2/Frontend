@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aplicação - Login!</title>
+    <link href="../stylesheet/login.css" rel="stylesheet">
+    <link href="../JS/login.js" type="text/javascript">
+  </head>
+  <body>
+    <div class="container">
+        <div class="login-body">
+            <h3>Login</h3>
+            <div class="input-login">
+                <label>Usuário</label>
+                <div class="input-icon" style="background-color: white;">
+                    <img class="icon" src="../Assets/Icons/email-black.svg" alt="email">
+                    <input class="user" type="text" placeholder="Digite seu email">
+                </div>
+            </div>
+            <div class="input-login">
+                <div class="login-password">
+                    <label>Senha</label>
+                    <label onclick="redirectToNewPassword()" class="password-forget">Esqueceu a senha?</label>
+                </div>
+                <div class="input-icon" style="background-color: white;justify-content: space-between;">
+                        <div>
+                            <img class="icon" src="../Assets/Icons/locker-black.svg" alt="password">
+                            <input class="password" type="password" placeholder="Digite sua senha">
+                        </div>
+                        <div onclick="revealSecret()" style="cursor: pointer;">
+                            <img class="icon secret" src="../Assets/Icons/visibility.svg" alt="password">                    
+                        </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: flex-end;">
+                <a onclick="login()"><button>Entrar</button></a>
+            </div>
+        </div>
+        <div class="new-user">
+            <a ><button>Novo usuário</button></a>
+        </div>
+    </div>
+  </body>
+  <script src="../JS/login.js"></script>
+</html>

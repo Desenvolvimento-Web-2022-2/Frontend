@@ -1,0 +1,95 @@
+body{
+    background-color: #5CCEEE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.formAndUpload{
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+.form{
+    width: 350px;
+    height: 350px;
+    background-color: #F1EBEB;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 2rem 3rem 2rem;
+}
+
+button{
+    background-color: #D9D9D9;
+    border-radius: 12px;
+    border: none;
+    width: 60%;
+    padding: 0.5rem 0.2rem;
+}
+
+button:hover{
+    background-color: #5CCEEE;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+
+#inputText{
+    flex-direction: left;
+    font-size: 14px;
+    width: 60%;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #D9D9D9;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: transparent;
+}
+
+.upload{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    padding: 1rem 2rem 3rem 2rem;
+}
+.upload div:nth-child(1){
+    display: flex;
+    justify-content: center;
+}
+.upload div:nth-child(1) img{
+    margin-top: 20%;
+}
+img:hover{
+    scale: 1.05;
+    filter: opacity(30%);
+}
+
+.textUpload{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 100;
+}
+.textUpload p:nth-child(2){
+    margin-left: 5px;
+    color: #ffffff;
+}
+.upload p{
+    font-size: 12px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    margin-top: 20%;
+}
+.upload input{
+    border-radius: 12px;
+    padding: 0.5rem 0.2rem;
+    border: none;
+    margin-top: 0.1rem;
+    width: 60%;
+}

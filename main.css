@@ -1,0 +1,11 @@
+@font-face {
+    font-family: Cabin;
+    src: url('./fonts/Cabin.ttf');
+}
+label,p,h1,h2,h3,h4,h5,h6{
+    font-family: Cabin;
+}
+
+body{
+    background-color: #F1EBEB;
+}

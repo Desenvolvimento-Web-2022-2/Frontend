@@ -1,0 +1,65 @@
+@import "../../main.css";
+
+body{
+    background-color: #5CCEEE!important;
+}
+
+.loginAndUfc{
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+.login{
+    width: 200px;
+    height: 200px;
+    background-color: #F1EBEB;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 2rem 3rem 2rem;
+}
+
+.login button{
+    background-color: #D9D9D9;
+    border-radius: 12px;
+    border: none;
+    width: 60%;
+    margin-top: 1rem;
+    padding: 0.5rem 0.2rem;
+}
+
+.login button:hover{
+    background-color: #5CCEEE;
+    color: white;
+    cursor: pointer;
+}
+
+.login input{
+    width: 60%;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #D9D9D9;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background-color: transparent;
+}
+
+.ufc{
+    width: 200px;
+    height: 200px;
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem 3rem 2rem;
+}
+
+@media screen and (max-width: 650px) {
+    .ufc{
+        display: none;
+    }
+}

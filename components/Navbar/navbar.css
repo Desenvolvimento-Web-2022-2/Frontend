@@ -1,8 +1,15 @@
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
 .nav{
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #24C0EB;
+    width: 100%;
 }
 .nav img{
     margin-right: 8px;

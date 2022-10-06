@@ -32,6 +32,6 @@ class Card2 extends HTMLElement {
 }
 customElements.define('custom-card2', Card2);
 
-function redirectToDep(depNumber){
-    window.location.href = "/departamento/"+depNumber+"/"
+function redirectToDep(route){
+    window.location.href = route
 } 

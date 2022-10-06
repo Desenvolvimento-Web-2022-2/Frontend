@@ -31,7 +31,7 @@ window.onload = function () {
         departametoCard = document.createElement("custom-card2");
         departametoCard.setAttribute("name",cardProp.name)
         departametoCard.setAttribute("subname","Bloco "+cardProp.number)
-        departametoCard.setAttribute("redirect",cardProp.number)
+        departametoCard.setAttribute("redirect","C:/Users/victo/Documents/Frontend-desenvolviment-web/Frontend/pages/Salas/Salas.html")
         cardsContainer.appendChild(departametoCard)
     }
 }

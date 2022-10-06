@@ -1,0 +1,39 @@
+@import "../../main.css";
+
+#supergeneral{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    width: 984px;
+    background-color: #CACACA;
+    border-radius: 28px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    align-items: center;   
+}
+
+#general{
+    display: flex;
+    flex-direction: column;
+}
+.son {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-left: 10%;
+}
+.son:nth-child(2n+1) p{
+    margin-bottom: 4px;
+}
+.son:nth-child(2n) p{
+    margin-top: 4px;
+}
+.son p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+.botao button{
+    border: none;
+    background-color: transparent;
+}
+.botao button:hover{
+    cursor: pointer;
+}

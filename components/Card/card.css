@@ -1,0 +1,39 @@
+.depts{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.5rem 0 2rem 0;
+}
+
+.depts div{
+    width: 196px;
+    height: 220px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #5CCEEE;
+    padding: 0.5rem;
+    margin: 0 1rem 0 1rem;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0.1rem 0.2rem #388294;
+}
+.depts div:nth-child(1){
+    margin: 0 1rem 0 0rem;
+}
+.depts div:nth-child(4n){
+    margin: 0 0rem 0 1rem;
+}
+.depts div:hover{
+    scale: 1.1;
+    cursor: pointer;
+}
+.depts img{
+    align-self: center;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.depts p{
+    font-size: 12px;
+}

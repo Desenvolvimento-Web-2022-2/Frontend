@@ -1,0 +1,14 @@
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #24C0EB;
+}
+.nav img{
+    margin-right: 8px;
+}
+.nav-text{
+    color: #F1EBEB;
+    font-size: 60px;
+    font-family: Cabin
+}

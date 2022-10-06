@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta</title>
+    <link rel="stylesheet" href="NovoUsuario_style.css">
+</head>
+<body>
+    <div class="formAndUpload">
+        <div class="form">
+            <h2>Novo Usuário</h2>
+            <input type="text" placeholder="nome" name="Nome" id="inputText">
+            <input type="email" placeholder="Address@mail.com" name="email" id="inputText">
+            <input type="password" placeholder="Senha" name="senha" id="inputText">
+            <input type="password" placeholder="Confirmar senha" name="confirmeSenha" id="inputText">
+            <button>Cadastrar</button>
+        </div>
+        <div class="upload">
+            <div>
+                <img src="imgs/upload.png" alt="botão de upload" style="width: 30%;">
+            </div>
+            <div class="textUpload">
+                <p>upload da imagem</p>
+                <p>    - opcional</p>
+            </div>
+            <p>Cargo</p>
+            <input list="cargos" name="cargo" placeholder="Aluno">
+            <datalist id="cargos">
+                <option value="Aluno">
+                <option value="Professor">
+                <option value="Administrador">
+            </datalist>
+        </div>
+    </div>
+</body>
+</html>

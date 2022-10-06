@@ -24,13 +24,36 @@ var cardProp = {
     imgSufix: "ft-fachada-deti.jpg"
 }
 window.onload = function () {
-    cardsContainer = document.getElementById("cards-container")
+    document.getElementsByClassName("sidebarName").item(0).innerHTML = "Deti"
+    createCardsSalas()
+    createButtonSalas()
+}
+
+function createCardsSalas(){
+    var cardsContainer = document.getElementById("cards-container")
     for(var i = 0; i<cardProps.length; i++){
         cardProp = cardProps[i]
-        departametoCard = document.createElement("custom-card");
+       var departametoCard = document.createElement("custom-card");
         departametoCard.setAttribute("name",cardProp.name)
         departametoCard.setAttribute("subname",cardProp.subtitle)
         departametoCard.setAttribute("redirect",cardProp.number)
         cardsContainer.appendChild(departametoCard)
     }
+}
+
+function createButtonSalas(){
+    var sidebar = document.getElementsByClassName("sidebarName").item(0)
+
+    var updateDepartament = document.createElement("custom-button")
+    updateDepartament.setAttribute("redirect","/")
+    updateDepartament.setAttribute("labelName","Atualizar departamento")
+    updateDepartament.classList.add("color-white")
+
+    var removeDepartemet = document.createElement("custom-button")
+    removeDepartemet.setAttribute("redirect","/")
+    removeDepartemet.setAttribute("labelName","Remover departamento")
+    removeDepartemet.classList.add("color-red")
+
+    sidebar.appendChild(updateDepartament)
+    sidebar.appendChild(removeDepartemet)
 }

@@ -8,7 +8,6 @@ class CustomButton extends HTMLElement {
         var onclick = `'redirect("${route}")'`
         var labelName = this.hasAttribute("labelName")? this.getAttribute("labelName"): "";
         var action = this.hasAttribute("action")? this.getAttribute("action"): ""
-        console.log(typeof action)
         if(validAction.includes(action)){
           onclick = `'handleAction("${action}")'`
         }
@@ -28,6 +27,6 @@ class CustomButton extends HTMLElement {
     action == 'close' ? 
       localStorage.setItem("Prosseguir",false) :
       localStorage.setItem("Prosseguir",true)
-      
+
     customModal.remove()
   }

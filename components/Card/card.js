@@ -3,6 +3,7 @@ class Card extends HTMLElement {
         super();
       }
     connectedCallback() {
+        const imgPrefix = "../../imgs/"
         var route = this.hasAttribute("redirect")? this.getAttribute("redirect"): "/";
         var cardProp = {
             name:this.hasAttribute("name")? this.getAttribute("name"): "",
@@ -24,6 +25,6 @@ class Card extends HTMLElement {
 }
 customElements.define('custom-card', Card);
 
-function redirectToDep(depNumber){
-    window.location.href = "/departamento/"+depNumber+"/"
+function redirectToDep(route){
+    window.location.href = "route"
 } 

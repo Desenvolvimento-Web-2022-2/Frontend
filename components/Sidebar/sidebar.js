@@ -1,13 +1,7 @@
 const imgPrefix = "../../imgs/"
 
-var sidebarName = ""
-if(window.location.pathname.endsWith("/Departamentos.html")){
-  sidebarName = "Home"
-}
-
 const admin ={
   name:"admin",
-
 }
 
 class Sidebar extends HTMLElement {
@@ -15,6 +9,7 @@ class Sidebar extends HTMLElement {
         super();
       }
     connectedCallback() {
+      var sidebarName = this.hasAttribute("labelName")? this.getAttribute("labelName"): "Home"
         this.innerHTML = ` 
         <div class="sidebar">
           <div>
@@ -24,7 +19,7 @@ class Sidebar extends HTMLElement {
             </div>
               <div class="sidebarName">${sidebarName}</div>
           </div>
-          <custom-button redirect="asdasd" labelName="Lista de usuários"></custom-button>
+          <custom-button class="color-white" redirect="asdasd" labelName="Lista de usuários"></custom-button>
         </div>
       `
     }

@@ -1,5 +1,4 @@
 
-
 class CustomLabel extends HTMLElement{
     constructor(){
         super()

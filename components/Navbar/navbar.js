@@ -4,7 +4,6 @@ class Navbar extends HTMLElement {
       }
     connectedCallback() {
       const imgPrefix = "../../imgs/"
-
         this.innerHTML = ` 
         <nav>
           <div class="nav">

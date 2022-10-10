@@ -19,7 +19,9 @@
 .color-white .customButton button{
     background-color: #FFFFFF ;
 }
-
+.bordered .customButton button{
+    border: 3px solid black;
+}
 .customButton button:hover{
     cursor: pointer;
 }

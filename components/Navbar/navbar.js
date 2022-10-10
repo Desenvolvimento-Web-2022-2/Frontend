@@ -3,10 +3,12 @@ class Navbar extends HTMLElement {
         super();
       }
     connectedCallback() {
+      const imgPrefix = "../../imgs/"
+
         this.innerHTML = ` 
         <nav>
           <div class="nav">
-            <img src="../../imgs/icons/logo.svg">
+            <img src="${imgPrefix}icons/logo.svg">
             <div class="nav-text">Sistema</div>
           </div>
         </nav>

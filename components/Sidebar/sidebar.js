@@ -1,4 +1,3 @@
-const imgPrefix = "../../imgs/"
 
 const admin ={
   name:"admin",
@@ -9,6 +8,8 @@ class Sidebar extends HTMLElement {
         super();
       }
     connectedCallback() {
+      const imgPrefix = "../../imgs/"
+
       var sidebarName = this.hasAttribute("labelName")? this.getAttribute("labelName"): "Home"
         this.innerHTML = ` 
         <div class="sidebar">

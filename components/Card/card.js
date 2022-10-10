@@ -3,6 +3,7 @@ class Card extends HTMLElement {
         super();
       }
     connectedCallback() {
+        const imgPrefix = "../../imgs/"
         var route = this.hasAttribute("redirect")? this.getAttribute("redirect"): "/";
         var cardProp = {
             name:this.hasAttribute("name")? this.getAttribute("name"): "",

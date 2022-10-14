@@ -22,6 +22,7 @@ var labelProp = {
     usersInfosRole: ""
 }
 window.onload = function () {
+    changeMode()
     document.getElementsByClassName("sidebarName").item(0).innerHTML = "Usuários"
     createCardsSalas()
     createButtonSalas()
@@ -48,7 +49,7 @@ function createButtonSalas(){
 
     var addUser = document.createElement("custom-button")
     addUser.setAttribute("redirect","/")
-    addUser.setAttribute("labelName","+ Adiconar")
+    addUser.setAttribute("labelName","+ Adicionar")
     addUser.classList.add("color-white")
 
     sidebar.appendChild(addUser)

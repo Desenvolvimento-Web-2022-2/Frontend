@@ -1,0 +1,27 @@
+.customButton button{
+    border-radius: 24px;
+    border:none;
+    padding: 16px 12px;
+    margin-bottom: 24px;
+    width: 244px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Cabin;
+}
+
+.color-red .customButton button{
+    background-color: #F66363;
+}
+
+.color-green .customButton button{
+    background-color: #5DF363;
+}
+
+.color-white .customButton button{
+    background-color: #FFFFFF ;
+}
+.bordered .customButton button{
+    border: 3px solid black;
+}
+.customButton button:hover{
+    cursor: pointer;
+}

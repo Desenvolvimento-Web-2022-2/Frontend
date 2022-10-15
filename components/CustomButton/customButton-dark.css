@@ -19,6 +19,9 @@
 .color-white .customButton button{
     background-color: #FFFFFF ;
 }
+.color-gray .customButton button{
+    background-color: #D9D9D9 ;
+}
 .bordered .customButton button{
     border: 3px solid black;
 }

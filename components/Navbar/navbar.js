@@ -33,13 +33,14 @@ class Navbar extends HTMLElement {
               <img src="${imgPrefix}icons/logo.svg">
               <div class="nav-text">Sistema</div>
             </div>
-            <button onclick="lightDarkMode()"><img id="modeImg" src="${imgPrefix}icons/darkMode.svg"</button>
+            <button onclick="lightDarkMode()"><img id="modeImg" src="${imgPrefix}icons/darkMode.svg"></button>
           </div>
         </nav>
       `
     }
 }
 customElements.define('nav-bar', Navbar);
+
 function lightDarkMode(){
   if(!localStorage.getItem("mode")){
     localStorage.setItem("mode","dark")

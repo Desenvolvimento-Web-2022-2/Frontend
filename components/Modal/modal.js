@@ -34,21 +34,16 @@ class CustomModal extends HTMLElement {
         <div class="modal-container">
             <div class="stripe ${stripeColor[type]}">
             </div>
-            <div class="body-content white">
-                <div style="height: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-around;">
-                    <div style="display:flex;align-items: center;">
-                    <img src="${imgPrefix}${type}-${stripeColor[type]}.svg" style="width:36px;height:36px;margin-right:4px">
-                    <h1>${title}</h1>
-                </div>
+            <div class="body-content body">
+                <div class="body-title">
+                    <div class="body-title-img">
+                      <img src="${imgPrefix}${type}-${stripeColor[type]}.svg">
+                      <h1>${title}</h1>
+                  </div>
                 <div>
                   <p>${message}</p>
                 </div>
-                <div style="display: flex;
-                            align-items: flex-end;
-                            justify-content: space-between;">
+                <div class="buttonsContainer">
                   ${buttons}
                 </div>
             </div>

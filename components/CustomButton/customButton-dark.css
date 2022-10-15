@@ -37,7 +37,7 @@
     color: white;
 }
 .bordered .customButton button{
-    border: 3px solid black;
+    border: 3px solid white;
 }
 .customButton button:hover{
     cursor: pointer;

@@ -1,6 +1,11 @@
 
+custom-calendar div,custom-calendar button{
+  color: white;
+}
 table, td, th {
-    border: 1px solid black;
+    border: 1px solid white;
+    color: white;
+    background-color: #3F0071;
   }
   
   table {
@@ -18,10 +23,10 @@ table, td, th {
     left: 25%;
     top: 25%;
     position: absolute;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 24px 24px 12px 24px;
     border-radius: 28px;
-    background-color: white;
+    background-color: #150050;
   }
   .mainContainer{
     display: flex;
@@ -33,10 +38,13 @@ table, td, th {
     align-items: center;
     padding: 12px 0;
   }
+  .arrows img{
+    filter:invert(100%) sepia(0%) saturate(7440%) hue-rotate(260deg) brightness(114%) contrast(88%);
+  }
   custom-calendar button{
     border-radius: 12px;
     margin: 0 2rem 0 2rem;
-    background-color: #5CCEEE;
+    background-color: #3F0071;
     cursor: pointer;
     border: none;
   }

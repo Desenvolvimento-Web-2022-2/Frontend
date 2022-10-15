@@ -4,8 +4,8 @@ var cardProps = [{
     imgSufix: "ft-fachada-deti.jpg"
 },
 {
-    name:"CDC - Casa do caralho",
-    subtitle : "Motivo de ódio",
+    name:"CDH - Clube do hardware",
+    subtitle : "Projeto de extensão",
     imgSufix: "ft-fachada-deti.jpg"
 },
 {
@@ -14,8 +14,8 @@ var cardProps = [{
     imgSufix: "ft-fachada-deti.jpg"
 },
 {
-    name:"CDC - Casa do caralho",
-    subtitle : "Motivo de ódio",
+    name:"CDH - Clube do hardware",
+    subtitle : "Projeto de extensão",
     imgSufix: "ft-fachada-deti.jpg"
 },]
 var cardProp = {
@@ -33,6 +33,7 @@ window.onload = function () {
 }
 
 function createCardsSalas(){
+    changeMode()
     var cardsContainer = document.getElementById("cards-container")
     for(var i = 0; i<cardProps.length; i++){
         cardProp = cardProps[i]

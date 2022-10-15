@@ -6,26 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="Login.css">
-    <link rel="stylesheet" href="../../components/Modal/modal.css">
+    <link rel="stylesheet" href="../../main.css">
     <link rel="stylesheet" href="../../components/CustomButton/customButton.css">
 
 </head>
 <body>
-    <custom-modal type="warning"></custom-modal>
+    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg" src="../../imgs/icons/darkMode.svg"></button>
     <div class="loginAndUfc">
         <div class="ufc">
-            <img src="../../imgs/UFC_logo.svg" alt="logo da ufc" style="width: 100%;">
+            <img id="logo" src="../../imgs/logo-ufc-black.svg" alt="logo da ufc" style="width: 100%;">
         </div>
         <div class="login">
-            <h1 style="font-size: 20px; ">Login</h1>
-            <h2 style="font-size: 15px; ">Bem-vindo ao sistema!</h2>
-            <input type="text" placeholder="usuário">
-            <input type="password" placeholder="senha">
-            <a href = "#" style="color: #686868;">esqueceu a senha?</a>
-            <button>Entrar</button>
+            <div>
+                <h1>Login</h1>
+                <h2>Bem-vindo ao sistema!</h2>
+            </div>
+            <div class="inputImg">
+                <input type="email" placeholder="Address@mail.com" name="email" id="email">
+                <img src="../../imgs/icons/email.svg">
+            </div>
+            <div class="passwordDiv">
+                <div class="inputImg">
+                    <input type="password" placeholder="Senha" name="senha" id="senha">
+                    <button onclick="revealSecret(this)"><img src="../../imgs/icons/locker.svg"></button>
+                </div>
+                <a class="forgotPassword" href = "#">esqueceu a senha?</a>
+    
+            </div>
+            <custom-button labelName="Entrar" class="color-gray" redirect="pages/Departamentos/Departamentos.html"></custom-button>
         </div>
     </div>
-    <script src="../../components/Modal/modal.js"></script>
     <script src="../../components/CustomButton/customButton.js"></script>
+    <script src="../../components/navbar/navbar.js"></script>
+    <script src="./Login.js"></script>
 </body>
 </html>

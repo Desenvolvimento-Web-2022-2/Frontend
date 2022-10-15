@@ -20,7 +20,7 @@ class CustomButton extends HTMLElement {
   }
   customElements.define('custom-button',CustomButton)
   function redirect(route){
-    window.location.href = "/"+route+"/"
+    window.location.href = "/"+route
   }
   function handleAction(action){
     var customModal = document.getElementsByTagName('custom-modal')[0]

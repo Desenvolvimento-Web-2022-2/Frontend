@@ -18,7 +18,7 @@ class Sidebar extends HTMLElement {
             </div>
               <div class="sidebarName">${sidebarName}</div>
           </div>
-          <custom-button class="color-white" redirect="asdasd" labelName="Lista de usuários"></custom-button>
+          <custom-button class="color-white" redirect="../../pages/Usuarios/Usuarios.html" labelName="Lista de usuários"></custom-button>
         </div>
       `
     }

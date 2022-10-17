@@ -5,8 +5,10 @@ let mouth = date.getMonth()
 let hours = []
 
 let reserveDay = {
-    day:14,
-    reserv:[true,false,true,true,false,false,false]
+    day:day,
+    reserv:[true,false,true,true,false,false,false],
+    reservNextSemester:[true,false,true,true,false,false,false],
+    reservedBy:"Victor Ehrich Carneiro de Medeiros"
 }
 const maxDays={
     "1":"31",
@@ -66,6 +68,7 @@ class CustomCalendar extends HTMLElement{
                     <tr>
                         <th>Horáriro</th>
                         <th>Reservada</th>
+                        <th>Reservada por:</th>
                         <th>Reservar?</th>
                     </tr>
             </table>        
@@ -79,7 +82,8 @@ class CustomCalendar extends HTMLElement{
             let tr = document.createElement("tr")
             tr.innerHTML = `<td>${hours[i]}</td>
                             <td>${reserveDay.day == day ? reserveDay.reserv[i] : ""}</td>
-                            <td>${(reserveDay.day == day && reserveDay.reserv[i] == false) ? 
+                            <td>${reserveDay.reserv[i] ? reserveDay.reservedBy : ""}</td>
+                            <td>${(reserveDay.day == day && reserveDay.reserv[i] == false == false) ? 
                                 "<input type='checkbox'>":""}</td>`
             infos.appendChild(tr)
         }
@@ -102,7 +106,10 @@ function handleDate(prevForw){
 
     reserveDay = {
         day:day,
-        reserv:[(day+1)%2==0,(day+2)%2==0,(day+3)%2==0,(day+4)%2==0,(day+5)%2==0,(day+6)%2==0,(day+7)%2==0]
+        reserv:[(day+1)%2==0,(day+2)%2==0,(day+3)%2==0,(day+4)%2==0,(day+5)%2==0,(day+6)%2==0,(day+7)%2==0],
+        reservNextSemester:[true,false,true,true,false,false,false],
+        reservedBy:"Victor Ehrich Carneiro de Medeiros"
+
     }
 
     let dateHTML = document.getElementById("date")

@@ -28,8 +28,8 @@ window.onload = function () {
     createCardsSalas()
     createButtonSalas()
     generateTableWithInfos()
-    const calendarBody = document.getElementById("calendarBody")
-    calendarBody.style.display = "none"
+    // const calendarBody = document.getElementById("calendarBody")
+    // calendarBody.style.display = "none"
 }
 
 function createCardsSalas(){

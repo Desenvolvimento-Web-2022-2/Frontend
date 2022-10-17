@@ -35,10 +35,11 @@ class CustomLabelUser extends HTMLElement{
 }
 
 customElements.define("custom-label-user", CustomLabelUser)
+
 function showColapse(button,id,labelType){
     button.classList.toggle('arrowInvert')
     var content = document.getElementsByClassName("buttonDiv")[id-1]
-    if(labelType = "user"){
+    if(labelType == "user"){
         if(content.classList.contains("collapsed")){
             content.innerHTML = ""
         }else{
@@ -51,6 +52,9 @@ function showColapse(button,id,labelType){
             </div>`
         }
         content.classList.toggle("collapsed")
+    }
+    else if(labelType == "Comp"){
+        
     }
     
 }

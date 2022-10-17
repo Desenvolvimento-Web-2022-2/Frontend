@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="customLabelComp.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="status">
+            <div class="circle"></div>
+            <p>${compInfos.status}</p>
+        </div>
+        <p>${compInfos.model}</p>
+        <p>${compInfos.patrimonyTag}</p>
+        <div class="botao">
+            <button onclick="showColapse(this,'1','computer')" id="${id}"><img src="../../imgs/icons/ArrowDown.svg" id="arrow" class="arrow"></button>
+        </div>
+    </div>
+</body>
+</html>

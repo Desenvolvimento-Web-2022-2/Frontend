@@ -53,13 +53,13 @@ class CustomCalendar extends HTMLElement{
             <div class="arrowsExitContainer">
                 <div class = "arrows">
                     <button onclick="handleDate('previous')">
-                        <img src="${imgPrefix}icons/arrowRight.svg" style="transform: rotate(180deg);">
+                        <img src="${imgPrefix}icons/arrowRight.svg" style="transform: rotate(180deg);" alt="arrowLeft">
                     </button>
                     <div id="date">
                         ${day} de ${mouthString[mouth]} de ${year}
                     </div>
                     <button onclick="handleDate('forward')">
-                        <img src="${imgPrefix}icons/arrowRight.svg" style="transform: rotate(0deg);">
+                        <img src="${imgPrefix}icons/arrowRight.svg" style="transform: rotate(0deg);"alt="arrowRight">
                     </button>
                 </div>
                 <button id="exit"onclick="hide()">X</button>

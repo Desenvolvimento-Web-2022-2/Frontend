@@ -26,15 +26,19 @@ class Navbar extends HTMLElement {
       const imgPrefix = "../../imgs/"
         this.innerHTML = ` 
         <nav>
-          <div class="nav">
-            <div>
+            <div class="nav">
+                <div>
+                </div>
+                <div class="iconName">
+                    <img src="${imgPrefix}icons/logo.svg" alt="logo">
+                    <div class="nav-text">
+                        Sistema
+                    </div>
+                </div>
+                <button onclick="lightDarkMode()">
+                    <img id="modeImg" src="${imgPrefix}icons/darkMode.svg" alt="lightDarkMode">
+                </button>
             </div>
-            <div class="iconName">
-              <img src="${imgPrefix}icons/logo.svg">
-              <div class="nav-text">Sistema</div>
-            </div>
-            <button onclick="lightDarkMode()"><img id="modeImg" src="${imgPrefix}icons/darkMode.svg"></button>
-          </div>
         </nav>
       `
     }

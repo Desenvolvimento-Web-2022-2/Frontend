@@ -2,7 +2,7 @@
     font-family: Cabin;
     src: url('./fonts/Cabin.ttf');
 }
-label,p,h1,h2,h3,h4,h5,h6{
+label,p,h1,h2,h3,h4,h5,h6,th,tr,div,td{
     font-family: Cabin;
 }
 
@@ -57,4 +57,9 @@ body{
   .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+  }
+  .tooltip{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }

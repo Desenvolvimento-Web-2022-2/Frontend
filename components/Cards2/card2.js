@@ -22,11 +22,18 @@ class Card2 extends HTMLElement {
         this.innerHTML = ` 
         <div class="ext" onclick='redirectToDep("${route}")'>
             <img src="${imgPrefix + cardProp.imgSufix}" alt="imagem">
-            <p>${cardNameAndSubname[0]}</p>
-            <p class="tooltip" style="  white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;">${cardNameAndSubname[1]}<span class="tooltiptext">${cardNameAndSubname[1]}</span></p>
-            <p>${cardProp.subname}</p>
+            <p>
+                ${cardNameAndSubname[0]}
+            </p>
+            <p class="tooltip">
+                ${cardNameAndSubname[1]}
+                <span class="tooltiptext">
+                    ${cardNameAndSubname[1]}
+                </span>
+            </p>
+            <p>
+                ${cardProp.subname}
+            </p>
         </div>
       `
     }

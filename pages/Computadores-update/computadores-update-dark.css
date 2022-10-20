@@ -1,0 +1,35 @@
+@import "../Departamentos/Departamentos.css";
+
+body{
+    background-color: #F1EBEB;
+}
+.conH1{
+    margin-left: 30%;
+}
+.save-button{
+    background-color: #000;
+}
+input{
+    color: white;
+}
+.container{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+}
+.container div{
+    display:  flex;
+    flex-direction: column;
+}
+input{
+    font-size: 1.2rem;
+    background-color: transparent;
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+    padding-right: 5rem;
+    margin: 10% 5% 0 10%;
+    border-bottom:1px solid #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

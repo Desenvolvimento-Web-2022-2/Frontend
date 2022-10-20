@@ -27,6 +27,9 @@ window.onload = function () {
     document.getElementsByClassName("sidebarName").item(0).innerHTML = "Deti"
     createCardsSalas()
     createButtonSalas()
+    generateTableWithInfos()
+    // const calendarBody = document.getElementById("calendarBody")
+    // calendarBody.style.display = "none"
 }
 
 function createCardsSalas(){

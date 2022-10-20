@@ -12,8 +12,10 @@ class CustomButton extends HTMLElement {
           onclick = `'handleAction("${action}")'`
         }
         this.innerHTML = ` 
-          <div class="customButton" style="display:flex;justify-content: center;">
-            <button onclick=${onclick}>${labelName}</button>
+          <div class="customButton">
+            <button onclick=${onclick}>
+              ${labelName}
+            </button>
           </div>
       `
     }

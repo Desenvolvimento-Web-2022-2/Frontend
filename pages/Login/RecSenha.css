@@ -1,0 +1,49 @@
+@import "../../main.css";
+
+body{
+    height: 100vh;
+    background-color: #5CCEEE !important;
+}
+.extern{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.intern{
+    width: 633px;
+    height: 660px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 2rem 3rem 2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #F1EBEB;
+}
+input{
+    border: none;
+    border-bottom: black solid 1px;
+    padding-bottom: 1rem;
+    background: transparent;
+}
+input:focus{
+    outline: none;
+}
+button{
+    border: none;
+    background-color: #D9D9D9;
+    border-radius: 6px;
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+button:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 1366px) {
+    .intern{
+        width: 350px;
+        height: 350px;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta</title>
+    <link rel="stylesheet" href="NovoUsuario.css">
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="stylesheet" href="../../components/CustomButton/customButton.css">
+</head>
+<body>
+    <button class="modeSelector" onclick="lightDarkMode()"><img id="modeImg" src="../../imgs/icons/darkMode.svg"></button>
+
+    <div class="formAndUpload">
+        <div class="form">
+            <h2>Novo Usuário</h2>
+            <div class="inputImg">            
+                <input type="text" placeholder="Nome" name="Nome" id="Nome">
+                <img src="../../imgs/icons/nameInput.svg">
+            </div>
+            <div class="inputImg">
+                <input type="email" placeholder="Address@mail.com" name="email" id="email">
+                <img src="../../imgs/icons/email.svg">
+            </div>
+            <div class="inputImg">
+                <input type="password" placeholder="Senha" name="senha" id="senha">
+                <button onclick="revealSecret('password',this)"><img src="../../imgs/icons/locker.svg"></button>
+            </div>
+            <div class="inputImg">
+                <input type="password" placeholder="Confirmar senha" name="confirmeSenha" id="confirmeSenha">
+                <button onclick="revealSecret('passwordConfirm',this)"><img src="../../imgs/icons/locker.svg"></button>
+            </div>
+
+            <custom-button class="color-gray" labelName="Cadastrar"></custom-button>
+
+        </div>
+        <div class="upload">
+            <div>
+                <img src="../../imgs/upload.png" alt="botão de upload">
+            </div>
+            <div class="textUpload">
+                <p>Upload da imagem de usuário</p>
+                <p>    - Opcional</p>
+            </div>
+            <div class="roleSelector">
+                <p>Cargo</p>
+                <input list="cargos" name="cargo" placeholder="Aluno">
+                <datalist id="cargos">
+                    <option value="Aluno">
+                    <option value="Professor">
+                    <option value="Administrador">
+                </datalist>
+            </div>
+           
+        </div>
+    </div>
+    <script src="../../components/CustomButton/customButton.js"></script>
+    <script src="../../components/navbar/navbar.js"></script>
+    <script src="./NovoUsuario.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "Departaments":[
+        {
+            "name":"GTEL - Grupo de Pesquisa em Telecomunicações Sem Fio",
+            "number" : 722,
+            "imgSufix": "ft-fachada-deti.jpg"
+        },{
+            "name":"LESC - Laboratório de Engenharia de Sistemas de Computação",
+            "number" : 723,
+            "imgSufix": "ft-fachada-deti.jpg"
+        },{
+            "name":"DETI - Departamento de Engenharia de Teleinformática",
+            "number"  : 725,
+            "imgSufix": "ft-fachada-deti.jpg"
+        },{
+            "name":"DETI",
+            "number"  : 725,
+            "imgSufix": "ft-fachada-deti.jpg"
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 @font-face {
     font-family: Cabin;
-    src: url('./fonts/Cabin.ttf');
+    src: url('fonts/Cabin.ttf');
 }
 label,p,h1,h2,h3,h4,h5,h6,th,tr,div,td{
     font-family: Cabin;

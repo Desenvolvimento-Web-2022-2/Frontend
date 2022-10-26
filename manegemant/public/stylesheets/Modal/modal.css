@@ -1,0 +1,61 @@
+.modal-container{
+    display: grid; 
+    grid-template-columns: 3% 97%; 
+    width: 800px;
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    position: absolute;
+    left: 30%;
+
+}
+
+.stripe{
+    height: 450px; 
+    border-radius: 24px 0 0 24px;
+}
+
+.yellow{
+    background: #eed924;
+}
+
+.red{
+    background: red;
+}
+
+.green{
+    background: #1dd53c;
+}
+
+.body{
+    background: #fff;
+}
+
+.body-title{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.body-title-img{
+    display:flex;
+    align-items: center;
+}
+
+.buttonsContainer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.body-content{
+    height: 450px; 
+    border-radius:0 24px 24px 0;
+    padding: 0 24px;
+}
+
+custom-modal img {
+    width:36px;
+    height:36px;
+    margin-right:4px
+}

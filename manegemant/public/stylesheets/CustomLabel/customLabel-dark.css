@@ -1,0 +1,65 @@
+custom-label-computer hr,
+custom-label-user hr{
+    width: 98%; 
+    background-color: black;
+}
+
+custom-label-computer .mainContainer .firstLayer,
+custom-label-user .mainContainer .firstLayer{
+    display:grid;
+    grid-template-columns:90% 10%;    
+    align-items: center;
+}
+
+custom-label-computer .mainContainer,
+custom-label-user .mainContainer{
+    width: 984px;
+    background-color:#3F0071;        
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    filter: drop-shadow(-5px 5px 4px rgba(0, 0, 0, 0.25));
+}
+
+.background-light .mainContainer,
+.background-light .mainContainer{
+    background-color:#610094;
+}
+
+custom-label-computer .itensDiv,
+custom-label-user .itensDiv{
+    margin: 0 24px;
+    display: grid;
+    grid-template-columns:33% 33% 33%;
+    justify-items: start;
+    align-items: center
+}
+
+custom-label-computer .buttonsDiv,
+custom-label-user .buttonsDiv{
+    display: grid;
+    grid-template-columns:50% 50%;
+    justify-items: center;
+    align-items: center;
+}
+
+custom-label-computer .botao button,
+custom-label-user .botao button{
+    border: none;
+    background-color: transparent;
+}
+
+custom-label-computer .botao button:hover,
+custom-label-user .botao button:hover{
+    cursor: pointer;
+}
+
+custom-label-computer .botao,
+custom-label-user .botao{
+    transform: rotate(0deg);
+}
+
+custom-label-computer .botao .arrowInvert,
+custom-label-user .botao .arrowInvert{
+    transform: rotate(180deg);
+}

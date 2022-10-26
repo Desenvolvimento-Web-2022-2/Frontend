@@ -15,13 +15,16 @@
             </div>
         </div>
         <div class="cards-container" id="cards-container">
+            <% JSONBloco.Blocos.forEach((bloco) =>  { %>
+                <%- include('Partials/card', {JSONCard: bloco,redirect: 'departamento'}) %>
+            <% }) %>
         </div>
     </div> 
-    <script src="javascripts/Departamentos/Deparatamentos.js"></script>
-    <script src="javascripts/CustomButton/customButton.js"></script>
-    <script src="javascripts/navbar/navbar.js"></script>
-    <script src="javascripts/sidebar/sidebar.js"></script>
-    <script src="javascripts/Cards2/card2.js"></script>
-    <script src="javascripts/CustomLabel/customLabel.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Departamentos/Deparatamentos.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/sidebar/sidebar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Cards2/card2.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+{
+    "Blocos": [
+        {
+            "name": "DETI",
+            "subname": "Departamento de Teleinformática",
+            "numberOrRole": "725",
+            "id": "1"
+        },
+        {
+            "name": "LESC",
+            "subname": "Laboratório de Engenharia de Sistemas de Computação",
+            "numberOrRole": "723",
+            "id": "2"
+        },
+        {
+            "name": "GTEL",
+            "subname": "Grupo de Pesquisa em Telecomunicações Sem Fio",
+            "numberOrRole": "722",
+            "id": "1"
+        },
+        {
+            "name": "DETI",
+            "subname": "Departamento de Teleinformática",
+            "numberOrRole": "725",
+            "id": "1"
+        }
+    ]
+}

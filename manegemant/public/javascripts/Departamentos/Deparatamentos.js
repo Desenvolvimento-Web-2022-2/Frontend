@@ -25,14 +25,14 @@ var cardProp = {
 
 window.onload = function () {
     changeMode()
-    cardsContainer = document.getElementById("cards-container")
+    // cardsContainer = document.getElementById("cards-container")
     
-    for(var i = 0; i<cardProps.length; i++){
-        cardProp = cardProps[i]
-        departametoCard = document.createElement("custom-card2");
-        departametoCard.setAttribute("name",cardProp.name)
-        departametoCard.setAttribute("subname","Bloco "+cardProp.number)
-        departametoCard.setAttribute("redirect","departamento/"+cardProp.number)
-        cardsContainer.appendChild(departametoCard)
-    }
+    // for(var i = 0; i<cardProps.length; i++){
+    //     cardProp = cardProps[i]
+    //     departametoCard = document.createElement("custom-card2");
+    //     departametoCard.setAttribute("name",cardProp.name)
+    //     departametoCard.setAttribute("subname","Bloco "+cardProp.number)
+    //     departametoCard.setAttribute("redirect","departamento/"+cardProp.number)
+    //     cardsContainer.appendChild(departametoCard)
+    // }
 }

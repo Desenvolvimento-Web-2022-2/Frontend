@@ -34,15 +34,15 @@ window.onload = function () {
 
 function createCardsSalas(){
     changeMode()
-    var cardsContainer = document.getElementById("cards-container")
-    for(var i = 0; i<cardProps.length; i++){
-        cardProp = cardProps[i]
-        departametoCard = document.createElement("custom-card2");
-        departametoCard.setAttribute("name",cardProp.name)
-        departametoCard.setAttribute("subname",cardProp.subtitle)
-        departametoCard.setAttribute("redirect",cardProp.number)
-        cardsContainer.appendChild(departametoCard)
-    }
+    // var cardsContainer = document.getElementById("cards-container")
+    // // for(var i = 0; i<cardProps.length; i++){
+    // //     cardProp = cardProps[i]
+    // //     departametoCard = document.createElement("custom-card2");
+    // //     departametoCard.setAttribute("name",cardProp.name)
+    // //     departametoCard.setAttribute("subname",cardProp.subtitle)
+    // //     departametoCard.setAttribute("redirect",cardProp.number)
+    // //     cardsContainer.appendChild(departametoCard)
+    // // }
 }
 
 function createButtonSalas(){

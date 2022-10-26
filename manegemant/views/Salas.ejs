@@ -31,14 +31,18 @@
             </div>
         </div>
         <div class="cards-container" id="cards-container">
+            <% JSONSala.Salas.forEach((sala) =>  { %>
+                <%- include('Partials/card', {JSONCard: sala,redirect: 'sala'}) %>
+            <% }) %>
         </div>
+
     </div> 
-    <script src="../javascripts/Salas/Salas.js"></script>
-    <script src="../javascripts/CustomButton/customButton.js"></script>
-    <script src="../javascripts/navbar/navbar.js"></script>
-    <script src="../javascripts/sidebar/sidebar.js"></script>
-    <script src="../javascripts/Cards2/card2.js"></script>
-    <script src="../javascripts/Calendar/calendar.js"></script> 
+    <script src="<%=`${baseUrl}/`%>javascripts/Salas/Salas.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/sidebar/sidebar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Cards2/card2.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Calendar/calendar.js"></script> 
 
 </body>
 </html>

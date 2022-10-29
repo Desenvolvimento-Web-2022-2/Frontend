@@ -5,9 +5,18 @@ class BlocoService{
     returnBlocosJson(){
         return blocos
     }
-    returnSalasJson(){
-        console.log(salas)
-        return salas
+    returnSalasJson(id){
+        console.log(id)
+        let validSalas = []
+        salas.Salas.forEach(sala => {
+            if(sala.depId == id)
+                validSalas.push(sala)
+        })
+        let blocoName = blocos.Blocos.find(bloco=> bloco.id == id)
+        return {
+            salas:validSalas,
+            name:blocoName.name
+        }
     }
 }
 module.exports = new BlocoService()

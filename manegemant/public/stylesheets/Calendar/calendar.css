@@ -28,7 +28,7 @@ td {
   background-color: white;
 }
 
-.mainContainer{
+.mainContainer-calendar{
   display: flex;
   flex-direction: column;
   align-items: center;

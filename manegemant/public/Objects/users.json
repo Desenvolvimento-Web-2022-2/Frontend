@@ -1,0 +1,28 @@
+{
+    "Users": [
+        {
+            "usersInfosName": "John Vasconcelos dos Santos",
+            "usersInfosEmail": "John@alu.ufc.br",
+            "usersInfosRole": "Administrador",
+            "userId":"1"
+        },
+        {
+            "usersInfosName": "Teodoro Raulino Raul",
+            "usersInfosEmail": "Teoirado12@gmail.com",
+            "usersInfosRole": "Aluno",
+            "userId":"2"
+        },
+        {
+            "usersInfosName": "Italo Severino",
+            "usersInfosEmail": "italo@bol.com",
+            "usersInfosRole": "Professor",
+            "userId":"3"
+        },
+        {
+            "usersInfosName": "Victor Ehrich Carneiro de Medeiros",
+            "usersInfosEmail": "victor@gmail.com",
+            "usersInfosRole": "Administrador",
+            "userId":"4"
+        }
+    ]
+}

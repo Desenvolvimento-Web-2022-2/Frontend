@@ -1,18 +1,14 @@
-custom-label-computer hr,
-custom-label-user hr{
+hr{
     width: 98%; 
     background-color: black;
 }
 
-custom-label-computer .mainContainer .firstLayer,
-custom-label-user .mainContainer .firstLayer{
+.mainContainer-userLabel .firstLayer{
     display:grid;
     grid-template-columns:90% 10%;    
     align-items: center;
 }
-
-custom-label-computer .mainContainer,
-custom-label-user .mainContainer{
+.mainContainer-userLabel{
     width: 984px;
     background-color:#3F0071;        
     border: none;
@@ -21,13 +17,12 @@ custom-label-user .mainContainer{
     filter: drop-shadow(-5px 5px 4px rgba(0, 0, 0, 0.25));
 }
 
-.background-light .mainContainer,
-.background-light .mainContainer{
+.background-light .mainContainer-userLabel,
+.background-light .mainContainer-userLabel{
     background-color:#610094;
 }
 
-custom-label-computer .itensDiv,
-custom-label-user .itensDiv{
+.itensDiv{
     margin: 0 24px;
     display: grid;
     grid-template-columns:33% 33% 33%;
@@ -35,31 +30,26 @@ custom-label-user .itensDiv{
     align-items: center
 }
 
-custom-label-computer .buttonsDiv,
-custom-label-user .buttonsDiv{
+.buttonsDiv{
     display: grid;
     grid-template-columns:50% 50%;
     justify-items: center;
     align-items: center;
 }
 
-custom-label-computer .botao button,
-custom-label-user .botao button{
+.botao button{
     border: none;
     background-color: transparent;
 }
 
-custom-label-computer .botao button:hover,
-custom-label-user .botao button:hover{
+.botao button:hover{
     cursor: pointer;
 }
 
-custom-label-computer .botao,
-custom-label-user .botao{
+.botao{
     transform: rotate(0deg);
 }
 
-custom-label-computer .botao .arrowInvert,
-custom-label-user .botao .arrowInvert{
+.botao .arrowInvert{
     transform: rotate(180deg);
 }

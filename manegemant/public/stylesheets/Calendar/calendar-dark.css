@@ -31,7 +31,7 @@ td {
   background-color: #150050;
 }
 
-.mainContainer{
+.mainContainer-calendar{
   display: flex;
   flex-direction: column;
   align-items: center;

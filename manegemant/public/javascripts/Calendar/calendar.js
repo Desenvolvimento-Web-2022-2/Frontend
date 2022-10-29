@@ -49,7 +49,7 @@ class CustomCalendar extends HTMLElement{
         const imgPrefix = "<%= `${baseUrl}/` %>images/"
         this.innerHTML=`
         
-        <div class = "mainContainer">
+        <div class = "mainContainer-calendar">
             <div class="arrowsExitContainer">
                 <div class = "arrows">
                     <button onclick="handleDate('previous')">

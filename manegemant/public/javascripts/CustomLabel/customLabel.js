@@ -3,50 +3,11 @@ const defaultColor={
     "quebrado":"red",
     "funcionando":"green"
   }
-class CustomLabelUser extends HTMLElement{
-    constructor(){
-        super()
-    }
-    connectedCallback() {
-        const imgPrefix = "images/"
-        var usersInfos = {
-            name: this.hasAttribute("usersInfosName")? this.getAttribute("usersInfosName"): "a",
-            email: this.hasAttribute("usersInfosEmail")? this.getAttribute("usersInfosEmail"): "b",
-            role: this.hasAttribute("usersInfosRole")? this.getAttribute("usersInfosRole"): "c"
-        }
-        let id = this.hasAttribute("id")? this.getAttribute("id"): ""
-        this.innerHTML=`
-            <div class="mainContainer">
-                <div class="firstLayer">
-                    <div class="itensDiv">
-                        <p>Nome</p>
-                        <p>Email</p>
-                        <p>Cargo</p>
-                        <p>${usersInfos.name}</p>
-                        <p>${usersInfos.email}</p>
-                        <p>${usersInfos.role}</p>
-                    </div>
-                    <div class="botao">
-                        <button onclick="showColapse(this,${id},'user')" id="${id}">
-                            <img src="${imgPrefix}icons/ArrowDown.svg" id="arrow" class="arrow">
-                        </button>
-                    </div>
-                </div>
-                <div class="buttonDiv" id="${id}">
-                    
-                </div>
-                
-            </div>
-        `
-    }
-}
-
-customElements.define("custom-label-user", CustomLabelUser)
 
 function showColapse(button,id,labelType){
     button.classList.toggle('arrowInvert')
     clicou = true
-    var content = document.getElementsByClassName("buttonDiv")[id-1]
+    var content = document.getElementsByClassName("buttonDiv")[parseInt(id)-1]
 
     if(labelType == "user"){
         if(content.classList.contains("collapsed")){

@@ -1,0 +1,21 @@
+<div class="mainContainer-userLabel <%= evenOddHandle %>">
+    <div class="firstLayer">
+        <div class="itensDiv">
+            <p>Nome</p>
+            <p>Email</p>
+            <p>Cargo</p>
+            <p><%=`${JSON.usersInfosName}`%></p>
+            <p><%=`${JSON.usersInfosEmail}`%></p>
+            <p><%=`${JSON.usersInfosRole}`%></p>
+        </div>
+        <div class="botao">
+            <button onclick="showColapse(this,'<%=`${JSON.userId}`%>','user')" id="<%=`${JSON.userId}`%>">
+                <img src="<%=`${baseUrl}/`%>images/icons/ArrowDown.svg" id="arrow" class="arrow">
+            </button>
+        </div>
+    </div>
+    <div class="buttonDiv" id="${id}">
+        
+    </div>
+    
+</div>

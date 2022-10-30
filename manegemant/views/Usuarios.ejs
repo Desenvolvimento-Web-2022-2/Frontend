@@ -10,8 +10,8 @@
                 <button>Filtros</button>
             </div>
         </div>
-        <div class="cards-container" id="cards-container">
-            <% JSONUsers.Users.forEach((user,index) =>  { %>
+        <div class="cards-container user" id="cards-container">
+            <% JSONUsers.forEach((user,index) =>  { %>
                 <% if (index % 2 == 0) { %>
                     <%- include('Partials/userLabel', {JSON: user, evenOddHandle: ''}) %>
                 <% } else { %>

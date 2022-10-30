@@ -3,26 +3,26 @@
         {
             "usersInfosName": "John Vasconcelos dos Santos",
             "usersInfosEmail": "John@alu.ufc.br",
-            "usersInfosRole": "Administrador",
-            "userId":"1"
+            "userId":"1",
+            "profileId":"1"
         },
         {
             "usersInfosName": "Teodoro Raulino Raul",
             "usersInfosEmail": "Teoirado12@gmail.com",
-            "usersInfosRole": "Aluno",
-            "userId":"2"
+            "userId":"2",
+            "profileId":"3"
         },
         {
             "usersInfosName": "Italo Severino",
             "usersInfosEmail": "italo@bol.com",
-            "usersInfosRole": "Professor",
-            "userId":"3"
+            "userId":"3",
+            "profileId":"2"
         },
         {
             "usersInfosName": "Victor Ehrich Carneiro de Medeiros",
             "usersInfosEmail": "victor@gmail.com",
-            "usersInfosRole": "Administrador",
-            "userId":"4"
+            "userId":"4",
+            "profileId":"1"
         }
     ]
 }

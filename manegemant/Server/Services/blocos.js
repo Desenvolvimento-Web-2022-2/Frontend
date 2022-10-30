@@ -6,7 +6,6 @@ class BlocoService{
         return blocos
     }
     returnSalasJson(id){
-        console.log(id)
         let validSalas = []
         salas.Salas.forEach(sala => {
             if(sala.depId == id)

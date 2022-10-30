@@ -7,7 +7,7 @@ const defaultColor={
 function showColapse(button,id,labelType){
     button.classList.toggle('arrowInvert')
     clicou = true
-    var content = document.getElementsByClassName("buttonDiv")[parseInt(id)-1]
+    var content = document.getElementsByClassName("buttonDiv")[id-1]
 
     if(labelType == "user"){
         if(content.classList.contains("collapsed")){
@@ -15,7 +15,7 @@ function showColapse(button,id,labelType){
         }else{
             content.innerHTML = `<hr style="width: 98%; background-color: black;">
             <div class="buttonsDiv">
-                <custom-button labelName="Atualizar">
+                <custom-button labelName="Atualizar" redirect="updateUser/${id}">
                 </custom-button>
                 <custom-button class="color-red" labelName="Remover">
                 </custom-button>

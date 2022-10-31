@@ -1,4 +1,4 @@
-<div class="mainContainer-userLabel <%= evenOddHandle %>">
+<div class="mainContainer-userLabel <%= evenOddHandle %>" onclick="showColapse('<%=`${JSON.userId}`%>')">
     <div class="firstLayer">
         <div class="itensDiv">
             <p>Nome</p>
@@ -9,13 +9,19 @@
             <p><%=`${JSON.usersInfosRole}`%></p>
         </div>
         <div class="botao">
-            <button onclick="showColapse(this,'<%=`${JSON.userId}`%>','user')" id="<%=`${JSON.userId}`%>">
+            <button  id="button<%=`${JSON.userId}`%>">
                 <img src="<%=`${baseUrl}/`%>images/icons/ArrowDown.svg" id="arrow" class="arrow">
             </button>
         </div>
     </div>
-    <div class="buttonDiv" id="${id}">
-        
+    <div class="buttonDiv" id="computerOrUser<%=`${JSON.userId}`%>">
+        <hr style="width: 98%; background-color: black;">
+            <div class="buttonsDiv">
+                <custom-button labelName="Atualizar" redirect="updateUser/${id}">
+                </custom-button>
+                <custom-button class="color-red" labelName="Remover">
+                </custom-button>
+            </div>
     </div>
     
 </div>

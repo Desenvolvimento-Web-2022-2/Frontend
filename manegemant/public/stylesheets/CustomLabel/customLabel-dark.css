@@ -9,6 +9,7 @@ hr{
     align-items: center;
 }
 .mainContainer-userLabel{
+    cursor: pointer;
     width: 984px;
     background-color:#3F0071;        
     border: none;

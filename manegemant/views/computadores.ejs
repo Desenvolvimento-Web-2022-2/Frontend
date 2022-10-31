@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computadores</title>
-    <link rel="stylesheet" href="computadores.css">
-    <link rel="stylesheet" href="../../main.css">
-    <link rel="stylesheet" href="../../components/Navbar/navbar.css">
-    <link rel="stylesheet" href="../../components/Sidebar/sidebar.css">
-    <link rel="stylesheet" href="../../components/CustomButton/customButton.css">
-    <link rel="stylesheet" href="../../components/CustomLabel/customComputer.css">
-</head>
-<body>
-    <side-bar></side-bar>
-    <nav-bar></nav-bar>
-    
-    
-
+<%- include('Partials/header'); %>
     <div class="main">
         <div class="head">
             <div class="container">
@@ -45,13 +26,19 @@
             </div>
             
         </div>
-        <div class="cards-container" id="cards-container">
+        <div class="cards-container-computer" id="cards-container-computer">
+            <% JSONComputers.forEach((computer,index) =>  { %>
+                <% if (index % 2 == 0) { %>
+                    <%- include('Partials/computerLabel', {JSONComputer: computer, evenOddHandle: ''}) %>
+                <% } else { %>
+                    <%- include('Partials/computerLabel', {JSONComputer: computer, evenOddHandle: 'background-light'}) %>
+                <% } %>
+            <% }) %>
         </div>
     </div> 
-    <script src="computadores.js"></script>
-    <script src="../../components/Navbar/navbar.js"></script>
-    <script src="../../components/Sidebar/sidebar.js"></script>
-    <script src="../../components/CustomLabel/customLabel.js"></script>
-    <script src="../../components/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Computadores/computadores.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
 </body>
 </html>

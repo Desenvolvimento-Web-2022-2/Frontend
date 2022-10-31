@@ -1,7 +1,8 @@
-@import "Departamentos/Departamentos.css";
-.cards-container{
+.cards-container-computer{
+    display: grid;
     margin-top: 12px;
-    grid-template-columns:100%
+    grid-template-columns:100%;
+    grid-gap: 16px;
 }
 .container{
     display: flex;

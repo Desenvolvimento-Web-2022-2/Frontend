@@ -10,6 +10,7 @@ hr{
 }
 
 .mainContainer-userLabel{
+    cursor: pointer;
     width: 984px;
     background-color:#CACACA;        
     border: none;

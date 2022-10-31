@@ -5,7 +5,8 @@
     grid-template-columns:30% 30% 30% 10%;
 
 }
-.mainContainer{
+.mainContainer-computer{
+    cursor: pointer;
     width: 984px;
     background-color:#3F0071;        
     border: none;
@@ -57,11 +58,11 @@
     border-radius: 50%;
 }
 
-.green{
-    background: #1dd53c;
+.funcionando{
+    background: #5DF363;
 }
-.red{
-    background: red;
+.quebrado{
+    background: #F66363;
 }
 
 .itensDiv{

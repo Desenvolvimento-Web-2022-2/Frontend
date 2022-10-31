@@ -1,0 +1,103 @@
+{
+    "Computadores": [
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123412",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "1",
+            "salaId": "1"
+        },
+        {
+            "status": "funcionando",
+            "model": "positivo",
+            "patrimonyTag": "123413",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "2",
+            "salaId": "1"
+        },
+        {
+            "status": "funcionando",
+            "model": "positivo",
+            "patrimonyTag": "123414",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "3",
+            "salaId": "2"
+        },
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123415",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "4",
+            "salaId": "2"
+        },
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123412",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "5",
+            "salaId": "1"
+        },
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123412",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "6",
+            "salaId": "3"
+        },
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123412",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "7",
+            "salaId": "3"
+        },
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123412",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "8",
+            "salaId": "2"
+        },
+        {
+            "status": "quebrado",
+            "model": "positivo",
+            "patrimonyTag": "123412",
+            "CPU": "core x9",
+            "GPU": "type",
+            "memory": "64gb",
+            "SO": "windows 11",
+            "id": "9",
+            "salaId": "1"
+        }
+    ]
+}

@@ -4,59 +4,16 @@ const defaultColor={
     "funcionando":"green"
   }
 
-function showColapse(button,id,labelType){
+function showColapse(id, labelType) {
+    button = document.getElementById(`button${id}`)
     button.classList.toggle('arrowInvert')
-    clicou = true
-    var content = document.getElementsByClassName("buttonDiv")[id-1]
-
-    if(labelType == "user"){
-        if(content.classList.contains("collapsed")){
-            content.innerHTML = ""
-        }else{
-            content.innerHTML = `<hr style="width: 98%; background-color: black;">
-            <div class="buttonsDiv">
-                <custom-button labelName="Atualizar" redirect="updateUser/${id}">
-                </custom-button>
-                <custom-button class="color-red" labelName="Remover">
-                </custom-button>
-            </div>`
-        }
-        content.classList.toggle("collapsed")
+    let content = document.getElementById(`computerOrUser${id}`)
+    if (content.classList.contains("collapsed")) {
+        content.style.display = 'none'
+    } else {
+        content.style.display = 'grid'
     }
-    else if(labelType == "computer"){
-        if(content.classList.contains("collapsed")){
-            content.innerHTML = ""
-        }else{
-            content.innerHTML = `<div class="colapsed">
-            <hr style="width: 98%; background-color: black; margin: 0">
-            <div class="colapInfos">
-                <div>
-                    <p>Processador</p>
-                    <p>${PCinfos.CPU}</p>
-                </div>
-                <div>
-                    <p>Placa de vídeo</p>
-                    <p>${PCinfos.GPU}</p>
-                </div>
-                <div>
-                    <p>Memória</p>
-                    <p>${PCinfos.memory}</p>
-                </div>
-                <div>
-                    <p>Sistema Operacional</p>
-                    <p>${PCinfos.SO}</p>
-                </div>
-            </div>
-            <hr style="width: 98%; background-color: black; margin: 0">
-            <div class="colapButtons">                
-                <custom-button class="color-white" labelName="Atualizar Computador"></custom-button>
-                <custom-button class="color-red" labelName="Excluir Computador"></custom-button>
-            </div>
-        </div>`
-        }
-        content.classList.toggle("collapsed")
-    }
-    
+    content.classList.toggle("collapsed")
 }
 class CustomLabelComputer extends HTMLElement{
     constructor(){

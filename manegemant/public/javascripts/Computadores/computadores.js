@@ -1,51 +1,8 @@
-
-var labelProps = [{
-    status: "quebrado",
-    model: "positivo",
-    patrimonyTag: "123412",
-    CPU: "core x9",
-    GPU: "type",
-    memory: "64gb",
-    SO: "windows 11"
-},
-{    
-    status: "funcionando",
-    model: "positivo",
-    patrimonyTag: "123412",
-    CPU: "core x9",
-    GPU: "type",
-    memory: "64gb",
-    SO: "windows 11"
-},{
-    status: "funcionando",
-    model: "positivo",
-    patrimonyTag: "123412",
-    CPU: "core x9",
-    GPU: "type",
-    memory: "64gb",
-    SO: "windows 11"
-},{
-    status: "funcionando",
-    model: "positivo",
-    patrimonyTag: "123412",
-    CPU: "core x9",
-    GPU: "type",
-    memory: "64gb",
-    SO: "windows 11"
-},]
-let labelProp = {
-    ustatus: "",
-    model: "",
-    patrimonyTag: "",
-    CPU: "",
-    GPU: "",
-    memory: "",
-    SO: ""
-}
-
 window.onload = function(){
+    let buttons = document.querySelectorAll(`.buttonDiv`)
+    buttons.forEach(content=> content.style.display = 'none')
+    
     changeMode()
-    createCardsComp()
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
 
     var AtualizarSala = document.createElement("custom-button")
@@ -70,26 +27,4 @@ window.onload = function(){
     sidebar.appendChild(RemoverSala)
     sidebar.appendChild(ReservarSala)
     
-}
-
-
-function createCardsComp(){
-    var cardsContainer = document.getElementById("cards-container")
-    for(var i = 0; i<labelProps.length; i++){
-        labelProp = labelProps[i]
-        userLabel = document.createElement("custom-label-computer");
-        userLabel.setAttribute("status",labelProp.status)
-        userLabel.setAttribute("model",labelProp.model)
-        userLabel.setAttribute("patrimonyTag",labelProp.patrimonyTag)
-        userLabel.setAttribute("cpu",labelProp.CPU)
-        userLabel.setAttribute("gpu",labelProp.GPU)
-        userLabel.setAttribute("memory",labelProp.memory)
-        userLabel.setAttribute("so",labelProp.SO)
-
-        userLabel.setAttribute("id",i+1)
-        if(i%2 == 0){
-            userLabel.classList.add("background-light")
-        }
-        cardsContainer.appendChild(userLabel)
-    }
 }

@@ -1,4 +1,6 @@
 window.onload = function () {
+    let buttons = document.querySelectorAll(`.buttonDiv`)
+    buttons.forEach(content=> content.style.display = 'none')
     changeMode()
     createButtonSalas()
 }

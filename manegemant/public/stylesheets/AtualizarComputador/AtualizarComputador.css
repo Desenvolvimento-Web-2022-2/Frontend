@@ -1,5 +1,3 @@
-@import "Departamentos/Departamentos.css";
-
 body{
     background-color: #F1EBEB;
 }
@@ -9,19 +7,16 @@ body{
 .save-button{
     background-color: #000;
 }
-input{
-    color: white;
-}
-.container{
+.atualizarComputador .container{
     margin-top: 10%;
     display: flex;
     justify-content: center;
 }
-.container div{
+.atualizarComputador .container div{
     display:  flex;
     flex-direction: column;
 }
-input{
+.atualizarComputador input{
     font-size: 1.2rem;
     background-color: transparent;
     padding-top: 1rem;

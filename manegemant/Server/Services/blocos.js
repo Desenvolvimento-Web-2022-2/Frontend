@@ -7,14 +7,13 @@ class BlocoService{
             return blocos
         }
         else{
-            blocos.Blocos.find(bloco=> {console.log(bloco.id)})
             return blocos.Blocos.find(bloco=> bloco.id == id)
         }
     }
     returnSalasJson(id){
         let validSalas = []
         salas.Salas.forEach(sala => {
-            if(sala.depId == id)
+            if(sala.blocoId == id)
                 validSalas.push(sala)
         })
         let blocoName = blocos.Blocos.find(bloco=> bloco.id == id)

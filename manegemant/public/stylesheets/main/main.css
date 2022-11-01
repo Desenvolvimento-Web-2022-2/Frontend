@@ -10,6 +10,9 @@ body{
     background-color: #F1EBEB;
     margin: 0;
 }
+input:focus{
+  outline: none;
+}
 
 .modeSelector{
   border: none;

@@ -10,7 +10,7 @@ class UsersController{
     res.render("NovoUsuario",{title:"Novo usuário",baseUrl: req.baseUrl,JSON:json});
   }
   async updateUser(req, res){
-    let json = usersService.updateUser(req.params.id)
+    let json = usersService.updateUser(req.params.userId)
     res.render("NovoUsuario",{title:"Atualizar Usuário",baseUrl: req.baseUrl,JSON:json});
   }
 }

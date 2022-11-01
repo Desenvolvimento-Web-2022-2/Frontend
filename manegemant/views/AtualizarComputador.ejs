@@ -1,0 +1,26 @@
+<%- include('Partials/header'); %>
+    <div class="main atualizarComputador">
+        <div class="head">
+            <div class="TituloBuscador">
+                <h2>Atualizar Computador</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="atualizarComputador">
+                <input placeholder="Modelo" value="<%=`${JSON.model}`%>">
+                <input placeholder="Placa" value="<%=`${JSON.patrimonyTag}`%>">
+                <input placeholder="Placa de vídeo" value="<%=`${JSON.GPU}`%>">
+            </div>
+            <div>
+                <input placeholder="Processador" value="<%=`${JSON.CPU}`%>">
+                <input placeholder="Memória" value="<%=`${JSON.memory}`%>">
+                <input placeholder="Sistema Operacional" value="<%=`${JSON.SO}`%>">
+            </div>
+        </div>
+    </div>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Sidebar/sidebar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/AtualizarComputador/AtualizarComputador.js"></script>
+</body>
+</html>

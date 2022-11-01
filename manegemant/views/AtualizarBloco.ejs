@@ -1,24 +1,8 @@
-<!-- <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Departamento-update.css">
-    <link rel="stylesheet" href="../../main.css">
-    <link rel="stylesheet" href="../../../components/Navbar/navbar.css">
-    <link rel="stylesheet" href="../../../components/Sidebar/sidebar.css">
-    <link rel="stylesheet" href="../../../components/CustomButton/customButton.css">
-    <title>Atualizar Departamento</title>
-</head>
-<body>
-    <side-bar></side-bar>
-    <nav-bar></nav-bar> -->
     <%- include('Partials/header'); %>
-    <div class="main">
+    <div class="main atualizarBloco">
         <div class="head">
             <div class="TituloBuscador">
-                <h2>Atualizar departamento</h2>
+                <h2>Atualizar <%=`${render}`%></h2>
             </div>
         </div>
         <div class="container">
@@ -38,7 +22,7 @@
         </div>
     </div> 
     
-    <script src="<%=`${baseUrl}/`%>javascripts/Departamento-update/Departamento-update.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/AtualizarBloco/AtualizarBloco.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Sidebar/sidebar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>

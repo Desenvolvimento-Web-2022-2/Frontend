@@ -19,7 +19,7 @@ body{
 .updateinput input:focus{
     outline: none;
 }
-.container{
+.atualizarBloco .container{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -32,6 +32,9 @@ body{
     flex-direction: column;
     margin-right: 6rem;
     align-items: flex-start;
+}
+input{
+    color: white;
 }
 .imageUpload{
     display: flex;

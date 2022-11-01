@@ -12,7 +12,7 @@
         </div>
         <div class="cards-container" id="cards-container">
             <% JSONBloco.Blocos.forEach((bloco) =>  { %>
-                <%- include('Partials/card', {JSONCard: bloco,redirect: "departamento/"+bloco.id}) %>
+                <%- include('Partials/card', {JSONCard: bloco,redirect: "bloco/"+bloco.id}) %>
             <% }) %>
         </div>
     </div> 

@@ -13,12 +13,12 @@ function createButtonSalas(){
  
 
     let updateDepartament = document.createElement("custom-button")
-    updateDepartament.setAttribute("redirect",`updateDep/${pathSplit[(pathSplit.length-2)]}`)
+    updateDepartament.setAttribute("redirect",`AtualizarBloco/${pathSplit[(pathSplit.length-2)]}`)
     updateDepartament.setAttribute("labelName","Atualizar departamento")
     updateDepartament.classList.add("color-white")
 
     let removeDepartemet = document.createElement("custom-button")
-    removeDepartemet.setAttribute("redirect",`removeDep/${pathSplit[(pathSplit.length-2)]}`)
+    removeDepartemet.setAttribute("redirect",`RemoverBloco/${pathSplit[(pathSplit.length-2)]}`)
     removeDepartemet.setAttribute("labelName","Remover departamento")
     removeDepartemet.classList.add("color-red")
 

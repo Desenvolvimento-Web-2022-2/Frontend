@@ -5,7 +5,7 @@
             "subname": "Galera da Tilápia",
             "numberOrRole": "Empresa Jr.",
             "id": "1",
-            "depId":"1"
+            "blocoId":"1"
 
         },
         {
@@ -13,21 +13,21 @@
             "subname": "Laboratório de Informática 1",
             "numberOrRole": "Laboratório",
             "id": "2",
-            "depId":"2"
+            "blocoId":"2"
         },
         {
             "name": "LI 2",
             "subname": "Laboratório de Informática 2",
             "numberOrRole": "Laboratório",
             "id": "3",
-            "depId":"3"
+            "blocoId":"3"
         },
         {
             "name": "DAAM",
             "subname": "Diretório Academico",
             "numberOrRole": "Sala Administrativo",
             "id": "4",
-            "depId":"4"
+            "blocoId":"4"
         }
     ]
 }

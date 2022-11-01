@@ -32,13 +32,10 @@
     width: 984px;
     height: 30px;
     display: grid;
-    grid-template-columns: 30% 30% 40%;
+    grid-template-columns: 30% 30% 30%;
     align-items: center;
     background-color: #5CCEEE;
     color: #fff;
     border-radius: 12px;
-}
-label{
-    margin-left: 4rem;
-    margin-right: 4rem;
+    justify-items: center;
 }

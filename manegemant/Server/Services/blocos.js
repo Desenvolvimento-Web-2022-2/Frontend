@@ -2,8 +2,14 @@ const blocos = require("../../public/Objects/Blocos.json")
 const salas = require("../../public/Objects/Salas.json")
 
 class BlocoService{
-    returnBlocosJson(){
-        return blocos
+    returnBlocosJson(id=""){
+        if(!id){
+            return blocos
+        }
+        else{
+            blocos.Blocos.find(bloco=> {console.log(bloco.id)})
+            return blocos.Blocos.find(bloco=> bloco.id == id)
+        }
     }
     returnSalasJson(id){
         let validSalas = []

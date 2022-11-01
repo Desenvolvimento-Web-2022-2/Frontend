@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,8 @@
 </head>
 <body>
     <side-bar></side-bar>
-    <nav-bar></nav-bar>
+    <nav-bar></nav-bar> -->
+    <%- include('Partials/header'); %>
     <div class="main">
         <div class="head">
             <div class="TituloBuscador">
@@ -21,13 +22,14 @@
             </div>
         </div>
         <div class="container">
-            <div class="form">
-                <input type="text" placeholder="Nome departamento">
-                <input type="text" placeholder="Número departamento">
+            <div class="form updateinput">
+                <input type="text" placeholder="Sigla" value="<%=`${JSON.name}`%>">
+                <input type="text" placeholder="Nome" value="<%=`${JSON.subname}`%>">
+                <input type="text" placeholder="<%=`${render == 'bloco' ? 'Número':'Descrição'}`%>" value="<%=`${JSON.numberOrRole}`%>">
             </div>
             <div class="imageUpload">
                 <div class = "imageKeeper">
-                    <img src="../../imgs/icons/download.svg" alt="" style="width: 144px; aspect-ratio: 1/1;">
+                    <img src="<%=`${baseUrl}/`%>images/icons/download.svg" alt="" style="width: 144px; aspect-ratio: 1/1;">
                 </div>
                 <p>Upload da imagem do departamento<label> - Opcional</label></p>
             </div>
@@ -36,9 +38,9 @@
         </div>
     </div> 
     
-    <script src="./Departamento-update.js"></script>
-    <script src="../../../components/Navbar/navbar.js"></script>
-    <script src="../../../components/Sidebar/sidebar.js"></script>
-    <script src="../../../components/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Departamento-update/Departamento-update.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Sidebar/sidebar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
 </body>
 </html>

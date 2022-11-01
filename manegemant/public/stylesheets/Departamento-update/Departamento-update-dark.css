@@ -1,39 +1,40 @@
-@import "Departamentos/Departamentos.css";
-
 body{
     background-color: #F1EBEB;
 }
 .conH1{
     margin-left: 30%;
 }
-input{
+.updateinput input{
     font-size: 1.2rem;
     background-color: transparent;
     padding-top: 1rem;
     padding-bottom: 1.2rem;
-    padding-right: 8rem;
+    width: 100%;
     margin: 12% 0 0 5%;
     border-bottom:1px solid #000;
     border-top: none;
     border-left: none;
     border-right: none;
 }
-input:focus{
+.updateinput input:focus{
     outline: none;
 }
 .container{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 4%;
-}
-input{
-    color: white;
+    width: 100%;
 }
 .form{ 
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin-right: 6rem;
+    align-items: flex-start;
+}
+input{
+    color: white;
 }
 .imageUpload{
     display: flex;

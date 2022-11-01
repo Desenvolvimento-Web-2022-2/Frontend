@@ -5,18 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="Login.css">
-    <link rel="stylesheet" href="../../main.css">
-    <link rel="stylesheet" href="../../components/Modal/modal.css">
-    <link rel="stylesheet" href="../../components/CustomButton/customButton.css">
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/Login/Login.css">
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/main/main.css">
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/CustomButton/customButton.css">
 
 </head>
 <body>
     <custom-modal type="attention"></custom-modal>
-    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg" src="../../imgs/icons/darkMode.svg"></button>
+    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg"></button>
     <div class="loginAndUfc">
         <div class="ufc">
-            <img id="logo" src="../../imgs/logo-ufc-black.svg" alt="logo da ufc" style="width: 100%;">
+            <img id="logo" src="<%=`${baseUrl}/`%>images/logo-ufc-black.svg" alt="logo da ufc" style="width: 100%;">
         </div>
         <div class="login">
             <div>
@@ -25,22 +24,21 @@
             </div>
             <div class="inputImg">
                 <input type="email" placeholder="Address@mail.com" name="email" id="email">
-                <img src="../../imgs/icons/email.svg">
+                <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
             </div>
             <div class="passwordDiv">
                 <div class="inputImg">
                     <input type="password" placeholder="Senha" name="senha" id="senha">
-                    <button onclick="revealSecret(this)"><img src="../../imgs/icons/locker.svg"></button>
+                    <button onclick="revealSecret(this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
                 </div>
-                <a class="forgotPassword" href = "#">esqueceu a senha?</a>
+                <a class="forgotPassword" href = "/RecSenha">esqueceu a senha?</a>
     
             </div>
-            <custom-button labelName="Entrar" class="color-gray" redirect="pages/Departamentos/Departamentos.html"></custom-button>
+            <custom-button labelName="Entrar" class="color-gray" redirect=""></custom-button>
         </div>
     </div>
-    <script src="../../components/CustomButton/customButton.js"></script>
-    <script src="../../components/navbar/navbar.js"></script>
-    <script src="./Login.js"></script>
-    <script src="../../components/Modal/modal.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Login/Login.js"></script>
 </body>
 </html>

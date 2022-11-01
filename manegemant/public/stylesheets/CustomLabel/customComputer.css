@@ -1,9 +1,9 @@
-.handler{
+.mainContainer-computer .handler{
     display: grid;
     justify-items: start;
     align-items: center;
     grid-template-columns:30% 30% 30% 10%;
-
+    justify-items: center;
 }
 .mainContainer-computer{
     cursor: pointer;

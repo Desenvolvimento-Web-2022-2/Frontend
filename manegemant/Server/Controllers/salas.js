@@ -2,7 +2,7 @@ const salasService = require("../Services/salas")
 
 class SalaController{
   async getSala(req, res){
-    if(validateByBloco(req.params.blocoId,req.params.salaId)){
+    if(salasService.validateByBloco(req.params.blocoId,req.params.salaId)){
       let json = salasService.returnComputersJson(req,req.params.salaId)
       res.render("Computadores",{title:"Computadores",baseUrl: req.baseUrl,ids:json.ids,JSONComputers:json.computers,sidebarName:json.name});
     }
@@ -11,7 +11,7 @@ class SalaController{
     
   }
   async updateSala(req, res){
-    if(validateByBloco(req.params.blocoId,req.params.salaId)){
+    if(salasService.validateByBloco(req.params.blocoId,req.params.salaId)){
       let json = salasService.returnSalaJson(req.params.salaId)
       res.render("AtualizarBloco",{title:"Computadores",baseUrl: req.baseUrl,JSON:json,sidebarName:"Atualizar Sala",render:"sala"});
     }

@@ -4,9 +4,10 @@ window.onload = function(){
     
     changeMode()
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
+    pathSplit = getPath()
 
     var AtualizarSala = document.createElement("custom-button")
-    AtualizarSala.setAttribute("redirect","/")
+    AtualizarSala.setAttribute("redirect", `Bloco/${pathSplit[2]}/AtualizarSala/${pathSplit[4]}`)
     AtualizarSala.setAttribute("labelName","Atualizar Sala")
     AtualizarSala.classList.add("save-button")
     AtualizarSala.classList.add("color-white")
@@ -27,4 +28,8 @@ window.onload = function(){
     sidebar.appendChild(RemoverSala)
     sidebar.appendChild(ReservarSala)
     
+}
+function getPath(){
+    let path = window.location.pathname
+    return path.split("/")
 }

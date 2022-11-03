@@ -7,7 +7,8 @@ class BlocoService{
             return blocos
         }
         else{
-            return blocos.Blocos.find(bloco=> bloco.id == id)
+            let bloco = blocos.Blocos.find(bloco=> bloco.id == id)
+            return !!bloco ? bloco : {name:"",subname:"",numberOrRole:"",id:""}
         }
     }
     returnSalasJson(id){
@@ -17,6 +18,7 @@ class BlocoService{
                 validSalas.push(sala)
         })
         let blocoName = blocos.Blocos.find(bloco=> bloco.id == id)
+        blocoName = !!blocoName ? blocoName : {name:"",subname:"",numberOrRole:"",id:""}
         return {
             salas:validSalas,
             name:blocoName.name

@@ -109,7 +109,6 @@ function handleDate(prevForw){
         reserv:[(day+1)%2==0,(day+2)%2==0,(day+3)%2==0,(day+4)%2==0,(day+5)%2==0,(day+6)%2==0,(day+7)%2==0],
         reservNextSemester:[true,false,true,true,false,false,false],
         reservedBy:"Victor Ehrich Carneiro de Medeiros"
-
     }
 
     let dateHTML = document.getElementById("date")

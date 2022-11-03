@@ -1,11 +1,13 @@
 const express = require('express')
 const router = express.Router();
+const computers = require("../manegemant/public/Objects/Computadores.json")
 
 const blocoController = require("./Server/Controllers/blocos")
 const usersController = require("./Server/Controllers/users")
 const salaController = require("./Server/Controllers/salas")
 const loginController = require("./Server/Controllers/login")
 const ComputadoresController = require("./Server/Controllers/computadores")
+const ReservaController = require("./Server/Controllers/reserva")
 
 // Blocos
 router.get("/", blocoController.index)
@@ -30,4 +32,6 @@ router.get("/Login",loginController.getLoginPage)
 //Esqueci a senha
 router.get("/RecSenha",loginController.getNewPassPage)
 
+router.get("/calendar",(req,res)=> res.render("calendar",{title: "calendar", baseUrl: req.baseUrl,sidebarName:"Home"}))
+router.get("/getCalendar/:day/:mouth/:year",ReservaController.getReserva);
 module.exports = router;

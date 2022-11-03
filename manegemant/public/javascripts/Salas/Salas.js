@@ -7,10 +7,7 @@ window.onload = function () {
 function createButtonSalas(){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)
 
-    let path = window.location.pathname
-    let pathSplit = []
-    pathSplit = path.split("/")
- 
+    pathSplit = getPath()
 
     let updateDepartament = document.createElement("custom-button")
     updateDepartament.setAttribute("redirect",`AtualizarBloco/${pathSplit[(pathSplit.length-2)]}`)
@@ -24,4 +21,8 @@ function createButtonSalas(){
 
     sidebar.appendChild(updateDepartament)
     sidebar.appendChild(removeDepartemet)
+}
+function getPath(){
+    let path = window.location.pathname
+    return path.split("/")
 }

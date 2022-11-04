@@ -1,9 +1,14 @@
 //VIEWTYPE : 'mes' | 'dia' | 'ano'
 let viewType = "mes"
-let date = new Date
+let date = new Date()
+let currentDay = date.getDate()
+let currentYear = date.getFullYear()
+let currentMounth = date.getMonth() + 1
+
 let selectYear = date.getFullYear()
 let selectMounth
 let selectDay
+let reservArray = []
 
 const weekDay = {
     "0":"Domingo",
@@ -81,9 +86,9 @@ function renderViewByType(viewTypeSelected,value=0){
 function renderYear(){
     let cardContainer = document.querySelector("#cards-container-calendar")
 
-    let holder = validateHolderDiv()
+    let holder = validateHolderDiv("holder")
     holder.remove()
-    holder = validateHolderDiv()
+    holder = validateHolderDiv("holder")
 
     for(let i = 1; i <= 12; i ++){
         let card = document.createElement("div")
@@ -101,16 +106,16 @@ function renderYear(){
 
 function renderMounth(selectedMounth){
     selectMounth = selectedMounth
-    let holder = validateHolderDiv()
+    let holder = validateHolderDiv("holder")
     holder.remove()
-    holder = validateHolderDiv()
+    holder = validateHolderDiv("holder")
 
     for(day in weekDay){
         let card = document.createElement("div")
         card.innerHTML = weekDay[day]
         holder.appendChild(card)
     }
-    let d = new Date(`${selectYear}-${selectMounth}-${1}`)
+    let d = new Date(selectYear,selectMounth,1)
     fillDaysCalendar(d.getDay(),selectedMounth,holder)
 }
 
@@ -123,14 +128,14 @@ function renderDay(selectedDay){
    
 }
 
-function validateHolderDiv(){
+function validateHolderDiv(holderClass){
     let holder    
-    if(!!document.querySelector(".holder")){
-        holder = document.querySelector(".holder")
+    if(!!document.querySelector(`.${holderClass}`)){
+        holder = document.querySelector(`.${holderClass}`)
     }
     else{
         holder = document.createElement("div")
-        holder.setAttribute("class","holder")
+        holder.setAttribute("class",holderClass)
     }
     return holder
 }
@@ -200,7 +205,8 @@ function fillDaysCalendar(v,selectedMounth,holder){
         let a = document.createElement("a")
         card.setAttribute("class","calendarYearViewPast")
         let label = document.createElement("label")
-        label.innerHTML = (maxDays[selectedMounth-1]-v+j)
+        let auxMounth = selectedMounth-1 == 0 ? 12:selectedMounth-1
+        label.innerHTML = (maxDays[auxMounth]-v+j)
         card.appendChild(label)
         holder.appendChild(card)
         cardContainer.appendChild(holder)
@@ -208,7 +214,7 @@ function fillDaysCalendar(v,selectedMounth,holder){
     for(let i = v+1; i < parseInt(maxDays[selectedMounth])+v+1; i ++){
         let card = document.createElement("div")
         let a = document.createElement("a")
-        a.setAttribute("onclick",`teste(${selectYear},${selectMounth},${i-v})`)
+        a.setAttribute("onclick",`getCalendarInfos(${selectYear},${selectMounth},${i-v})`)
         card.setAttribute("class","calendarYearView")
         let label = document.createElement("label")
         label.innerHTML = i-v
@@ -219,11 +225,167 @@ function fillDaysCalendar(v,selectedMounth,holder){
     }
 }
 
-async function teste(year,mouth,day){
+async function getCalendarInfos(year,mouth,day){
     await fetch(`/getCalendar/${day}/${mouth}/${year}`).then((response) => response.json())
     .then((data) =>{
         console.log(data)
+        selectDay = day
+        generateCalendar(data)
     }).catch(err=>{
         console.error(err)
+    })
+}
+
+function generateCalendar(data){
+    let cardContainer = document.querySelector("#cards-calendar")
+    let holder = validateHolderDiv("holderCalendar")
+    holder.remove()
+    holder = validateHolderDiv("holderCalendar")
+
+    let table = document.createElement("table")
+    table.innerHTML=
+    `
+        <th>Horáriro</th>
+        <th>Reservada por:</th>
+        <th>Tipo de reserva</th>        
+    `
+    let hours = formatHour()
+    for(let i = 0; i < 7; i++){
+        let tr = document.createElement("tr")
+        validateDate() ?
+        tr.setAttribute("onclick",`selectHorario(this)`) :
+        tr.setAttribute("onclick","")
+        tr.setAttribute("id",`line`)
+        tr.innerHTML = `<td>${hours[i]}</td>
+                        <td></td>
+                        <td></td>`
+        table.appendChild(tr)
+    }
+    let button = document.createElement("custom-button")
+    button.toggleAttribute("callFunction")
+    button.setAttribute("onclick","sendData()")
+    holder.appendChild(table)
+    holder.appendChild(button)
+    cardContainer.appendChild(holder)
+    if(!!data){
+        fillTable(data)
+    }
+}
+
+function validateDate(){
+    if(selectYear > currentYear){
+        return true
+    }
+    else if(selectYear == currentYear){
+        if(selectMounth > currentMounth){
+            return true
+        }
+        else if(selectMounth == currentMounth){
+            return selectDay >= currentDay
+        }
+    }   
+    return false
+}
+
+
+function formatHour(){
+    let hours = []
+    let aux = 0
+    for(let hour = 8; hour < 21; hour+=2){
+        hours[aux] = (hour >= 10 ? hour+":00 - "+(hour+2)+":00" : 
+        "0"+hour+":00 - " +((hour+2) >=10 ? (hour+2)+":00" :
+        "0"+(hour+2)+":00"))
+        aux++
+    }
+    return hours
+}
+
+function fillTable(data){
+    let lines = document.querySelectorAll("#line")
+    data.forEach(dataIt=>{
+        for(let i = 0; i < 7; i++){
+            if(lines[i].firstChild.innerHTML == dataIt.horario.reservHour){
+                lines[i].removeAttribute("onclick")
+                let nodes = lines[i].childNodes
+                nodes[2].innerHTML = dataIt.reservName
+                nodes[4].innerHTML = dataIt.horario.reservType
+            }
+        }
+    })
+}
+
+function selectHorario(tr){
+    
+    tr.toggleAttribute("clicked")
+    
+}
+function sendData(){
+    let currentSemester =  currentMounth < 7 ? 1:2
+    let selectSemester = selectMounth < 7 ?  1:2
+    let formArray = []
+
+    let lines = document.querySelectorAll("#line")
+    lines.forEach(tr=>{
+
+        if(tr.hasAttribute("clicked")){
+    
+            let d = new Date(selectYear,selectMounth,selectDay)
+            let maxDate = new Date(selectYear,selectSemester == 1 ? 6:12,selectSemester == 1 ?30:31)
+            
+            let auxDay = selectDay
+            let auxMounth = selectMounth
+            let auxYear = selectYear
+        
+        
+            if(currentSemester != selectSemester){
+                while(d < maxDate){
+                    console.log(d,selectDay,d.getDate())
+                    if(auxDay > maxDays[auxMounth]){
+                        auxDay = 1
+                        auxMounth ++
+                    }
+                    if(auxMounth > 12){
+                        auxMounth = 1;
+                        auxYear ++
+                    }
+                    d = new Date(auxYear,auxMounth,auxDay)
+                    let form = {
+                        dia:`${auxYear}-${auxMounth}-${auxDay}`,
+                        userId:"1",
+                        reservId:"",
+                        //pegar da rota
+                        salaId:"1",
+                        horario:{
+                            reservHour:tr.firstChild.innerHTML,
+                            weekDay:weekDay[d.getDay()],
+                            reservType:currentSemester == selectSemester ? "Day" : "Semester",
+                            horarioId:""
+                        },
+                        reservName:"Victor"
+                    }
+                    formArray.push(form)
+                    auxDay = auxDay+7
+    
+                }
+            }
+            else{
+                let form = {
+                    dia:`${selectYear}-${selectMounth}-${selectDay}`,
+                    userId:"1",
+                    reservId:"",
+                    //pegar da rota
+                    salaId:"1",
+                    horario:{
+                        reservHour:tr.firstChild.innerHTML,
+                        weekDay:weekDay[d.getDay()],
+                        reservType:currentSemester == selectSemester ? "Day" : "Semester",
+                        horarioId:""
+                    },
+                    reservName:"Victor"
+                }
+                formArray.push(form)  
+            }
+            console.log(formArray)
+        }
     })
 }

@@ -1,9 +1,9 @@
 const reservas = require("../../public/Objects/Reserva.json")
 const horarios = require("../../public/Objects/Horario.json")
+const users = require("../../public/Objects/users.json")
 
 class ReservaService{
     returnReservas(data){
-        console.log(data)
         let objReturn = {
             dia:"",
             userId:"",
@@ -14,7 +14,8 @@ class ReservaService{
                 weekDay:"",
                 reservType:"",
                 horarioId:""
-            }
+            },
+            reservName:""
         }
         let respArray = []
         reservas.Reserva.forEach(reserva=>{
@@ -29,8 +30,12 @@ class ReservaService{
                                 })
                                 objReturn[key] = aux
                             }
+                            else if(key == "reservName"){
+                                objReturn[key] = users.Users.find(user=> user.userId == reserva.userId).usersInfosName
+                            }
                             else{
                                 objReturn[key] = reserva[key]
+                                console.log(objReturn[key],reserva[key])
                             }
                         })
                         respArray.push(objReturn)

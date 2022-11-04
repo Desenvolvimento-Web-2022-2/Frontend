@@ -22,3 +22,10 @@
 .calendarYearViewPast{
     color: gray;
 }
+.cards-calendar{
+    margin-top: 48px;
+    width: 75%;
+}
+tr[clicked]{
+    background-color: aqua;
+}

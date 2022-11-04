@@ -1,19 +1,19 @@
 {
     "Horario": [
         {
-            "reservHour": "08-10",
+            "reservHour": "08:00 - 10:00",
             "weekDay":"quinta",
             "reservType": "Day",
             "horarioId": "1"
         },
         {
-            "reservHour": "10-12",
+            "reservHour": "10:00 - 12:00",
             "weekDay":"quinta",
             "reservType": "Day",
             "horarioId": "2"
         },
         {
-            "reservHour": "08-10",
+            "reservHour": "08:00 - 10:00",
             "weekDay":"sabado",
             "reservType": "Semester",
             "horarioId": "3"

@@ -10,6 +10,9 @@ let selectMounth
 let selectDay
 let reservArray = []
 
+let currentSemester =  currentMounth < 7 ? 1:2
+let selectSemester = selectMounth < 7 ?  1:2
+
 const weekDay = {
     "0":"Domingo",
     "1":"Segunda",
@@ -55,6 +58,7 @@ function getMaxDays(){
 let maxDays = getMaxDays()
 
 window.onload =function(){
+	changeMode()
     viewType = "ano"
     renderViewByType(viewType)
 }
@@ -73,11 +77,9 @@ function renderViewByType(viewTypeSelected,value=0){
             renderYear()
             break
         case 'mes':
-            view.innerHTML = "Mes - " + mouthString[value]+"/"+ selectYear
+            selectSemester = value < 7 ?  1:2
+            view.innerHTML = mouthString[value]+"/"+ selectYear +" - "+selectSemester+"º semestre de "+selectYear
             renderMounth(value)
-            break
-        case 'dia':
-            renderDay(value)
             break
         default:
             break
@@ -115,17 +117,8 @@ function renderMounth(selectedMounth){
         card.innerHTML = weekDay[day]
         holder.appendChild(card)
     }
-    let d = new Date(selectYear,selectMounth,1)
+    let d = new Date(selectYear,selectMounth-1,1)
     fillDaysCalendar(d.getDay(),selectedMounth,holder)
-}
-
-function renderDay(selectedDay){
-    let cardContainer = document.querySelector("#cards-container-calendar")
-    selectDay = selectedDay
-    let holder = validateHolderDiv()
-    holder.remove()
-    holder = validateHolderDiv()
-   
 }
 
 function validateHolderDiv(holderClass){
@@ -214,7 +207,7 @@ function fillDaysCalendar(v,selectedMounth,holder){
     for(let i = v+1; i < parseInt(maxDays[selectedMounth])+v+1; i ++){
         let card = document.createElement("div")
         let a = document.createElement("a")
-        a.setAttribute("onclick",`getCalendarInfos(${selectYear},${selectMounth},${i-v})`)
+        a.setAttribute("onclick",`getCalendarInfos(${selectYear},${selectMounth},${i-v},this)`)
         card.setAttribute("class","calendarYearView")
         let label = document.createElement("label")
         label.innerHTML = i-v
@@ -225,10 +218,14 @@ function fillDaysCalendar(v,selectedMounth,holder){
     }
 }
 
-async function getCalendarInfos(year,mouth,day){
-    await fetch(`/getCalendar/${day}/${mouth}/${year}`).then((response) => response.json())
+async function getCalendarInfos(year,mouth,day,aTag){
+    let a = document.querySelectorAll("a")
+    a.forEach(a=>{
+        a.removeAttribute("clicked")
+    })
+    aTag.toggleAttribute("clicked")
+    await fetch(`/getCalendar/${day}/${mouth-1}/${year}`).then((response) => response.json())
     .then((data) =>{
-        console.log(data)
         selectDay = day
         generateCalendar(data)
     }).catch(err=>{
@@ -262,6 +259,7 @@ function generateCalendar(data){
         table.appendChild(tr)
     }
     let button = document.createElement("custom-button")
+    button.setAttribute("labelName","Enviar Formulário")
     button.toggleAttribute("callFunction")
     button.setAttribute("onclick","sendData()")
     holder.appendChild(table)
@@ -319,73 +317,90 @@ function selectHorario(tr){
     tr.toggleAttribute("clicked")
     
 }
-function sendData(){
-    let currentSemester =  currentMounth < 7 ? 1:2
-    let selectSemester = selectMounth < 7 ?  1:2
-    let formArray = []
+function sendData() {
+	let currentSemester = currentMounth < 7 ? 1 : 2
+	let selectSemester = selectMounth < 7 ? 1 : 2
+	let formArray = []
 
-    let lines = document.querySelectorAll("#line")
-    lines.forEach(tr=>{
+	let lines = document.querySelectorAll("#line")
+	if(!!lines) {
+		lines.forEach(tr => {
 
-        if(tr.hasAttribute("clicked")){
+			if(tr.hasAttribute("clicked")) {
+
+				let d = new Date(selectYear, selectMounth - 1, selectDay)
+				let maxDate = new Date(selectYear, selectSemester == 1 ? 5 : 11, selectSemester == 1 ? 30 : 31)
+				let auxDay = selectDay
+				let auxMounth = selectMounth - 1
+				let auxYear = selectYear
+
+				if (currentSemester != selectSemester || currentYear != selectYear) {
+					while (d < maxDate) {
+						if (auxDay > maxDays[auxMounth + 1]) {
+							auxDay = (parseInt(auxDay) - parseInt(maxDays[auxMounth + 1]))
+							auxMounth++
+						}
+						if (auxMounth > 11) {
+							auxMounth = 1;
+							auxYear++
+						}
+						d = new Date(auxYear, auxMounth, auxDay)
+						let form = {
+							dia: `${auxYear}-${auxMounth}-${auxDay}`,
+							userId: "1",
+							reservId: "",
+							salaId: window.location.pathname.split("/")[4],
+							horario: {
+								reservHour: tr.firstChild.innerHTML,
+								weekDay: weekDay[d.getDay()],
+								reservType: "Semester",
+								horarioId: ""
+							}
+						}
+						formArray.push(form)
+						auxDay = auxDay + 7
+
+					}
+				}
+				else {
+					let form = {
+						dia: `${selectYear}-${selectMounth - 1}-${selectDay}`,
+						userId: "1",
+						reservId: "",
+						salaId: window.location.pathname.split("/")[4],
+						horario: {
+							reservHour: tr.firstChild.innerHTML,
+							weekDay: weekDay[d.getDay()],
+							reservType: "Day",
+							horarioId: ""
+						}
+					}
+					formArray.push(form)
+				}
+				console.log(formArray)
+				
+			}
+			
+		})
+	}
+	if(!!lines){
+		let b = (async () => {
+			await fetch("/reservarSala", {
+				method: 'POST',
+				mode: 'cors',
+				cache: 'no-cache',
+				credentials: 'same-origin',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				referrerPolicy: 'no-referrer',
+				body: JSON.stringify(formArray)
+			}).then(response => {
+				window.location.href = window.location.pathname
+			}).catch(err => {
+				console.error(err)
+			});
+		})()
+	}
     
-            let d = new Date(selectYear,selectMounth,selectDay)
-            let maxDate = new Date(selectYear,selectSemester == 1 ? 6:12,selectSemester == 1 ?30:31)
-            
-            let auxDay = selectDay
-            let auxMounth = selectMounth
-            let auxYear = selectYear
-        
-        
-            if(currentSemester != selectSemester){
-                while(d < maxDate){
-                    console.log(d,selectDay,d.getDate())
-                    if(auxDay > maxDays[auxMounth]){
-                        auxDay = 1
-                        auxMounth ++
-                    }
-                    if(auxMounth > 12){
-                        auxMounth = 1;
-                        auxYear ++
-                    }
-                    d = new Date(auxYear,auxMounth,auxDay)
-                    let form = {
-                        dia:`${auxYear}-${auxMounth}-${auxDay}`,
-                        userId:"1",
-                        reservId:"",
-                        //pegar da rota
-                        salaId:"1",
-                        horario:{
-                            reservHour:tr.firstChild.innerHTML,
-                            weekDay:weekDay[d.getDay()],
-                            reservType:currentSemester == selectSemester ? "Day" : "Semester",
-                            horarioId:""
-                        },
-                        reservName:"Victor"
-                    }
-                    formArray.push(form)
-                    auxDay = auxDay+7
-    
-                }
-            }
-            else{
-                let form = {
-                    dia:`${selectYear}-${selectMounth}-${selectDay}`,
-                    userId:"1",
-                    reservId:"",
-                    //pegar da rota
-                    salaId:"1",
-                    horario:{
-                        reservHour:tr.firstChild.innerHTML,
-                        weekDay:weekDay[d.getDay()],
-                        reservType:currentSemester == selectSemester ? "Day" : "Semester",
-                        horarioId:""
-                    },
-                    reservName:"Victor"
-                }
-                formArray.push(form)  
-            }
-            console.log(formArray)
-        }
-    })
 }

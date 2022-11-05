@@ -32,6 +32,8 @@ router.get("/Login",loginController.getLoginPage)
 //Esqueci a senha
 router.get("/RecSenha",loginController.getNewPassPage)
 
-router.get("/calendar",(req,res)=> res.render("calendar",{title: "calendar", baseUrl: req.baseUrl,sidebarName:"Home"}))
+//Reserva
+router.get("/Bloco/:blocoId/Sala/:salaId/calendar",ReservaController.getCalendar)
+router.post("/reservarSala",ReservaController.criarReserva)
 router.get("/getCalendar/:day/:mouth/:year",ReservaController.getReserva);
 module.exports = router;

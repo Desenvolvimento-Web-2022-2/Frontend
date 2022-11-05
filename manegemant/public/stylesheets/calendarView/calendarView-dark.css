@@ -10,7 +10,7 @@
 }
 .cards-container-calendar{
     margin-top: 48px;
-    border: 1px solid black;
+    border: 1px solid white;
     width: 75%;
 }
 .calendarYearViewPast,
@@ -34,6 +34,6 @@ a{
     width: 75%;
 }
 a[clicked],
-tr[clicked]{
-    background-color: #5DF363;
+tr[clicked] > td{
+    background-color: #5DF363!important;
 }

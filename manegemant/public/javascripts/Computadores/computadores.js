@@ -19,7 +19,7 @@ window.onload = function(){
     RemoverSala.classList.add("color-red")
 
     var ReservarSala = document.createElement("custom-button")
-    ReservarSala.setAttribute("redirect","/")
+    ReservarSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/calendar`)
     ReservarSala.setAttribute("labelName","Reservar Sala")
     ReservarSala.classList.add("save-button")
     ReservarSala.classList.add("color-green")

@@ -7,7 +7,7 @@ class LoginController{
   async getNewPassPage(req, res){
     res.render("RecSenha", {title: "RecSenha", baseUrl: req.baseUrl})
   }
-  async login(req, res){
+  async authenticate(req, res){
 
   }
 }

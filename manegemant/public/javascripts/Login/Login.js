@@ -24,3 +24,24 @@ function revealSecret(button) {
             button.childNodes[0].setAttribute("src", "images/icons/locker.svg")
         }
 }
+
+async function sendForm(){
+    let emailInput = document.querySelector("#email").value
+    let passwordInput = document.querySelector("#senha").value
+    let form ={
+        email: emailInput,
+        password: passwordInput
+    }
+    console.log(emailInput,passwordInput)
+    await fetch(`/authenticate`,{
+        method: 'POST',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(form)
+    }).then(response=> console.log(response))
+}

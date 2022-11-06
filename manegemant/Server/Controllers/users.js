@@ -13,5 +13,9 @@ class UsersController{
     let json = usersService.updateUser(req.params.userId)
     res.render("NovoUsuario",{title:"Atualizar Usuário",baseUrl: req.baseUrl,JSON:json});
   }
+  async post(req,res){
+    let newUser = usersService.post(req)
+    res.send(newUser)
+  }
 }
 module.exports = new UsersController()

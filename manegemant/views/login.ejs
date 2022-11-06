@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,10 @@
     <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/CustomButton/customButton.css">
 
 </head>
+
 <body>
-    <custom-modal type="attention"></custom-modal>
-    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg"></button>
+    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg"
+            src="<%=`${baseUrl}/`%>images/icons/darkMode.svg"></button>
     <div class="loginAndUfc">
         <div class="ufc">
             <img id="logo" src="<%=`${baseUrl}/`%>images/logo-ufc-black.svg" alt="logo da ufc" style="width: 100%;">
@@ -22,23 +24,26 @@
                 <h1>Login</h1>
                 <h2>Bem-vindo ao sistema!</h2>
             </div>
-            <div class="inputImg">
-                <input type="email" placeholder="Address@mail.com" name="email" id="email">
-                <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
-            </div>
-            <div class="passwordDiv">
                 <div class="inputImg">
-                    <input type="password" placeholder="Senha" name="senha" id="senha">
-                    <button onclick="revealSecret(this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
+                    <input type="email" placeholder="Address@mail.com" name="email" id="email">
+                    <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
                 </div>
-                <a class="forgotPassword" href = "/RecSenha">esqueceu a senha?</a>
-    
-            </div>
-            <custom-button labelName="Entrar" class="color-gray" redirect=""></custom-button>
+                <div class="passwordDiv">
+                    <div class="inputImg">
+                        <input type="password" placeholder="Senha" name="senha" id="senha">
+                        <button onclick="revealSecret(this)"><img
+                                src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
+                    </div>
+                    <a class="forgotPassword" href="/RecSenha">esqueceu a senha?</a>
+                </div>
+                <custom-button callFunction onclick="sendForm()" labelName="Entrar" class="color-gray" redirect=""></custom-button>
+
         </div>
     </div>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Login/Login.js"></script>
+
 </body>
+
 </html>

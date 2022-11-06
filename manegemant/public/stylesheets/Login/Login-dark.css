@@ -3,7 +3,7 @@ body{
     height: 100vh;
 }
 .forgotPassword{
-    width: 60%;
+    width: 70%;
     text-align: end;
     color: white;
 }
@@ -34,16 +34,15 @@ body{
 }
 .login .inputImg input{
     font-size: 16px;
-    width: 60%;
+    width: 100%;
     border: 0;
     background-color: transparent;
     color: white;
 }
 .login .inputImg{
-    display: flex;
-    align-items: flex-start;
-    width: 60%;
-    justify-content: space-between;
+    display: grid;
+    width: 70%;
+    grid-template-columns: 90% 10%;
     border-bottom: 1px solid #D9D9D9;
 }
 .login .inputImg button{
@@ -60,7 +59,6 @@ body{
     margin-bottom: 0.5rem;
 }
 
-
 .ufc{
     width: 633px;
     height: 660px;
@@ -72,11 +70,6 @@ body{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* @media screen and (max-width: 650px) {
-    .ufc{
-        display: none;
-    }
-} */
 @media (max-width: 1366px) {
     .login{
         width: 350px;

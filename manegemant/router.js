@@ -18,6 +18,7 @@ router.get("/AtualizarBloco/:blocoId", blocoController.updateBloco)
 router.get("/Usuarios",usersController.index)
 router.get("/NovoUsuario",usersController.newUser)
 router.get("/AtualizarUsuario/:userId",usersController.updateUser)
+router.post("/NovoUsuario",usersController.post)
 
 //Salas
 router.get("/Bloco/:blocoId/Sala/:salaId/Computadores",salaController.getSala)
@@ -28,6 +29,7 @@ router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",Comput
 
 //Login
 router.get("/Login",loginController.getLoginPage)
+router.post("/authenticate",loginController.authenticate)
 
 //Esqueci a senha
 router.get("/RecSenha",loginController.getNewPassPage)

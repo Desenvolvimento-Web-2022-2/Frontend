@@ -1,0 +1,19 @@
+<%- include('Partials/header'); %>
+
+<div class="main">
+    <div class="head">
+        <div class="TituloBuscador">
+            <h2>Salas</h2>
+            <input type="text" name="buscador" placeholder="Buscar">
+        </div>
+        <div class="FiltroAdd">
+            <select name="filtro" class="Filtro">
+                
+            </select> 
+        </div>
+    </div>
+    <div class="cards-container" id="cards-container">
+    </div>
+    <script src="<%=`${baseUrl}/`%>javascripts/Busca/Busca.js"></script>
+</div>
+

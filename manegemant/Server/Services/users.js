@@ -1,4 +1,4 @@
-const users = require("../../public/Objects/Users.json")
+const users = require("../../public/Objects/users.json")
 const profiles = require("../../public/Objects/Profiles.json")
 const env = require("../../env.json")
 var fs = require('fs');

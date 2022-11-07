@@ -329,8 +329,14 @@ function sendData() {
 			if(tr.hasAttribute("clicked")) {
 
 				let d = new Date(selectYear, selectMounth - 1, selectDay)
-				let maxDate = new Date(selectYear, selectSemester == 1 ? 5 : 11, selectSemester == 1 ? 30 : 31)
-				let auxDay = selectDay
+				let initialDay = new Date(selectYear, selectSemester == 1 ? 0 : 6, 1)
+                let dayAux = 1
+                while (initialDay.getDay() != d.getDay()){
+                    dayAux++
+                    initialDay = new Date(selectYear, selectSemester == 1 ? 0 : 6, dayAux)
+                }
+                let maxDate = new Date(selectYear, selectSemester == 1 ? 5 : 11, selectSemester == 1 ? 30 : 31)
+				let auxDay = dayAux
 				let auxMounth = selectMounth - 1
 				let auxYear = selectYear
 

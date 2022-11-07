@@ -1,8 +1,5 @@
 window.onload = function () {
     createButtonSalas()
-    generateTableWithInfos()
-    const calendarBody = document.getElementById("calendarBody")
-    calendarBody.style.display = "none"
 }
 function createButtonSalas(){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)

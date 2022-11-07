@@ -8,6 +8,7 @@ const salaController = require("./Server/Controllers/salas")
 const loginController = require("./Server/Controllers/login")
 const ComputadoresController = require("./Server/Controllers/computadores")
 const ReservaController = require("./Server/Controllers/reserva")
+const BuscaController = require("./Server/Controllers/busca")
 
 // Blocos
 router.get("/", blocoController.index)
@@ -38,4 +39,8 @@ router.get("/RecSenha",loginController.getNewPassPage)
 router.get("/Bloco/:blocoId/Sala/:salaId/calendar",ReservaController.getCalendar)
 router.post("/reservarSala",ReservaController.criarReserva)
 router.get("/getCalendar/:day/:mouth/:year",ReservaController.getReserva);
+
+router.get("/teste", (rec,resp)=>{resp.render('test', {baseUrl:rec.baseUrl, sidebarName:'abc', title:'teste'})})
+router.get("/Filtro/:tipo", BuscaController.retornaNomes)
+
 module.exports = router;

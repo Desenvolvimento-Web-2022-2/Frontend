@@ -73,10 +73,10 @@ class ReservaService{
         })
 
         let lastReserva = reservas.Reserva[reservas.Reserva.length-1]
-        let lasHorario = horarios.Horario[horarios.Horario.length-1]
+        let lastHorario = horarios.Horario[horarios.Horario.length-1]
 
-        let newReservaId = parseInt(lastReserva.reservId)+1
-        let newHorarioId = parseInt(lasHorario.horarioId)+1
+        let newReservaId = !!lastReserva ? parseInt(lastReserva.reservId)+1 : 1
+        let newHorarioId = !!lastHorario ? parseInt(lastHorario.horarioId)+1 : 1
 
         body.forEach(bodyInfos=>{
             let reservaObj = {

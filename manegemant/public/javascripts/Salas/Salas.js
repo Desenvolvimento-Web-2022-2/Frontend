@@ -1,5 +1,7 @@
 window.onload = function () {
+    changeMode()
     createButtonSalas()
+    setFontStorage()
 }
 function createButtonSalas(){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)

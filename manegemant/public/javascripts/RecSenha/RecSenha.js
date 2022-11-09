@@ -1,5 +1,6 @@
 window.onload = function(){
     changeMode()
+    setFontStorage()
 }
 function revealSecret(button) {
     const input = document.getElementById("senha")

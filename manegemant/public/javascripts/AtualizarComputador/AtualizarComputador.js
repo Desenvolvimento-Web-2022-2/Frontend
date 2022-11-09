@@ -1,6 +1,6 @@
 window.onload = function(){
     changeMode()
-
+    setFontStorage()
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
 
     var SalvarAlteracaoComp = document.createElement("custom-button")

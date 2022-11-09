@@ -13,8 +13,15 @@
 </head>
 
 <body>
-    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg"
-            src="<%=`${baseUrl}/`%>images/icons/darkMode.svg"></button>
+    <button class="modeSelector" id="but1" onclick="lightDarkMode();changeLogo()">
+        <img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg">
+    </button>
+    <button class="modeSelector" id="but2" onclick="changeFontSize(1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/plus.svg" class="buttonBW" alt="Font+">
+    </button>
+    <button class="modeSelector" id="but3" onclick="changeFontSize(-1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/minus.svg" class="buttonBW" alt="Font-">
+    </button>
     <div class="loginAndUfc">
         <div class="ufc">
             <img id="logo" src="<%=`${baseUrl}/`%>images/logo-ufc-black.svg" alt="logo da ufc" style="width: 100%;">
@@ -24,19 +31,19 @@
                 <h1>Login</h1>
                 <h2>Bem-vindo ao sistema!</h2>
             </div>
+            <div class="inputImg">
+                <input type="email" placeholder="Address@mail.com" name="email" id="email">
+                <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
+            </div>
+            <div class="passwordDiv">
                 <div class="inputImg">
-                    <input type="email" placeholder="Address@mail.com" name="email" id="email">
-                    <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
+                    <input type="password" placeholder="Senha" name="senha" id="senha">
+                    <button onclick="revealSecret(this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
                 </div>
-                <div class="passwordDiv">
-                    <div class="inputImg">
-                        <input type="password" placeholder="Senha" name="senha" id="senha">
-                        <button onclick="revealSecret(this)"><img
-                                src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
-                    </div>
-                    <a class="forgotPassword" href="/RecSenha">esqueceu a senha?</a>
-                </div>
-                <custom-button callFunction onclick="sendForm()" labelName="Entrar" class="color-gray" redirect=""></custom-button>
+                <a class="forgotPassword" href="/RecSenha">esqueceu a senha?</a>
+            </div>
+            <custom-button callFunction onclick="sendForm()" labelName="Entrar" class="color-gray" redirect="">
+            </custom-button>
 
         </div>
     </div>

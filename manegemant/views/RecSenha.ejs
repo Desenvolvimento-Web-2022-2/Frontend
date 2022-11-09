@@ -12,7 +12,15 @@
 
 </head>
 <body>
-    <button class="modeSelector" onclick="lightDarkMode();changeLogo()"><img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg"></button>
+    <button class="modeSelector" id="but1" onclick="lightDarkMode();changeLogo()">
+        <img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg">
+    </button>
+    <button class="modeSelector" id="but2" onclick="changeFontSize(1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/plus.svg" class="buttonBW" alt="Font+">
+    </button>
+    <button class="modeSelector" id="but3" onclick="changeFontSize(-1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/minus.svg" class="buttonBW" alt="Font-">
+    </button>
     <div class="extern">
         <div class="intern">
             <h1 style="font-size: 24px;">Recuperar a senha</h1>

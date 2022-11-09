@@ -22,7 +22,7 @@
 
 .colapInfos{
     display: grid;
-    grid-template-columns:25% 25% 25% 25%;
+    grid-template-columns:24% 24% 24% 25%;
     justify-items: center;
     padding-bottom: 1rem;
 }

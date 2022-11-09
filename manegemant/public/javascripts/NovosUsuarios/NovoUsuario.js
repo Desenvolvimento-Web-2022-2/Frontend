@@ -1,5 +1,6 @@
 window.onload = function(){
     changeMode()
+    setFontStorage()
 }
 const profile={
     "Aluno":"3",

@@ -27,7 +27,7 @@ window.onload = function(){
     sidebar.appendChild(AtualizarSala)
     sidebar.appendChild(RemoverSala)
     sidebar.appendChild(ReservarSala)
-    
+    setFontStorage()
 }
 function getPath(){
     let path = window.location.pathname

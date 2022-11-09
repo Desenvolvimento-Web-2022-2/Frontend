@@ -3,6 +3,7 @@ window.onload = function () {
     buttons.forEach(content=> content.style.display = 'none')
     changeMode()
     createButtonSalas()
+    setFontStorage()
 }
 
 function createButtonSalas(){

@@ -1,6 +1,7 @@
 window.onload = function(){
     changeMode()
     changeLogo()
+    setFontStorage()
 }
 function changeLogo(){
     let logo = document.getElementById("logo")

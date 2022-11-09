@@ -14,6 +14,7 @@ const BuscaController = require("./Server/Controllers/busca")
 router.get("/", blocoController.index)
 router.get("/Bloco/:blocoId", blocoController.bloco)
 router.get("/AtualizarBloco/:blocoId", blocoController.updateBloco)
+router.post("/AtualizarBloco/:blocoId", blocoController.updateBloco)
 
 //Users
 router.get("/Usuarios",usersController.index)
@@ -24,6 +25,8 @@ router.post("/NovoUsuario",usersController.post)
 //Salas
 router.get("/Bloco/:blocoId/Sala/:salaId/Computadores",salaController.getSala)
 router.get("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSala)
+router.get("/Bloco/:blocoId/CriarSala/", salaController.createSala)
+router.post("/Bloco/:blocoId/CriarSala/", salaController.post)
 
 //Computadores
 router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.updateComputer)

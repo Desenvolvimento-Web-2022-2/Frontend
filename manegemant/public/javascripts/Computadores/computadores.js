@@ -4,7 +4,7 @@ window.onload = function(){
     
     changeMode()
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
-    pathSplit = getPath()
+    let pathSplit = getPath()
 
     var AtualizarSala = document.createElement("custom-button")
     AtualizarSala.setAttribute("redirect", `Bloco/${pathSplit[2]}/AtualizarSala/${pathSplit[4]}`)
@@ -23,10 +23,15 @@ window.onload = function(){
     ReservarSala.setAttribute("labelName","Reservar Sala")
     ReservarSala.classList.add("save-button")
     ReservarSala.classList.add("color-green")
-   
+    var CriarComp = document.createElement("custom-button")
+    CriarComp.setAttribute("labelName","Adicionar Computador")
+    CriarComp.classList.add("save-button")
+    CriarComp.classList.add("color-white")
+
     sidebar.appendChild(AtualizarSala)
     sidebar.appendChild(RemoverSala)
     sidebar.appendChild(ReservarSala)
+    sidebar.appendChild(CriarComp)
     setFontStorage()
 }
 function getPath(){

@@ -31,6 +31,7 @@ router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",Comput
 //Login
 router.get("/Login",loginController.getLoginPage)
 router.post("/authenticate",loginController.authenticate)
+router.post("/validateToken",loginController.validateToken)
 
 //Esqueci a senha
 router.get("/RecSenha",loginController.getNewPassPage)

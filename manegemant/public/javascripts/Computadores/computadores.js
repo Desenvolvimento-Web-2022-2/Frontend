@@ -1,4 +1,25 @@
+let permissions
+
+onDOMContentLoaded = (event) => 
+
+{
+    if (document.readyState === 'complete')
+    {
+        let token = sessionStorage.getItem("token")
+        if(!token)
+            window.location.href = "/login"
+        else{
+            permissions = validateToken(token)
+            if(!permissions){
+                sessionStorage.removeItem("token")
+                window.location.href = "/login"
+            }
+        }
+    }
+};
+
 window.onload = function(){
+
     let buttons = document.querySelectorAll(`.buttonDiv`)
     buttons.forEach(content=> content.style.display = 'none')
     
@@ -6,26 +27,29 @@ window.onload = function(){
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
     pathSplit = getPath()
 
-    var AtualizarSala = document.createElement("custom-button")
-    AtualizarSala.setAttribute("redirect", `Bloco/${pathSplit[2]}/AtualizarSala/${pathSplit[4]}`)
-    AtualizarSala.setAttribute("labelName","Atualizar Sala")
-    AtualizarSala.classList.add("save-button")
-    AtualizarSala.classList.add("color-white")
-
-    var RemoverSala = document.createElement("custom-button")
-    RemoverSala.setAttribute("redirect","/")
-    RemoverSala.setAttribute("labelName","Remover Sala")
-    RemoverSala.classList.add("save-button")
-    RemoverSala.classList.add("color-red")
+    if(permissions == "Administrador"){
+        var AtualizarSala = document.createElement("custom-button")
+        AtualizarSala.setAttribute("redirect", `Bloco/${pathSplit[2]}/AtualizarSala/${pathSplit[4]}`)
+        AtualizarSala.setAttribute("labelName","Atualizar Sala")
+        AtualizarSala.classList.add("save-button")
+        AtualizarSala.classList.add("color-white")
+    
+        var RemoverSala = document.createElement("custom-button")
+        RemoverSala.setAttribute("redirect","/")
+        RemoverSala.setAttribute("labelName","Remover Sala")
+        RemoverSala.classList.add("save-button")
+        RemoverSala.classList.add("color-red")
+       
+        sidebar.appendChild(AtualizarSala)
+        sidebar.appendChild(RemoverSala)
+    }
 
     var ReservarSala = document.createElement("custom-button")
     ReservarSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/calendar`)
-    ReservarSala.setAttribute("labelName","Reservar Sala")
+    let Reservalabel = permissions == "Administrador" ? "Reservar Sala" : "Visualizar reservas"
+    ReservarSala.setAttribute("labelName",Reservalabel)
     ReservarSala.classList.add("save-button")
     ReservarSala.classList.add("color-green")
-   
-    sidebar.appendChild(AtualizarSala)
-    sidebar.appendChild(RemoverSala)
     sidebar.appendChild(ReservarSala)
     
 }

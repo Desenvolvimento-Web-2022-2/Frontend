@@ -44,8 +44,8 @@ class LoginService{
             padding:Crypto.pad.Pkcs7,
             mode:Crypto.mode.CBC
           }).toString(Crypto.enc.Utf8)
-    
-        return profile.Profiles.find(profile=> profile.name = tokenDecrypted).name
+          let profileFinder = profile.Profiles.find(profile=> profile.name = tokenDecrypted)
+        return !!profileFinder ? profileFinder.name : "Invalid Token"
 
     }
 

@@ -48,11 +48,14 @@ async function validateToken(token) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(t)
   }
+  let resp = await fetch('/validateToken', req)
+  let json = await resp.json()
+  if(json == "Invalid Token"){
+    sessionStorage.removeItem("token")
+    window.location.href = "/login"
+  }
+  else
+    return json
+  
 
-  await fetch('/validateToken', req)
-    .then(response => response.json())
-    .then(data => {
-      if (data.status == "valid")
-        return data.permissions
-    })
 }

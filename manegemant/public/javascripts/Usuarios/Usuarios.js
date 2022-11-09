@@ -1,6 +1,4 @@
-let permissions
-
-window.onload = function () {
+window.onload = async function () {
     let buttons = document.querySelectorAll(`.buttonDiv`)
     buttons.forEach(content=> content.style.display = 'none')
     changeMode()
@@ -9,23 +7,19 @@ window.onload = function () {
     if(!token)
         window.location.href = "/login"
     else{
-        permissions = validateToken(token)
-        if(!permissions){
-            sessionStorage.removeItem("token")
-            window.location.href = "/login"
-        }
+        let permissions = await validateToken(token)
         if(permissions == "Aluno")
             window.location.href = ""
-        createButtonSalas()
+        createButtonSalas(permissions)
     }
 }
 
-function createButtonSalas(){
+function createButtonSalas(permissions){
     if(permissions == "Administrador"){
 
-        var sidebar = document.getElementsByClassName("sidebarName").item(0)
+        let sidebar = document.getElementsByClassName("sidebarName").item(0)
 
-        var addUser = document.createElement("custom-button")
+        let addUser = document.createElement("custom-button")
         addUser.setAttribute("redirect","NovoUsuario")
         addUser.setAttribute("labelName","+ Adicionar")
         addUser.classList.add("color-white")

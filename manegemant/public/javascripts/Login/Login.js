@@ -43,7 +43,9 @@ async function sendForm() {
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(form)
     }).then(response => response.json()).then(data => {
-        if (data.status == "valid")
+        if (data.status == "valid"){
             sessionStorage.setItem("token", data.token)
+            window.location.href = "/"
+        }
     })
 }

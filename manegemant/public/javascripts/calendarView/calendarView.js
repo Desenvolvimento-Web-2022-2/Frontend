@@ -57,10 +57,16 @@ function getMaxDays(){
 }
 let maxDays = getMaxDays()
 
-window.onload =function(){
+window.onload = async function(){
 	changeMode()
-    viewType = "ano"
-    renderViewByType(viewType)
+    let token = sessionStorage.getItem("token")
+    if(!token)
+        window.location.href = "/login"
+    else{
+        let permissions = await validateToken(token)
+        viewType = "ano"
+        renderViewByType(viewType)
+    }
 }
 
 function changeType(type){

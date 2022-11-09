@@ -1,20 +1,14 @@
-let permissions
-
-window.onload = function () {
+window.onload = async function () {
     let token = sessionStorage.getItem("token")
     if(!token)
         window.location.href = "/login"
     else{
-        permissions = validateToken(token)
-        if(!permissions){
-            sessionStorage.removeItem("token")
-            window.location.href = "/login"
-        }
-        createButtonSalas()
+        let permissions = await validateToken(token)
+        createButtonSalas(permissions)
     }
     
 }
-function createButtonSalas(){
+function createButtonSalas(permissions){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)
 
     pathSplit = getPath()

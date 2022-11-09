@@ -1,27 +1,21 @@
-onDOMContentLoaded = (event) => 
-
-{
-    if (document.readyState === 'complete')
-    {
-        let token = sessionStorage.getItem("token")
-        if(!token)
-            window.location.href = "/login"
-        else{
-            permissions = validateToken(token)
-            if(!permissions){
-                sessionStorage.removeItem("token")
-                window.location.href = "/login"
-            }
-            if(permissions != "Administrador")
-                window.location.href = ""
-        }
-    }
-};
-
-let permissions
-window.onload = function(){
+window.onload = async function(){
     changeMode()
+    let token = sessionStorage.getItem("token")
+    if(!token)
+        window.location.href = "/login"
+    else{
+        let permissions = await validateToken(token)
+        if(permissions != "Administrador"){
+            createButtons(permissions)
+        }
+        else
+            window.location.href = "/"
+    }
 
+
+
+}
+function createButtons(permissions){
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
 
     var SalvarAlteracaoDept = document.createElement("custom-button")
@@ -31,5 +25,4 @@ window.onload = function(){
     SalvarAlteracaoDept.classList.add("color-white")
 
     sidebar.appendChild(SalvarAlteracaoDept)
-
 }

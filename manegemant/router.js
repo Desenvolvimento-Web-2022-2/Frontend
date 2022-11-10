@@ -12,6 +12,8 @@ const BuscaController = require("./Server/Controllers/busca")
 
 // Blocos
 router.get("/", blocoController.index)
+router.get("/CriarBloco", blocoController.createBloco)
+router.post("/CriarBloco", blocoController.post)
 router.get("/Bloco/:blocoId", blocoController.bloco)
 router.get("/AtualizarBloco/:blocoId", blocoController.updateBloco)
 router.post("/AtualizarBloco/:blocoId", blocoController.updateBloco)

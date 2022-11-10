@@ -1,8 +1,8 @@
 window.onload = function(){
     changeMode()
     setFontStorage()
+    
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
-
     var SalvarAlteracaoDept = document.createElement("custom-button")
     SalvarAlteracaoDept.toggleAttribute("callFunction")
     SalvarAlteracaoDept.setAttribute("redirect","/")
@@ -41,6 +41,9 @@ async function sendFormAttSala(){
                 address = `Bloco/${pathSplit[2]}/CriarSala`
             if(pathSplit.includes('AtualizarSala')) 
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AtualizarSala`
+            if(pathSplit.includes('CriarBloco'))
+                address = 'CriarBloco'
+            console.log(address)
             await fetch(`/${address}`,{
                 method: 'POST',
                 mode: 'cors',

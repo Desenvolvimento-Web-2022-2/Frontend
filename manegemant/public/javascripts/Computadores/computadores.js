@@ -11,6 +11,8 @@ window.onload = async function(){
         buttons.forEach(content=> content.style.display = 'none')
     }
     changeMode()
+    setFontStorage()
+
 }
 
 function createButtons(){
@@ -29,18 +31,26 @@ function createButtons(){
         RemoverSala.setAttribute("labelName","Remover Sala")
         RemoverSala.classList.add("save-button")
         RemoverSala.classList.add("color-red")
+
+        let ReservarSala = document.createElement("custom-button")
+        ReservarSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/calendar`)
+        let Reservalabel = permissions == "Administrador" ? "Reservar Sala" : "Visualizar reservas"
+        ReservarSala.setAttribute("labelName",Reservalabel)
+        ReservarSala.classList.add("save-button")
+        ReservarSala.classList.add("color-green")
+
+        let CriarComp = document.createElement("custom-button")
+        CriarComp.setAttribute("labelName","Adicionar Computador")
+        RemoverSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AdicionarComputador`)
+        CriarComp.classList.add("save-button")
+        CriarComp.classList.add("color-white")
        
         sidebar.appendChild(AtualizarSala)
         sidebar.appendChild(RemoverSala)
-    }
+        sidebar.appendChild(ReservarSala)
+        sidebar.appendChild(CriarComp)
 
-    let ReservarSala = document.createElement("custom-button")
-    ReservarSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/calendar`)
-    let Reservalabel = permissions == "Administrador" ? "Reservar Sala" : "Visualizar reservas"
-    ReservarSala.setAttribute("labelName",Reservalabel)
-    ReservarSala.classList.add("save-button")
-    ReservarSala.classList.add("color-green")
-    sidebar.appendChild(ReservarSala)
+    }
 }
 function getPath(){
     let path = window.location.pathname

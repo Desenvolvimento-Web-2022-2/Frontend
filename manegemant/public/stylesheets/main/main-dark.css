@@ -23,8 +23,18 @@ input:focus{
   cursor: pointer;
   position: fixed;
   right: 0;
+  /* top: 30%; */
+}
+#but1{
   top: 30%;
 }
+#but2{
+  top: 40%;
+}
+#but3{
+  top: 50%;
+}
+
 body{
     background-color: #1f0a56!important;
     margin: 0;

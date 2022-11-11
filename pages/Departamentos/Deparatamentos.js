@@ -25,6 +25,7 @@ var cardProp = {
 
 window.onload = function () {
     changeMode()
+    setFontStorage()
     cardsContainer = document.getElementById("cards-container")
     
     for(var i = 0; i<cardProps.length; i++){

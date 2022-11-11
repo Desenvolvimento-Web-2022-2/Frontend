@@ -12,6 +12,8 @@ window.onload = async function () {
             window.location.href = ""
         createButtonSalas(permissions)
     }
+    setFontStorage()
+
 }
 
 function createButtonSalas(permissions){

@@ -10,6 +10,8 @@ window.onload = async function () {
         if (permissions != "Administrador")
             window.location.href = "/"
     }
+    setFontStorage()
+
 }
 const profile = {
     "Aluno": "3",

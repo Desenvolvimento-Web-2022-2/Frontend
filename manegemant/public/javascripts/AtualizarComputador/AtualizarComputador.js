@@ -11,16 +11,19 @@ window.onload = async function(){
         else
             window.location.href = "/"
     }
+    setFontStorage()
 
 }
 function createButtons(permissions){
-    var sidebar = document.getElementsByClassName("sidebarName").item(0)
+    if(permissions == "Administrador"){
+        var sidebar = document.getElementsByClassName("sidebarName").item(0)
 
-    var SalvarAlteracaoComp = document.createElement("custom-button")
-    SalvarAlteracaoComp.setAttribute("redirect","/")
-    SalvarAlteracaoComp.setAttribute("labelName","Salvar")
-    SalvarAlteracaoComp.classList.add("save-button")
-    SalvarAlteracaoComp.classList.add("color-white")
-
-    sidebar.appendChild(SalvarAlteracaoComp)
+        var SalvarAlteracaoComp = document.createElement("custom-button")
+        SalvarAlteracaoComp.setAttribute("redirect","/")
+        SalvarAlteracaoComp.setAttribute("labelName","Salvar")
+        SalvarAlteracaoComp.classList.add("save-button")
+        SalvarAlteracaoComp.classList.add("color-white")
+    
+        sidebar.appendChild(SalvarAlteracaoComp)
+    }
 }

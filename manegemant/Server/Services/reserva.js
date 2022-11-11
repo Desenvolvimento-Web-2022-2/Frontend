@@ -33,7 +33,9 @@ class ReservaService{
                                 objReturn[key] = aux
                             }
                             else if(key == "reservName"){
-                                objReturn[key] = users.Users.find(user=> user.userId == reserva.userId).usersInfosName
+                                let userFind = users.Users.find(user=> user.userId == reserva.userId)
+                                if(!!userFind)
+                                    objReturn[key] = userFind.usersInfosName
                             }
                             else{
                                 objReturn[key] = reserva[key]

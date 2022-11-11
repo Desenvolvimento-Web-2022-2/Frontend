@@ -7,7 +7,8 @@ class LoginService{
     authenticate(req){
         let token = {
             token:"",
-            status:"invalid"
+            status:"invalid",
+            userId:""
         }
 
         let userReq = req.body
@@ -31,6 +32,7 @@ class LoginService{
                     mode:Crypto.mode.CBC
                   }).toString()
                 token.status = "valid"
+                token.userId = user.userId
                 return token
             }
         }

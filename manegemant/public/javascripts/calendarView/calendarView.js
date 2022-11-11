@@ -1,4 +1,5 @@
 //VIEWTYPE : 'mes' | 'dia' | 'ano'
+let permissions
 let viewType = "mes"
 let date = new Date()
 let currentDay = date.getDate()
@@ -63,7 +64,7 @@ window.onload = async function(){
     if(!token)
         window.location.href = "/login"
     else{
-        let permissions = await validateToken(token)
+        permissions = await validateToken(token)
         viewType = "ano"
         renderViewByType(viewType)
     }
@@ -255,7 +256,7 @@ function generateCalendar(data){
     let hours = formatHour()
     for(let i = 0; i < 7; i++){
         let tr = document.createElement("tr")
-        validateDate() ?
+        validateDate() && (permissions == "Administrador" || permissions == "Professor" ) ?
         tr.setAttribute("onclick",`selectHorario(this)`) :
         tr.setAttribute("onclick","")
         tr.setAttribute("id",`line`)
@@ -359,7 +360,7 @@ function sendData() {
 						d = new Date(auxYear, auxMounth, auxDay)
 						let form = {
 							dia: `${auxYear}-${auxMounth}-${auxDay}`,
-							userId: "1",
+							userId: sessionStorage.getItem("userId"),
 							reservId: "",
 							salaId: window.location.pathname.split("/")[4],
 							horario: {
@@ -377,7 +378,7 @@ function sendData() {
 				else {
 					let form = {
 						dia: `${selectYear}-${selectMounth - 1}-${selectDay}`,
-						userId: "1",
+						userId: sessionStorage.getItem("userId"),
 						reservId: "",
 						salaId: window.location.pathname.split("/")[4],
 						horario: {
@@ -388,14 +389,12 @@ function sendData() {
 						}
 					}
 					formArray.push(form)
-				}
-				console.log(formArray)
-				
+				}				
 			}
 			
 		})
 	}
-	if(!!lines){
+	if(formArray.length > 0){
 		let b = (async () => {
 			await fetch("/reservarSala", {
 				method: 'POST',

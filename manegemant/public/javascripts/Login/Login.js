@@ -45,6 +45,7 @@ async function sendForm() {
     }).then(response => response.json()).then(data => {
         if (data.status == "valid"){
             sessionStorage.setItem("token", data.token)
+            sessionStorage.setItem("userId",data.userId)
             window.location.href = "/"
         }
     })

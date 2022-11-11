@@ -52,6 +52,8 @@ async function validateToken(token) {
   let json = await resp.json()
   if(json == "Invalid Token"){
     sessionStorage.removeItem("token")
+    sessionStorage.removeItem("userId")
+
     window.location.href = "/login"
   }
   else

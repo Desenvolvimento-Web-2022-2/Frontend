@@ -98,6 +98,50 @@
             "SO": "windows 11",
             "id": "9",
             "salaId": "1"
+        },
+        {
+            "status": "funcionando",
+            "model": "Dell",
+            "patrimonyTag": "132412",
+            "CPU": "Core i5",
+            "GPU": "GTX1080",
+            "memory": "16gb",
+            "SO": "Linux",
+            "id": "10",
+            "salaId": "5"
+        },
+        {
+            "status": "funcionando",
+            "model": "Dell",
+            "patrimonyTag": "13421351",
+            "CPU": "Corel Nova Geração",
+            "GPU": "RTX 1080",
+            "memory": "32Gb",
+            "SO": "Linux",
+            "id": "11",
+            "salaId": "1"
+        },
+        {
+            "status": "funcionando",
+            "model": "Lenovo",
+            "patrimonyTag": "41234",
+            "CPU": "Dual Core Ultra Super Mega Sla",
+            "GPU": "RTX 1080",
+            "memory": "Muita",
+            "SO": "Jubuntu",
+            "id": "12",
+            "salaId": "1"
+        },
+        {
+            "status": "funcionando",
+            "model": "MacBook Pro",
+            "patrimonyTag": "21341",
+            "CPU": "Dual Core Ultra Super Mega Sla Premium",
+            "GPU": "RTX 1080",
+            "memory": "12Gb",
+            "SO": "MAC OS",
+            "id": "13",
+            "salaId": "1"
         }
     ]
 }

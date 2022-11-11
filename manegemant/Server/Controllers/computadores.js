@@ -9,5 +9,13 @@ class ComputadoresController {
         else
             res.send("URL inválida")
     }
+    async createComputer(req, res) {
+        let json = computadoresService.returnComputer(req.params.computerId)
+        res.render("AtualizarComputador", { title: "Criar computador", baseUrl: req.baseUrl, JSON: json,sidebarName: "Criar computador"});
+    }
+    async post(req,res){
+        let newComputador = computadoresService.post(req)
+        res.send(newComputador)
+    }
 }
 module.exports = new ComputadoresController()

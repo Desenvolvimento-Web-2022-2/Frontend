@@ -1,5 +1,7 @@
 const computers = require("../../public/Objects/Computadores.json")
 const SalasService = require("./salas")
+var fs = require('fs');
+var path = require('path');
 class ComputadoresService{
     returnComputer(computerId){
         let computer = computers.Computadores.find(computer=> computer.id == computerId)
@@ -23,5 +25,27 @@ class ComputadoresService{
         computer.salaId == salaId
         return computer.salaId == salaId && salaValid
     }
+
+    post(req){
+        let newId = !!computers.Computadores[computers.Computadores.length-1] ? parseInt(computers.Computadores[computers.Computadores.length-1].id)+1 : 1
+        let newComputador = {
+            status: req.body.status,
+            model: req.body.model,
+            patrimonyTag: req.body.patrimonyTag,
+            CPU: req.body.CPU,
+            GPU: req.body.GPU,
+            memory: req.body.memory,
+            SO: req.body.SO,
+            id:newId.toString(),
+            salaId: req.body.salaId
+        }
+        computers.Computadores.push(newComputador)
+        fs.writeFileSync(path.join(__dirname, '../../public/Objects/Computadores.json'),JSON.stringify(computers),function(err) {
+            if (err) throw err;
+            console.log('Computador Cadastrado');
+            return newComputador
+        })
+    }
+
 }
 module.exports = new ComputadoresService()

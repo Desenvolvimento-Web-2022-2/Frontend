@@ -27,5 +27,9 @@ class SalaController{
     let newSala = salasService.post(req)
     res.send(newSala)
   }
+  async updateSalaPost(req,res){
+    let attSala = salasService.postAtt(req)
+    res.send(attSala)
+  }
 }
 module.exports = new SalaController()

@@ -46,5 +46,12 @@ class SalasService{
             return newSala
         })
     }
+    postAtt(req){
+        let salaEdit
+        for(let i = 0; i<salas.Salas.length; i++){
+            if(salas.Salas.id == req.body.id) salaEdit = i
+        }
+        
+    }
 }
 module.exports = new SalasService()

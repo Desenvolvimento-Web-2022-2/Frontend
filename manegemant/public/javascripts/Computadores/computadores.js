@@ -24,6 +24,7 @@ window.onload = function(){
     ReservarSala.classList.add("save-button")
     ReservarSala.classList.add("color-green")
     var CriarComp = document.createElement("custom-button")
+    CriarComp.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/CriarComputador`)
     CriarComp.setAttribute("labelName","Adicionar Computador")
     CriarComp.classList.add("save-button")
     CriarComp.classList.add("color-white")

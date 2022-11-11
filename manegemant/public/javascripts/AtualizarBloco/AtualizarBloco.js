@@ -5,7 +5,7 @@ window.onload = function(){
     var sidebar = document.getElementsByClassName("sidebarName").item(0)
     var SalvarAlteracaoDept = document.createElement("custom-button")
     SalvarAlteracaoDept.toggleAttribute("callFunction")
-    SalvarAlteracaoDept.setAttribute("redirect","/")
+    SalvarAlteracaoDept.setAttribute("redirect","localhost:3000/")
     SalvarAlteracaoDept.setAttribute("labelName","Salvar")
     SalvarAlteracaoDept.classList.add("save-button")
     SalvarAlteracaoDept.classList.add("color-white")

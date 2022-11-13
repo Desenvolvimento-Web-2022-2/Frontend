@@ -5,7 +5,7 @@ window.onload = async function(){
         window.location.href = "/login"
     else{
         let permissions = await validateToken(token)
-        if(permissions != "Administrador"){
+        if(permissions == "Administrador"){
             createButtons(permissions)
         }
         else
@@ -19,7 +19,7 @@ function createButtons(permissions){
         var sidebar = document.getElementsByClassName("sidebarName").item(0)
         var SalvarAlteracaoDept = document.createElement("custom-button")
         SalvarAlteracaoDept.toggleAttribute("callFunction")
-        SalvarAlteracaoDept.setAttribute("redirect","/")
+        SalvarAlteracaoDept.setAttribute("redirect","")
         SalvarAlteracaoDept.setAttribute("labelName","Salvar")
         SalvarAlteracaoDept.classList.add("save-button")
         SalvarAlteracaoDept.classList.add("color-white")
@@ -70,7 +70,7 @@ async function sendFormAttSala(){
                 },
                 referrerPolicy: 'no-referrer',
                 body: JSON.stringify(form)
-            }).then(response=> console.log(response))
+            }).then(response=> window.location.href=document.referrer)
 
         }
 

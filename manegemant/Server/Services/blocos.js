@@ -11,7 +11,8 @@ class BlocoService{
         }
         else{
             let bloco = blocos.Blocos.find(bloco=> bloco.id == id)
-            return !!bloco ? bloco : {name:"",subname:"",numberOrRole:"",id:""}
+            bloco = !!bloco ? bloco : {name:"",subname:"",numberOrRole:"",id:""}
+            return bloco
         }
     }
     returnSalasJson(id){

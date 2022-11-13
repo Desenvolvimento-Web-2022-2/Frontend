@@ -27,11 +27,14 @@ router.post("/NovoUsuario",usersController.post)
 //Salas
 router.get("/Bloco/:blocoId/Sala/:salaId/Computadores",salaController.getSala)
 router.get("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSala)
+router.post("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSalaPost)
 router.get("/Bloco/:blocoId/CriarSala/", salaController.createSala)
 router.post("/Bloco/:blocoId/CriarSala/", salaController.post)
 
 //Computadores
 router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.updateComputer)
+router.get("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.createComputer)
+router.post("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.post)
 
 //Login
 router.get("/Login",loginController.getLoginPage)

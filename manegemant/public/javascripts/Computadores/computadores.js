@@ -41,7 +41,7 @@ function createButtons(){
 
         let CriarComp = document.createElement("custom-button")
         CriarComp.setAttribute("labelName","Adicionar Computador")
-        RemoverSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AdicionarComputador`)
+        CriarComp.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/CriarComputador`)
         CriarComp.classList.add("save-button")
         CriarComp.classList.add("color-white")
        

@@ -6,6 +6,7 @@ window.onload = async function () {
         let permissions = await validateToken(token)
         createButtonSalas(permissions)
     }
+    changeMode()
     setFontStorage()
 
     

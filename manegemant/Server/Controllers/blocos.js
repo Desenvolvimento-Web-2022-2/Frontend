@@ -11,11 +11,11 @@ class BlocoController{
   }
   async updateBloco(req, res){
     let json = blocosService.returnBlocosJson(req.params.blocoId)
-    res.render("AtualizarBloco",{title:"Atualizar Bloco",baseUrl: req.baseUrl,JSON:json,sidebarName:"Atualizar Bloco",render:"bloco"})
+    res.render("AtualizarBloco",{title:"Atualizar Bloco",baseUrl: req.baseUrl,JSON:json,sidebarName:"Atualizar Bloco",render:"Atualizar" + json.name})
   }
   async createBloco(req, res){
-    let json = blocosService.returnBlocosJson()
-    res.render("AtualizarBloco",{title:"Criar Bloco",baseUrl: req.baseUrl,JSON:json,sidebarName:"Criar Bloco",render:"bloco"});
+    let json = {name:"",subname:"",numberOrRole:"",id:""}
+    res.render("AtualizarBloco",{title:"Criar Bloco",baseUrl: req.baseUrl,JSON:json,sidebarName:"Criar Bloco",render:"Criar Bloco"});
   }
   async post(req,res){
     let newBloco = blocosService.post(req)

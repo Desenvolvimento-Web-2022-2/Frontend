@@ -21,6 +21,11 @@ function changeMode() {
     }
   }
 }
+  function logout(){
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("userId")
+    window.location.href = "/"
+  }
 
 function lightDarkMode() {
   if (!localStorage.getItem("mode")) {

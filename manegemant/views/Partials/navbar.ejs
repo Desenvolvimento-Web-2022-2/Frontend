@@ -8,14 +8,20 @@
                 Sistema
             </div>
         </div>
-        <button onclick="lightDarkMode()">
-            <img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg" alt="lightDarkMode">
-        </button>
-        <button onclick="changeFontSize(1)">
-            <img src="<%=`${baseUrl}/`%>images/icons/plus.svg" alt="Font+" class="buttonBW">
-        </button>
-        <button onclick="changeFontSize(-1)">
-            <img src="<%=`${baseUrl}/`%>images/icons/minus.svg" alt="Font-" class="buttonBW">
-        </button>
+        <div class="navbar-buttons-holder">
+            <button onclick="lightDarkMode()">
+                <img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg" alt="lightDarkMode">
+            </button>
+            <button onclick="changeFontSize(1)">
+                <img src="<%=`${baseUrl}/`%>images/icons/plus.svg" alt="Font+" class="buttonBW">
+            </button>
+            <button onclick="changeFontSize(-1)">
+                <img src="<%=`${baseUrl}/`%>images/icons/minus.svg" alt="Font-" class="buttonBW">
+            </button>
+            <button onclick="logout()">
+                <img src="<%=`${baseUrl}/`%>images/icons/logout.svg" alt="logout" class="buttonBW">
+            </button>
+        </div>
+        
     </div>
 </nav>

@@ -8,57 +8,63 @@ function changeMode() {
     for (let i = 0; i < links.length; i++) {
       let handleSplit = links[i].href.split(".css")
       if (localStorage.getItem("mode") == "light") {
-        links[i].href = handleSplit[0].split("-dark")[0] +".css"
-        modeImg.src = path+"/images/icons/darkMode.svg"
+        links[i].href = handleSplit[0].split("-dark")[0] + ".css"
+        modeImg.src = path + "/images/icons/darkMode.svg"
       }
       else {
         if (links[i].href.endsWith(".css")) {
           links[i].href = handleSplit[0] + "-dark.css"
-          modeImg.src = path+"/images/icons/lightMode.svg"
+          modeImg.src = path + "/images/icons/lightMode.svg"
 
         }
       }
     }
   }
 }
-// class Navbar extends HTMLElement {
-//     constructor() {
-//         super();
-//       }
-//     connectedCallback() {
-//       const imgPrefix = "<%=`${baseUrl}/`%>images/"
-//         this.innerHTML = ` 
-//         <nav>
-//             <div class="nav">
-//                 <div>
-//                 </div>
-//                 <div class="iconName">
-//                     <img src="${imgPrefix}icons/logo.svg" alt="logo">
-//                     <div class="nav-text">
-//                         Sistema
-//                     </div>
-//                 </div>
-//                 <button onclick="lightDarkMode()">
-//                     <img id="modeImg" src="${imgPrefix}icons/darkMode.svg" alt="lightDarkMode">
-//                 </button>
-//             </div>
-//         </nav>
-//       `
-//     }
-// }
-// customElements.define('nav-bar', Navbar);
+  function logout(){
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("userId")
+    window.location.href = "/"
+  }
 
-function lightDarkMode(){
-  if(!localStorage.getItem("mode")){
-    localStorage.setItem("mode","dark")
+function lightDarkMode() {
+  if (!localStorage.getItem("mode")) {
+    localStorage.setItem("mode", "dark")
   }
-  else if(localStorage.getItem("mode") == "light"){
-    localStorage.setItem("mode","dark")
+  else if (localStorage.getItem("mode") == "light") {
+    localStorage.setItem("mode", "dark")
   }
-  else{
-    localStorage.setItem("mode","light")
+  else {
+    localStorage.setItem("mode", "light")
   }
   changeMode()
+}
+
+async function validateToken(token) {
+  let t = {
+    token: token
+  }
+  let req = {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(t)
+  }
+  let resp = await fetch('/validateToken', req)
+  let json = await resp.json()
+  if(json == "Invalid Token"){
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("userId")
+
+    window.location.href = "/login"
+  }
+  else
+    return json
 }
 
 function setFontStorage(){
@@ -69,9 +75,6 @@ function setFontStorage(){
     }
   }
 }
-
-
-
 
 function setFontSize(text, index){
   for(let i = 0; i<text.length; i++){

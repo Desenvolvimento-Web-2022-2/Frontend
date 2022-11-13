@@ -1,18 +1,34 @@
-window.onload = function(){
+window.onload = async function(){
     changeMode()
+    let token = sessionStorage.getItem("token")
+    if(!token)
+        window.location.href = "/login"
+    else{
+        let permissions = await validateToken(token)
+        if(permissions == "Administrador"){
+            createButtons(permissions)
+        }
+        else
+            window.location.href = "/"
+    }
     setFontStorage()
-    
-    var sidebar = document.getElementsByClassName("sidebarName").item(0)
-    var SalvarAlteracaoDept = document.createElement("custom-button")
-    SalvarAlteracaoDept.toggleAttribute("callFunction")
-    SalvarAlteracaoDept.setAttribute("redirect","localhost:3000/")
-    SalvarAlteracaoDept.setAttribute("labelName","Salvar")
-    SalvarAlteracaoDept.classList.add("save-button")
-    SalvarAlteracaoDept.classList.add("color-white")
-    SalvarAlteracaoDept.setAttribute("onclick","sendFormAttSala()")
-    sidebar.appendChild(SalvarAlteracaoDept)
+}
+
+function createButtons(permissions){
+    if(permissions == "Administrador"){
+        var sidebar = document.getElementsByClassName("sidebarName").item(0)
+        var SalvarAlteracaoDept = document.createElement("custom-button")
+        SalvarAlteracaoDept.toggleAttribute("callFunction")
+        SalvarAlteracaoDept.setAttribute("redirect","")
+        SalvarAlteracaoDept.setAttribute("labelName","Salvar")
+        SalvarAlteracaoDept.classList.add("save-button")
+        SalvarAlteracaoDept.classList.add("color-white")
+        SalvarAlteracaoDept.setAttribute("onclick","sendFormAttSala()")
+        sidebar.appendChild(SalvarAlteracaoDept)
+    }
 
 }
+
 function getPath(){
     let path = window.location.pathname
     return path.split("/")
@@ -54,7 +70,7 @@ async function sendFormAttSala(){
                 },
                 referrerPolicy: 'no-referrer',
                 body: JSON.stringify(form)
-            }).then(response=> console.log(response))
+            }).then(response=> window.location.href=document.referrer)
 
         }
 

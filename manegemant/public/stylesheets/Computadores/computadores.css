@@ -1,6 +1,6 @@
 .cards-container-computer{
     display: grid;
-    margin-top: 12px;
+    margin: 12px 0;
     grid-template-columns:100%;
     grid-gap: 16px;
 }

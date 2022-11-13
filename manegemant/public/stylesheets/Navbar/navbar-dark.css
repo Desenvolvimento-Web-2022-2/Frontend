@@ -34,3 +34,8 @@ nav{
     font-size: 60px;
     font-family: Cabin
 }
+.navbar-buttons-holder{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 12px;
+}

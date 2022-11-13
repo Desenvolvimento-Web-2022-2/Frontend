@@ -82,4 +82,5 @@
     grid-gap: 16px;
     grid-template-columns: 25% 25% 25% 25%;
     margin: 0.5rem 0 2rem 0;
+    min-width: 65%;
 }

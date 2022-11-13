@@ -1,16 +1,35 @@
-window.onload = function(){
+window.onload = async function(){
     changeMode()
+    let token = sessionStorage.getItem("token")
+    if(!token)
+        window.location.href = "/login"
+    else{
+        let permissions = await validateToken(token)
+        if(permissions == "Administrador"){
+            createButtons(permissions)
+        }
+        else
+            window.location.href = "/"
+    }
     setFontStorage()
-    var sidebar = document.getElementsByClassName("sidebarName").item(0)
-    let pathSplit = getPath()
-    console.log(pathSplit)
-    var SalvarAlteracaoComp = document.createElement("custom-button")
-    SalvarAlteracaoComp.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/computadores`)
-    SalvarAlteracaoComp.setAttribute("labelName","Salvar")
-    SalvarAlteracaoComp.classList.add("save-button")
-    SalvarAlteracaoComp.classList.add("color-white")
-    sidebar.appendChild(SalvarAlteracaoComp)
-    if(pathSplit.includes('CriarComputador')) SalvarAlteracaoComp.setAttribute("onclick","sendFormAttComputador()")
+
+}
+function createButtons(permissions){
+    if(permissions == "Administrador"){
+        var sidebar = document.getElementsByClassName("sidebarName").item(0)
+        let pathSplit = getPath()
+
+        var SalvarAlteracaoComp = document.createElement("custom-button")
+        SalvarAlteracaoComp.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/computadores`)
+        SalvarAlteracaoComp.setAttribute("labelName","Salvar")
+        SalvarAlteracaoComp.classList.add("save-button")
+        SalvarAlteracaoComp.classList.add("color-white")
+        sidebar.appendChild(SalvarAlteracaoComp)
+
+        if(pathSplit.includes('CriarComputador')) 
+            SalvarAlteracaoComp.setAttribute("onclick","sendFormAttComputador()")
+    }
+    
 }
 function getPath(){
     let path = window.location.pathname
@@ -19,14 +38,15 @@ function getPath(){
 
 async function sendFormAttComputador(){
     let pathSplit = getPath()
-    console.log(pathSplit)
     let inputs = document.getElementsByTagName("input")
+
     let modelo = inputs[0].value
     let placa = inputs[1].value
     let placaDeVideo = inputs[2].value
     let processador = inputs[3].value
     let memoria = inputs[4].value
     let SisO = inputs[5].value
+
     if( !!modelo &&
         !!placa &&
         !!placaDeVideo &&
@@ -46,9 +66,9 @@ async function sendFormAttComputador(){
             let address
             if(pathSplit.includes('AtualizarComputador')) 
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AtualizarComputador/${pathSplit[6]}`
-            if(pathSplit.includes('CriarComputador')) 
+            else if(pathSplit.includes('CriarComputador')) 
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/CriarComputador`
-            console.log(address)
+
             await fetch(`/${address}`,{
                 method: 'POST',
                 mode: 'cors',
@@ -59,6 +79,6 @@ async function sendFormAttComputador(){
                 },
                 referrerPolicy: 'no-referrer',
                 body: JSON.stringify(form)
-            }).then(response=> console.log(response))
+            }).then(response=> window.location.href = document.referrer)
         }
 }

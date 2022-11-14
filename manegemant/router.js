@@ -12,11 +12,11 @@ const BuscaController = require("./Server/Controllers/busca")
 
 // Blocos
 router.get("/", blocoController.index)
-router.get("/CriarBloco", blocoController.createBloco)
-router.post("/CriarBloco", blocoController.post)
-router.get("/Bloco/:blocoId", blocoController.bloco)
-router.get("/AtualizarBloco/:blocoId", blocoController.updateBloco)
-router.post("/AtualizarBloco/:blocoId", blocoController.updateBloco)
+router.get("/CriarBloco/", blocoController.createBloco)
+router.post("/CriarBloco/", blocoController.post)
+router.get("/Bloco/:blocoId/", blocoController.bloco)
+router.get("/AtualizarBloco/:blocoId/", blocoController.updateBloco)
+router.post("/AtualizarBloco/:blocoId/", blocoController.postUP)
 
 //Users
 router.get("/Usuarios",usersController.index)
@@ -33,6 +33,7 @@ router.post("/Bloco/:blocoId/CriarSala/", salaController.post)
 
 //Computadores
 router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.updateComputer)
+router.post("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.postUP)
 router.get("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.createComputer)
 router.post("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.post)
 

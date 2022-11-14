@@ -17,5 +17,9 @@ class ComputadoresController {
         let newComputador = computadoresService.post(req)
         res.send(newComputador)
     }
+    async postUP(req,res){
+        let newComputador = computadoresService.postAtt(req)
+        res.send(newComputador)
+    }
 }
 module.exports = new ComputadoresController()

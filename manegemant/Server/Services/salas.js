@@ -47,11 +47,21 @@ class SalasService{
         })
     }
     postAtt(req){
-        let salaEdit
-        for(let i = 0; i<salas.Salas.length; i++){
-            if(salas.Salas.id == req.body.id) salaEdit = i
+        let attSala = {
+            name: req.body.name,
+            subname: req.body.subname,
+            numberOrRole: req.body.numberOrRole,
+            blocoId: req.body.blocoID,
+            id: req.body.salaID
         }
-        
+        console.log(salas.Salas[req.body.salaID - 1])
+        salas.Salas[req.body.salaID - 1] = attSala
+        console.log(salas.Salas[req.body.salaID - 1])
+        fs.writeFileSync(path.join(__dirname, '../../public/Objects/salas.json'),JSON.stringify(salas),function(err) {
+            if (err) throw err;
+            console.log('sala atualizada');
+            return attSala
+        })
     }
 }
 module.exports = new SalasService()

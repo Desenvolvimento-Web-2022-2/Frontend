@@ -46,6 +46,26 @@ class ComputadoresService{
             return newComputador
         })
     }
+    postAtt(req){
+        let attComputador = {
+            status: req.body.status,
+            model: req.body.model,
+            patrimonyTag: req.body.patrimonyTag,
+            CPU: req.body.CPU,
+            GPU: req.body.GPU,
+            memory: req.body.memory,
+            SO: req.body.SO,
+            id: req.body.id,
+            salaId: req.body.salaId
+        }
+        computers.Computadores[req.body.id - 1] = attComputador
+        fs.writeFileSync(path.join(__dirname, '../../public/Objects/Computadores.json'),JSON.stringify(computers),function(err) {
+            if (err) throw err;
+            console.log('Computador Cadastrado');
+            return attComputador
+        })
+    }
+
 
 }
 module.exports = new ComputadoresService()

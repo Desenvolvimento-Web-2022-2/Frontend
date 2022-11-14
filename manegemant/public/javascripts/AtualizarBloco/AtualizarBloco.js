@@ -50,15 +50,18 @@ async function sendFormAttSala(){
                 name: sigla,
                 subname: nome,
                 numberOrRole: descricao,
-                blocoID: pathSplit[2]
+                blocoID: pathSplit[2],
+                salaID: pathSplit[4]
             }
             let address
             if(pathSplit.includes('CriarSala')) 
                 address = `Bloco/${pathSplit[2]}/CriarSala`
             if(pathSplit.includes('AtualizarSala')) 
-                address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AtualizarSala`
+                address = `Bloco/${pathSplit[2]}/AtualizarSala/${pathSplit[4]}`
             if(pathSplit.includes('CriarBloco'))
                 address = 'CriarBloco'
+            if(pathSplit.includes('AtualizarBloco'))    
+                address = `AtualizarBloco/${pathSplit[2]}`
             console.log(address)
             await fetch(`/${address}`,{
                 method: 'POST',
@@ -70,8 +73,7 @@ async function sendFormAttSala(){
                 },
                 referrerPolicy: 'no-referrer',
                 body: JSON.stringify(form)
-            }).then(response=> window.location.href=document.referrer)
-
+            }).then(response=> window.location.href=document.referrer)            
         }
 
 }

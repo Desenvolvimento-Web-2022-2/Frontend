@@ -43,5 +43,21 @@ class BlocoService{
             return newBloco
         })
     }
+    postUp(req){
+        let upBloco = {
+            name: req.body.name,
+            subname: req.body.subname,
+            numberOrRole: req.body.numberOrRole,
+            id: req.body.blocoID
+        }
+        console.log(upBloco)
+        blocos.Blocos[req.body.blocoID - 1] = upBloco
+        console.log(blocos.Blocos[req.body.blocoID - 1])
+        fs.writeFileSync(path.join(__dirname, '../../public/Objects/Blocos.json'),JSON.stringify(blocos),function(err) {
+            if (err) throw err;
+            console.log('bloco atualizado');
+            return upBloco
+        })
+    }
 }
 module.exports = new BlocoService()

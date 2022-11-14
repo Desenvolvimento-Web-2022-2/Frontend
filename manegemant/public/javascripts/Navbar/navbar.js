@@ -69,53 +69,29 @@ async function validateToken(token) {
 
 function setFontStorage(){
   if(!!localStorage.getItem("fontSize")){
-    tamanho = parseInt(localStorage.getItem("fontSize"))
+    let tamanho = parseInt(localStorage.getItem("fontSize"))
+    console.log(tamanho)
     for(let i=0; i<tamanho; i++){
       changeFontSize(1)
     }
   }
 }
 
-function setFontSize(text, index){
-  for(let i = 0; i<text.length; i++){
-      let fonSize = window.getComputedStyle(text[i]).fontSize
-      fonSize = parseInt(fonSize)
-      text[i].style.fontSize = `${fonSize+2*index}px`
-  }    
-
-}
-
 function changeFontSize(index){
-  let paragraph = document.getElementsByTagName("p")
-  let a = document.getElementsByTagName("a")
-  let label = document.getElementsByTagName("label")
-  let div = document.getElementsByTagName("div")
-  // Coloca um indice a na função e checa se a letra já foi aumentada 5x
-  if(index == 1 && texSize < 6){
-      texSize += index
-      localStorage.setItem("fontSize", `${texSize}`)
-      setFontSize(paragraph, 1)
-      setFontSize(a, 1)
-      setFontSize(label, 1)
-      setFontSize(div, 1)
-      //salva em h as tags de titulo de h1 a h6
-      for(let i = 1; i<7; i++){
-          let h = document.getElementsByTagName(`h${i}`)
-          setFontSize(h, 1)
+  let all = ['p', 'label', 'a']
+  for(let i = 1; i<7; i++) all.push(`h${i}`)
+  console.log(all)
+  if((index == 1 && texSize < 6) || (texSize > 0 && index == -1)){
+    texSize += index
+    localStorage.setItem("fontSize", `${texSize}`)
+    for(let i = 0; i<all.length; i++){
+      let el = document.getElementsByTagName(all[i])
+      for(let j = 0; j<el.length; j++){
+        let fonSize = window.getComputedStyle(el[j]).fontSize
+        fonSize = parseInt(fonSize)
+        el[j].style.fontSize = `${fonSize+2*index}px`
       }
-  }
-  // Coloca um indice a na função e checa se a letra já foi diminuida 5x
-  if(index == -1 && texSize > 0){
-      texSize += index
-      localStorage.setItem("fontSize", `${texSize}`)
-      setFontSize(paragraph, -1)
-      setFontSize(a, -1)
-      setFontSize(label, -1)
-      setFontSize(div, -1)
-      for(let i = 1; i<7; i++){
-          let h = document.getElementsByTagName(`h${i}`)
-          setFontSize(h, -1)
-      }
+    }
   }
 }
 

@@ -21,5 +21,9 @@ class BlocoController{
     let newBloco = blocosService.post(req)
     res.send(newBloco)
   }
+  async postUP(req,res){
+    let upBloco = blocosService.postUp(req)
+    res.send(upBloco)
+  }
 }
 module.exports = new BlocoController()

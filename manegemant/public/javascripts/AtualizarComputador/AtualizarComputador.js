@@ -24,10 +24,8 @@ function createButtons(permissions){
         SalvarAlteracaoComp.setAttribute("labelName","Salvar")
         SalvarAlteracaoComp.classList.add("save-button")
         SalvarAlteracaoComp.classList.add("color-white")
-        sidebar.appendChild(SalvarAlteracaoComp)
-
-        if(pathSplit.includes('CriarComputador')) 
-            SalvarAlteracaoComp.setAttribute("onclick","sendFormAttComputador()")
+        sidebar.appendChild(SalvarAlteracaoComp) 
+        SalvarAlteracaoComp.setAttribute("onclick","sendFormAttComputador()")
     }
     
 }
@@ -61,6 +59,7 @@ async function sendFormAttComputador(){
                 GPU: placaDeVideo,
                 memory: memoria,
                 SO: SisO,
+                id: pathSplit[6],
                 salaId: pathSplit[4]
             }
             let address
@@ -68,7 +67,7 @@ async function sendFormAttComputador(){
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AtualizarComputador/${pathSplit[6]}`
             else if(pathSplit.includes('CriarComputador')) 
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/CriarComputador`
-
+            console.log(address)
             await fetch(`/${address}`,{
                 method: 'POST',
                 mode: 'cors',

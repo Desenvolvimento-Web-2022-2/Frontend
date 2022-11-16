@@ -68,7 +68,7 @@ async function sendForm() {
             },
             referrerPolicy: 'no-referrer',
             body: JSON.stringify(form)
-        }).then(response => console.log(response))
+        }).then(response => window.location.href = document.referrer)
 
     }
 }

@@ -54,9 +54,7 @@ class SalasService{
             blocoId: req.body.blocoID,
             id: req.body.salaID
         }
-        console.log(salas.Salas[req.body.salaID - 1])
         salas.Salas[req.body.salaID - 1] = attSala
-        console.log(salas.Salas[req.body.salaID - 1])
         fs.writeFileSync(path.join(__dirname, '../../public/Objects/salas.json'),JSON.stringify(salas),function(err) {
             if (err) throw err;
             console.log('sala atualizada');

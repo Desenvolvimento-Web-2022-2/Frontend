@@ -39,7 +39,6 @@ class ReservaService{
                             }
                             else{
                                 objReturn[key] = reserva[key]
-                                console.log(objReturn[key],reserva[key])
                             }
                         })
                         respArray.push(objReturn)
@@ -47,7 +46,6 @@ class ReservaService{
                 })
             }
         })
-        console.log(respArray)
 
         return respArray
     }

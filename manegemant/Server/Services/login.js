@@ -31,6 +31,7 @@ class LoginService{
                     padding:Crypto.pad.Pkcs7,
                     mode:Crypto.mode.CBC
                   }).toString()
+                token.name = JSON.stringify(user)
                 token.status = "valid"
                 token.userId = user.userId
                 return token
@@ -46,7 +47,7 @@ class LoginService{
             padding:Crypto.pad.Pkcs7,
             mode:Crypto.mode.CBC
           }).toString(Crypto.enc.Utf8)
-          let profileFinder = profile.Profiles.find(profile=> profile.name = tokenDecrypted)
+          let profileFinder = profile.Profiles.find(profile=> profile.name == tokenDecrypted)
         return !!profileFinder ? profileFinder.name : "Invalid Token"
 
     }

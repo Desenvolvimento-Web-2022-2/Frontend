@@ -37,15 +37,14 @@ function getPath(){
 
 async function sendFormAttSala(){
     let pathSplit = getPath()
-    console.log(pathSplit)
     let inputs = document.getElementsByTagName("input")
     let sigla = inputs[0].value
     let nome = inputs[1].value
     let descricao = inputs[2].value
+
     if( !!sigla &&
         !!nome &&
         !!descricao){
-            console.log(sigla, nome, descricao)
             let form = {
                 name: sigla,
                 subname: nome,
@@ -62,7 +61,6 @@ async function sendFormAttSala(){
                 address = 'CriarBloco'
             if(pathSplit.includes('AtualizarBloco'))    
                 address = `AtualizarBloco/${pathSplit[2]}`
-            console.log(address)
             await fetch(`/${address}`,{
                 method: 'POST',
                 mode: 'cors',

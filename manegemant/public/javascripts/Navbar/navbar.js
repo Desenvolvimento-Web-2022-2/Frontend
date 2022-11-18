@@ -22,9 +22,8 @@ function changeMode() {
   }
 }
   function logout(){
-    sessionStorage.removeItem("token")
-    sessionStorage.removeItem("userId")
-    window.location.href = "/"
+    sessionStorage.clear()
+    window.location.href = "/Login"
   }
 
 function lightDarkMode() {
@@ -70,7 +69,6 @@ async function validateToken(token) {
 function setFontStorage(){
   if(!!localStorage.getItem("fontSize")){
     let tamanho = parseInt(localStorage.getItem("fontSize"))
-    console.log(tamanho)
     for(let i=0; i<tamanho; i++){
       changeFontSize(1)
     }
@@ -80,7 +78,6 @@ function setFontStorage(){
 function changeFontSize(index){
   let all = ['p', 'label', 'a']
   for(let i = 1; i<7; i++) all.push(`h${i}`)
-  console.log(all)
   if((index == 1 && texSize < 6) || (texSize > 0 && index == -1)){
     texSize += index
     localStorage.setItem("fontSize", `${texSize}`)

@@ -47,11 +47,12 @@ async function sendForm() {
     let emailInput = document.querySelector("#email").value
     let passwordInput = document.querySelector("#senha").value
     let roleInput = document.querySelector("#role").value
+
     if (!!emailInput &&
         !!nomeInput &&
         !!passwordInput &&
         !!roleInput) {
-        console.log(nomeInput, emailInput, passwordInput, roleInput)
+            
         let form = {
             name: nomeInput,
             email: emailInput,

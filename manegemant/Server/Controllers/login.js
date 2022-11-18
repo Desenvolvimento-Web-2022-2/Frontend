@@ -13,7 +13,6 @@ class LoginController{
   }
   async validateToken(req,res){
     let token = loginService.validateToken(req.body.token)
-    console.log(token)
     res.json(token)
   }
 }

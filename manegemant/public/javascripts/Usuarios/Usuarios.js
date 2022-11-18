@@ -9,7 +9,7 @@ window.onload = async function () {
     else{
         let permissions = await validateToken(token)
         if(permissions == "Aluno")
-            window.location.href = ""
+            window.location.href = "/"
         createButtonSalas(permissions)
     }
     setFontStorage()

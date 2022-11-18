@@ -2,7 +2,6 @@ window.onload = function(){
     callFilterItem()
 } 
 function addOption(data){
-    console.log(data)
     filtro = document.querySelector('select')
     for (let i=0; i<data.length; i++){
         let option = document.createElement('option')

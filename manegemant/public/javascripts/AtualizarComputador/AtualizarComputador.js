@@ -67,7 +67,7 @@ async function sendFormAttComputador(){
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/AtualizarComputador/${pathSplit[6]}`
             else if(pathSplit.includes('CriarComputador')) 
                 address = `Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/CriarComputador`
-            console.log(address)
+
             await fetch(`/${address}`,{
                 method: 'POST',
                 mode: 'cors',

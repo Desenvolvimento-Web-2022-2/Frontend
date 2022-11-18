@@ -1,0 +1,32 @@
+<%- include('Partials/header'); %>
+    <div class="main">
+        <div class="head">
+            <div class="container">
+                <div class="tituloBuscador" style="width: 884px;">
+                    <h1>Calendário</h1>
+                </div>
+            </div>
+        </div>
+        <div style="    display: flex;
+        grid-gap: 24px;
+        width: 75%;
+        justify-content: center;">
+            <button onclick="handleDate('previous')" style="border: none; background: none; cursor: pointer;">
+                <img src="<%=`${baseUrl}/`%>images/icons/arrowRight.svg" style="transform: rotate(180deg);" alt="arrowLeft">
+            </button>
+            <h2 class="viewType"></h2>
+            <button onclick="handleDate('foward')" style="border: none; background: none;cursor: pointer;">
+                <img src="<%=`${baseUrl}/`%>images/icons/arrowRight.svg" style="transform: rotate(0deg);" alt="arrowLeft">
+            </button>
+        </div>
+        <div class="cards-container-calendar" id="cards-container-calendar">
+        </div>
+        <div class="cards-calendar" id="cards-calendar">
+        </div>
+    </div> 
+    <script src="<%=`${baseUrl}/`%>javascripts/calendarView/calendarView.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+</body>
+</html>

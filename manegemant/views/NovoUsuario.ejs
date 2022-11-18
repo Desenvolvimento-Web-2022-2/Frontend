@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta</title>
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/NovosUsuarios/NovoUsuario.css">
+    <link rel="stylesheet" href="<%= `${baseUrl}/` %>stylesheets/main/main.css">
+    <link rel="stylesheet" href="<%= `${baseUrl}/` %>stylesheets/CustomButton/customButton.css">
+</head>
+<body>
+    <button class="modeSelector" id="but1" onclick="lightDarkMode();changeLogo()">
+        <img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg">
+    </button>
+    <button class="modeSelector" id="but2" onclick="changeFontSize(1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/plus.svg" class="buttonBW" alt="Font+">
+    </button>
+    <button class="modeSelector" id="but3" onclick="changeFontSize(-1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/minus.svg" class="buttonBW" alt="Font-">
+    </button>
+
+    <div class="formAndUpload">
+        <div class="form">
+            <h2>Novo Usuário</h2>
+            <div class="inputImg">            
+                <input type="text" placeholder="Nome" name="Nome" id="Nome" value="<%=`${JSON.usersInfosName}`%>">
+                <img src="<%=`${baseUrl}/`%>images/icons/nameInput.svg">
+            </div>
+            <div class="inputImg">
+                <input type="email" placeholder="Address@mail.com" name="email" id="email" value="<%=`${JSON.usersInfosEmail}`%>">
+                <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
+            </div>
+            <div class="inputImg">
+                <input type="password" placeholder="Senha" name="senha" id="senha">
+                <button onclick="revealSecret('password',this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
+            </div>
+            <div class="inputImg">
+                <input type="password" placeholder="Confirmar senha" name="confirmeSenha" id="confirmeSenha">
+                <button onclick="revealSecret('passwordConfirm',this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
+            </div>
+
+            <custom-button callFunction onclick="sendForm()" class="color-gray" labelName="Cadastrar"></custom-button>
+
+        </div>
+        <div class="upload">
+            <div>
+                <img src="<%=`${baseUrl}/`%>images/upload.png" alt="botão de upload">
+            </div>
+            <div class="textUpload">
+                <p>Upload da imagem de usuário</p>
+                <p>    - Opcional</p>
+            </div>
+            <div class="roleSelector">
+                <p>Cargo</p>
+                <input list="cargos" name="cargo" placeholder="Aluno" value="<%=`${JSON.usersInfosRole}`%>" id="role">
+                <datalist id="cargos">
+                    <option value="Aluno">
+                    <option value="Professor">
+                    <option value="Administrador">
+                </datalist>
+            </div>
+           
+        </div>
+    </div>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/NovosUsuarios/NovoUsuario.js"></script>
+</body>
+</html>

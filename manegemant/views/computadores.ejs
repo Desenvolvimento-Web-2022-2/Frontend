@@ -1,0 +1,43 @@
+<%- include('Partials/header'); %>
+    <div class="main">
+        <div class="head">
+            <div class="container">
+                <div class="tituloBuscador" style="width: 884px;">
+                    <h1>Computadores</h1>
+                    <input type="search" placeholder="Buscar">
+                </div>
+                <div class="FiltroAdd" style="width: 100px;">
+                    <button>Filtros</button>
+                </div>
+            </div>
+        </div>
+        <div class="container2" style="margin-top: 2rem;">
+            <div class="upBar">
+                <div>
+                    <label>Status</label>
+                </div>
+                <div>
+                    <label>Modelo</label>
+                </div>
+                <div>
+                    <label>Placa</label>
+                </div>
+            </div>
+            
+        </div>
+        <div class="cards-container-computer" id="cards-container-computer">
+            <% JSONComputers.forEach((computer,index) =>  { %>
+                <% if (index % 2 == 0) { %>
+                    <%- include('Partials/computerLabel', {JSONComputer: computer, evenOddHandle: ''}) %>
+                <% } else { %>
+                    <%- include('Partials/computerLabel', {JSONComputer: computer, evenOddHandle: 'background-light'}) %>
+                <% } %>
+            <% }) %>
+        </div>
+    </div> 
+    <script src="<%=`${baseUrl}/`%>javascripts/Computadores/computadores.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+</body>
+</html>

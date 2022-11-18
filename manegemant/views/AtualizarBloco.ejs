@@ -1,0 +1,29 @@
+    <%- include('Partials/header'); %>
+    <div class="main atualizarBloco">
+        <div class="head">
+            <div class="TituloBuscador">
+                <h2><%=`${render}`%></h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form updateinput">
+                <input type="text" placeholder="Sigla" value="<%=`${JSON.name}`%>">
+                <input type="text" placeholder="Nome" value="<%=`${JSON.subname}`%>">
+                <input type="text" placeholder="<%=`${render == 'bloco' ? 'Número':'Descrição'}`%>" value="<%=`${JSON.numberOrRole}`%>">
+            </div>
+            <div class="imageUpload">
+                <div class = "imageKeeper">
+                    <img src="<%=`${baseUrl}/`%>images/icons/download.svg" alt="" style="width: 144px; aspect-ratio: 1/1;">
+                </div>
+                <p>Upload da imagem do departamento<label> - Opcional</label></p>
+            </div>
+        </div>
+        <div class="cards-container" id="cards-container">
+        </div>
+    </div> 
+    
+    <script src="<%=`${baseUrl}/`%>javascripts/AtualizarBloco/AtualizarBloco.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+</body>
+</html>

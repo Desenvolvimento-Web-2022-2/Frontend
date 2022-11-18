@@ -1,0 +1,51 @@
+<div class="mainContainer-computer" onclick="showColapse('<%=`${JSONComputer.id}`%>')">
+    <div class="handler">
+        <div class="status">
+            <div class="circle <%=`${JSONComputer.status}`%>"></div>
+            <p>
+                <%=`${JSONComputer.status}`%>
+            </p>
+        </div>
+        <p>
+            <%=`${JSONComputer.model}`%>
+        </p>
+        <p>
+            <%=`${JSONComputer.patrimonyTag}`%>
+        </p>
+        <div class="botao">
+            <button id='button<%=`${JSONComputer.id}`%>'>
+                <img src="<%=`${baseUrl}/`%>images/icons/ArrowDown.svg" id="arrow" class="arrow">
+            </button>
+        </div>
+    </div>
+    <div class="buttonDiv" id='computerOrUser<%=`${JSONComputer.id}`%>'>
+        <div class="colapsed">
+            <hr style="width: 98%; background-color: black; margin: 0">
+            <div class="colapInfos">
+                <div>
+                    <p>Processador</p>
+                    <p><%=`${JSONComputer.CPU}`%></p>
+                </div>
+                <div>
+                    <p>Placa de vídeo</p>
+                    <p><%=`${JSONComputer.GPU}`%></p>
+                </div>
+                <div>
+                    <p>Memória</p>
+                    <p><%=`${JSONComputer.memory}`%></p>
+                </div>
+                <div>
+                    <p>Sistema Operacional</p>
+                    <p><%=`${JSONComputer.SO}`%></p>
+                </div>
+            </div>
+            <hr style="width: 98%; background-color: black; margin: 0">
+            <div class="colapButtons">                
+                <custom-button class="color-white" labelName="Atualizar Computador"
+                redirect="Bloco/<%=`${ids.bloco}`%>/Sala/<%=`${ids.sala}`%>/AtualizarComputador/<%=`${JSONComputer.id}`%>"></custom-button>
+                <custom-button class="color-red" labelName="Excluir Computador"
+                redirect="updateUser/${id}"></custom-button>
+            </div>
+        </div>
+    </div>
+</div>

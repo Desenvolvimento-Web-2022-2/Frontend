@@ -1,0 +1,123 @@
+body{
+    height: 100vh;
+    background-color: #5CCEEE!important;
+}
+.formAndUpload{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 633px;
+    height: 660px;
+    background-color: #F1EBEB;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 1rem 2rem 3rem 2rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form .inputImg input{
+    font-size: 16px;
+    border: 0;
+    background-color: transparent;
+}
+.form .inputImg{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    justify-content: space-between;
+    border-bottom: 1px solid #D9D9D9;
+    width: 60%;
+}
+.form .inputImg button{
+    border: none;
+    background: transparent;
+}
+.form .inputImg button img:hover{
+    cursor: pointer;
+}
+.form .inputImg input:focus{
+    outline: none;
+}
+.form .inputImg input:nth-child(n+1){
+    margin-bottom: 0.5rem;
+}
+.form .inputImg:nth-child(n+1){
+    margin-bottom: 2rem;
+}
+
+.upload{
+    width: 633px;
+    height: 660px;
+    display: flex;
+    flex-direction: column;
+    background-color: #D9D9D9;
+    padding: 1rem 2rem 3rem 2rem;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.upload div img{
+    width: 160px;
+    aspect-ratio: 1/1;
+    padding: 96px;
+}
+.upload div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+.upload div img:hover{
+    scale: 1.05;
+    filter: opacity(30%);
+}
+
+.textUpload{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 100;
+}
+.textUpload p:nth-child(2){
+    margin-left: 5px;
+    color: #B8B7B7;
+}
+.upload p{
+    font-size: 18px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    margin-top: 20%;
+}
+.roleSelector{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.upload .roleSelector input{
+    border-radius: 12px;
+    padding: 0.5rem 2.4rem 0.5rem 0.5rem;
+    border: none;
+    margin-top: 0.1rem;
+}
+@media (max-width: 1366px) {
+    .form{
+        width: 350px;
+        height: 350px;
+    }
+    .upload{
+        width: 350px;
+        height: 350px;
+    }
+    .upload div img{
+        width: 80px;
+        aspect-ratio: 1/1;
+        padding: 48px;
+    }
+}

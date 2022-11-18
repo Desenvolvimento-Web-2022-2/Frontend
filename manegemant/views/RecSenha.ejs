@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar a senha</title>
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/RecSenha/RecSenha.css">
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/CustomButton/customButton.css">
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/Navbar/navbar.css">
+    <link rel="stylesheet" href="<%=`${baseUrl}/`%>stylesheets/main/main.css">
+
+</head>
+<body>
+    <button class="modeSelector" id="but1" onclick="lightDarkMode();changeLogo()">
+        <img id="modeImg" src="<%=`${baseUrl}/`%>images/icons/darkMode.svg">
+    </button>
+    <button class="modeSelector" id="but2" onclick="changeFontSize(1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/plus.svg" class="buttonBW" alt="Font+">
+    </button>
+    <button class="modeSelector" id="but3" onclick="changeFontSize(-1)">
+        <img src="<%=`${baseUrl}/`%>images/icons/minus.svg" class="buttonBW" alt="Font-">
+    </button>
+    <div class="extern">
+        <div class="intern">
+            <h1 style="font-size: 24px;">Recuperar a senha</h1>
+            <div class="inputImg">
+                <input type="email" placeholder="Address@mail.com" name="email" id="email">
+                <img src="<%=`${baseUrl}/`%>images/icons/email.svg">
+            </div>
+            <div class="inputImg">
+                <input type="password" placeholder="Nova senha" name="senha" id="senha">
+                <button onclick="revealSecret(this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
+            </div>            
+            <custom-button labelName="Redefinir" class="color-white"></custom-button>
+        </div>    
+    </div>
+    <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/RecSenha/RecSenha.js"></script>
+</body>
+</html>

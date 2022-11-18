@@ -1,0 +1,45 @@
+.cards-container-computer{
+    display: grid;
+    margin: 12px 0;
+    grid-template-columns:100%;
+    grid-gap: 16px;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.container2{
+    width: 984px;
+    display: flex;
+    justify-content: center;
+}
+.tituloBuscador{
+    display: flex;
+    flex-direction: column;
+}
+.FiltroAdd{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.tituloBuscador input{
+    outline: none;
+    border: 2px solid #5CCEEE;
+    border-radius: 12px;
+    width: 100%;
+    background-color: transparent;
+}
+.upBar{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    align-items: center;
+    background-color: #5CCEEE;
+    color: #fff;
+    border-radius: 12px;
+    justify-items: center;
+}
+label{
+    margin: 1px;
+}

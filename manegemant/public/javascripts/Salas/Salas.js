@@ -8,8 +8,7 @@ window.onload = async function () {
     }
     changeMode()
     setFontStorage()
-
-    
+    callFilterItem("salas")
 }
 function createButtonSalas(permissions){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)

@@ -12,6 +12,7 @@ window.onload = async function(){
     }
     changeMode()
     setFontStorage()
+    callFilterItem("computadores")
 
 }
 

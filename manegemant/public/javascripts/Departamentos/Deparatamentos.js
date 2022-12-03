@@ -10,6 +10,8 @@ window.onload = async function () {
     }
     setFontStorage()
     createButtonDept(permissions)
+    callFilterItem("blocos")
+
 }
 
 function createButtonDept(permissions){
@@ -21,5 +23,4 @@ function createButtonDept(permissions){
         createBloco.classList.add("color-green")
         sidebar.appendChild(createBloco)
     }
-
 }

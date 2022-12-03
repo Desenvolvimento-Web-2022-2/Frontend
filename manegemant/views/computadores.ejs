@@ -1,16 +1,7 @@
 <%- include('Partials/header'); %>
     <div class="main">
-        <div class="head">
-            <div class="container">
-                <div class="tituloBuscador" style="width: 884px;">
-                    <h1>Computadores</h1>
-                    <input type="search" placeholder="Buscar">
-                </div>
-                <div class="FiltroAdd" style="width: 100px;">
-                    <button>Filtros</button>
-                </div>
-            </div>
-        </div>
+        <%- include('Partials/searchBar',{searchName:"Computadores",route:"Computadores"}); %>
+
         <div class="container2" style="margin-top: 2rem;">
             <div class="upBar">
                 <div>
@@ -39,5 +30,7 @@
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Busca/Busca.js"></script>
+
 </body>
 </html>

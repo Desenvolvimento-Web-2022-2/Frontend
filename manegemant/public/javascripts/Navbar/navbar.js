@@ -55,7 +55,12 @@ async function validateToken(token) {
     body: JSON.stringify(t)
   }
   let resp = await fetch('/validateToken', req)
-  let json = await resp.json()
+  if(resp.status == 401){
+    sessionStorage.removeItem("token")
+    sessionStorage.removeItem("userId")
+    window.location.href = "/login"
+  }
+  let json = await resp.text()
   if(json == "Invalid Token"){
     sessionStorage.removeItem("token")
     sessionStorage.removeItem("userId")

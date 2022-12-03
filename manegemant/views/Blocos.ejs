@@ -1,14 +1,7 @@
 <%- include('Partials/header'); %>
     <div class="main">
-        <div class="head">
-            <div class="TituloBuscador">
-                <h2>Departamentos</h2>
-                <input type="text" name="buscador" placeholder="Buscar">
-            </div>
-            <div class="FiltroAdd">
-                <button>Filtros</button>
-            </div>
-        </div>
+        <%- include('Partials/searchBar',{searchName:"Blocos",route:"Blocos"}); %>
+
         <div class="cards-container" id="cards-container">
             <% JSONBloco.Blocos.forEach((bloco) =>  { %>
                 <%- include('Partials/card', {JSONCard: bloco,redirect: "bloco/"+bloco.id}) %>
@@ -20,5 +13,7 @@
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Cards2/card2.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Busca/Busca.js"></script>
+
 </body>
 </html>

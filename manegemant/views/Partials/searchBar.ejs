@@ -1,8 +1,16 @@
-<form style="display: flex; justify-content: center">
-    <div>
-        <input type="text" placeholder="Pesquisa">
+<div class="head">
+    <div class="TituloBuscador">
+        <h2><%=`${searchName}`%></h2>
+        <input id="searchBar" type="text" name="buscador" placeholder="Buscar" style="font-size: 18px;">
     </div>
-    <div>
-        <custom-button>Buscar</custom-button>
+    <div class="FiltroAdd">
+        <select name="filtro" class="Filtro" id="selectFilter">
+            
+        </select> 
     </div>
-</form>
+    <div style="background-color: #fff;border: 1px solid black;border-radius: 12px; padding: 4px; text-align: center;"
+    onclick="searchFilter('<%=`${route}`%>')">
+        Buscar 	
+        &#128269
+    </div>
+</div>

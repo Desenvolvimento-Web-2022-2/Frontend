@@ -1,17 +1,54 @@
 const computadoresService = require("../Services/computadores")
-
+const axios = require("axios").default
+const baseUrl = require("../../env.json").baseUrl
 class ComputadoresController {
-    async updateComputer(req, res) {
-        if(computadoresService.validateByBlocoAndSala(req.params.blocoId,req.params.salaId,req.params.computerId)){
-            let json = computadoresService.returnComputer(req.params.computerId)
-            res.render("AtualizarComputador", { title: "Atualizar computador", baseUrl: req.baseUrl, JSON: json,sidebarName: "Atualizar computador",render:"Atualizar computador"});
+    async index(req, res){
+        try{
+            const response = await axios.get(baseUrl+"/getComputer/"+req.params.blocoId+"/"+req.params.salaId)
+            const json = response.data
+            res.status(200);
+            res.render("computadores",{title:"Computadores",baseUrl: req.baseUrl,ids:json.ids,JSONComputers:json.computers,sidebarName:json.name});
+        }catch(err){
+            res.status(404);
+            res.send('Not Found');
         }
-        else
-            res.send("URL inválida")
+      }
+
+    async updateComputer(req, res) {
+        try{
+            const response = await axios.get(baseUrl+"/"+req.params.blocoId+"/"+req.params.salaId+"/"+req.params.salaId+"/attComputador")
+            if(response.status == 200){
+              const json = response.data
+              res.status(200);
+              res.render("AtualizarComputador", { title: "Atualizar computador", baseUrl: req.baseUrl, JSON: json,sidebarName: "Atualizar computador",render:"Atualizar computador"});
+            }
+            else{
+              res.status(404);
+              res.send('Not Found');
+            }
+          }catch(err){
+            console.error(err)
+            res.status(404);
+            res.send('Not Found');
+          }
     }
-    async createComputer(req, res) {
-        let json = computadoresService.returnComputer(req.params.computerId)
-        res.render("AtualizarComputador", { title: "Criar computador", baseUrl: req.baseUrl, JSON: json,sidebarName: "Criar computador",render:"Criar computador"});
+    async createComputer(req, res){
+        try{
+            const response = await axios.get(baseUrl+"/createComputador/"+req.params.salaId)
+            if(response.status == 200){
+              const json = response.data
+              res.status(200);
+              res.render("AtualizarComputador",{title:"Criar Computador",baseUrl: req.baseUrl,JSON:json,sidebarName:"Criar Computador",render:"computador"});
+            }
+            else{
+              res.status(404);
+              res.send('Not Found');
+            }
+          }catch(err){
+            console.error(err)
+            res.status(404);
+            res.send('Not Found');
+          }
     }
     async post(req,res){
         let newComputador = computadoresService.post(req)

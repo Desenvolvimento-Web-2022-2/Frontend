@@ -61,8 +61,9 @@ async function sendFormAttSala(){
                 address = 'CriarBloco'
             if(pathSplit.includes('AtualizarBloco'))    
                 address = `AtualizarBloco/${pathSplit[2]}`
+            let method = (pathSplit.includes('AtualizarBloco') || pathSplit.includes('AtualizarSala')) ? 'PUT' : 'POST'
             await fetch(`/${address}`,{
-                method: 'POST',
+                method: method,
                 mode: 'cors',
                 cache: 'no-cache',
                 credentials: 'same-origin',

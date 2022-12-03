@@ -1,18 +1,11 @@
 <%- include('Partials/header',{sidebarName:sidebarName}); %>
 
     <div class="main">
-        <div class="head">
-            <div class="TituloBuscador">
-                <h2>Salas</h2>
-                <input type="text" name="buscador" placeholder="Buscar">
-            </div>
-            <div class="FiltroAdd">
-                <button>Filtros</button>
-            </div>
-        </div>
+        <%- include('Partials/searchBar',{searchName:"Salas",route:"Salas"}); %>
+
         <div class="cards-container" id="cards-container">
             <% JSONSala.forEach((sala) =>  { %>
-                <%- include('Partials/card', {JSONCard: sala,redirect: "sala/"+sala.id+"/computadores"}) %>
+                <%- include('Partials/card', {JSONCard: sala,redirect: "sala/"+sala.id}) %>
             <% }) %>
         </div>
 
@@ -21,6 +14,7 @@
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Cards2/card2.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Busca/Busca.js"></script>
 
 </body>
 </html>

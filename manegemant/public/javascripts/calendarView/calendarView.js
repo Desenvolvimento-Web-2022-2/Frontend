@@ -359,7 +359,7 @@ function sendData() {
 						}
 						d = new Date(auxYear, auxMounth, auxDay)
 						let form = {
-							dia: `${auxYear}-${auxMounth}-${auxDay}`,
+							dia: `${auxYear}-${auxMounth}-${auxDay-1}`,
 							userId: sessionStorage.getItem("userId"),
 							reservId: "",
 							salaId: window.location.pathname.split("/")[4],

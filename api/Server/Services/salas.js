@@ -3,7 +3,6 @@ const comps = require("../db/computadores.json")
 
 var fs = require('fs');
 var path = require('path');
-const { deleteSala } = require("../Controllers/salas");
 class SalasService{
     returnComputersJson(blocoId, salaId){
         let validComputers = []
@@ -73,12 +72,14 @@ class SalasService{
         let newComputers = []
         let newSalas = []
         for(let i=0; i<comps.Computadores.length; i++){
-            if(comps.Computadores.salaId == id){
+            console.log(comps.Computadores[i].salaId,id)
+
+            if(comps.Computadores[i].salaId != id){
                 newComputers.push(comps.Computadores[i])
             }
         }
         for(let j=0; j<salas.Salas.length; j++){
-            if(salas.Salas.salaId != id) newSalas.push(salas.Salas[i])
+            if(salas.Salas[j].id != id) newSalas.push(salas.Salas[j])
         }
         let CompJSON = {
             Computadores: newComputers
@@ -86,13 +87,24 @@ class SalasService{
         let SalasJSON = {
             Salas: newSalas
         }
-        fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
-            if (err) throw err
-        })
-        fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(SalasJSON),function(err) {
-            if (err) throw err
-            return true
-        })
+        try{
+            fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+                if (err) throw err
+            })
+            try{
+                fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(SalasJSON),function(err) {
+                    if (err) throw err
+                })
+                return true
+            }catch{
+                return false
+            }
+        }catch{
+            return false
+        }
+
+
+        
 
     }
 }

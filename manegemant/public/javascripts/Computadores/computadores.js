@@ -29,6 +29,8 @@ function createButtons(){
     
         let RemoverSala = document.createElement("custom-button")
         RemoverSala.setAttribute("redirect","/")
+        RemoverSala.toggleAttribute("callFunction")
+        RemoverSala.setAttribute("onclick",`removeSala(${pathSplit[4]})`)
         RemoverSala.setAttribute("labelName","Remover Sala")
         RemoverSala.classList.add("save-button")
         RemoverSala.classList.add("color-red")
@@ -56,4 +58,23 @@ function createButtons(){
 function getPath(){
     let path = window.location.pathname
     return path.split("/")
+}
+async function removePC(id){
+    await fetch(`/ExcluirComputador/${id}`, { method: 'DELETE' })
+    .then(response => {
+        console.log('executado com sucesso!')
+        window.location.reload()
+    })
+    .catch(function(err) {
+        console.log('erro encontrado');
+    });
+}    
+async function removeSala(id){
+    await fetch(`/ExcluiSala/${id}`, { method: 'DELETE' }).then(response => {
+        console.log('executado com sucesso!')
+        window.location.reload()
+    })
+    .catch(function(err) {
+        console.log('erro encontrado');
+    });
 }

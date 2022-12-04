@@ -33,7 +33,7 @@ router.get("/Bloco/:blocoId/CriarSala/", salaController.getCreateSala)
 
 router.post("/Bloco/:blocoId/CriarSala/", salaController.createSala)
 router.put("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSala)
-router.delete("/Bloco/:blocoId/ExcluiSala/:salaId/", salaController.deleteSala)
+router.delete("/ExcluiSala/:salaId/", salaController.deleteSala)
 // router.post("/Bloco/:blocoId/ExcluiSala/:salaId", salaController.deleteSala) //fazer esse dps
 
 

@@ -30,6 +30,11 @@ class ComputadoresController {
         let newComputador = computadoresService.postAtt(request)
         res.status(200)
         res.send(JSON.stringify(newComputador))
-      }
+    }
+    async deleteComputer(req, res){
+        let delComputador = computadoresService.deleteComp(req.params.computerId)
+        res.status(200)
+        res.send(JSON.stringify(delComputador))
+    }
 }
 module.exports = new ComputadoresController()

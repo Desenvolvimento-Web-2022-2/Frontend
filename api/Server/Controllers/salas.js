@@ -53,6 +53,17 @@ class SalaController {
       res.send("Server Error")
     }
   }
+  async deleteSala(req, res){
+    let salaDel = salasService.deleteSala(req.params.salaId)
+    if(salaDel==true){
+      res.status(200)
+      res.send("sala deletada!")
+    }
+    else{
+      res.status(500)
+      res.send("Server Error")
+    }
+  }
 
 }
 module.exports = new SalaController()

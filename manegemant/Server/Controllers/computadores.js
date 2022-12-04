@@ -16,7 +16,7 @@ class ComputadoresController {
 
     async updateComputer(req, res) {
         try{
-            const response = await axios.get(baseUrl+"/"+req.params.blocoId+"/"+req.params.salaId+"/"+req.params.salaId+"/attComputador")
+            const response = await axios.get(baseUrl+"/"+req.params.blocoId+"/"+req.params.salaId+"/"+req.params.computerId+"/attComputador")
             if(response.status == 200){
               const json = response.data
               res.status(200);
@@ -51,6 +51,24 @@ class ComputadoresController {
             res.status(404);
             res.send('Not Found');
           }
+    }
+    async deleteComputer(req, res){
+      try{
+        const response = await axios.delete(baseUrl+"/deleteComputador/"+req.params.computerId)
+        if(response.status == 200){
+          const json = response.data
+          res.status(200)
+          res.send(json)
+        }
+        else{
+          res.status(404)
+          res.send('Not Found')
+        }
+      }catch(err){
+        console.error(err)
+        res.status(500)
+        res.send('Internal Server Error')
+      }
     }
     async post(req,res){
       try{

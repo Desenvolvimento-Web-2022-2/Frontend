@@ -65,6 +65,31 @@ class ComputadoresService{
             return attComputador
         })
     }
+    deleteComp(id){
+        let status = {
+            isDeleted: true,
+            compId: id
+        }
+        let newComputers = []
+        for(let i=0; i<computers.Computadores.length; i++){
+            if(computers.Computadores[i].id != id){
+                newComputers.push(computers.Computadores[i])
+            }
+        }
+        let CompJSON = {
+            Computadores: newComputers
+        }
+        try{
+            fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+                if (err) throw err;
+                console.log('Computador Apagado');
+            })
+        }catch{
+            status.isDeleted  = false
+        }
+        return status
+
+    }
 
 
 }

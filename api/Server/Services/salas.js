@@ -68,5 +68,44 @@ class SalasService{
         return attSala
 
     }
+    deleteSala(id){
+        let newComputers = []
+        let newSalas = []
+        for(let i=0; i<comps.Computadores.length; i++){
+            console.log(comps.Computadores[i].salaId,id)
+
+            if(comps.Computadores[i].salaId != id){
+                newComputers.push(comps.Computadores[i])
+            }
+        }
+        for(let j=0; j<salas.Salas.length; j++){
+            if(salas.Salas[j].id != id) newSalas.push(salas.Salas[j])
+        }
+        let CompJSON = {
+            Computadores: newComputers
+        }
+        let SalasJSON = {
+            Salas: newSalas
+        }
+        try{
+            fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+                if (err) throw err
+            })
+            try{
+                fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(SalasJSON),function(err) {
+                    if (err) throw err
+                })
+                return true
+            }catch{
+                return false
+            }
+        }catch{
+            return false
+        }
+
+
+        
+
+    }
 }
 module.exports = new SalasService()

@@ -11,11 +11,13 @@ class BlocoService{
     returnSalasJson(blocoId){
         let validSalas = []
         salas.Salas.forEach(sala => {
+            console.log(sala)
             if(sala.blocoId == blocoId)
                 validSalas.push(sala)
         })
         let blocoName = blocos.Blocos.find(bloco=> bloco.id == blocoId)
         blocoName = !!blocoName ? blocoName : {name:"",subname:"",numberOrRole:"",id:""}
+
         return JSON.stringify({
             salas:validSalas,
             name:blocoName.name

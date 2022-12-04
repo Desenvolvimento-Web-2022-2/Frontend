@@ -109,9 +109,14 @@ function constructPage(data,json){
        
     else if(data.page =="Computadores"){
         let cardsContainerComputer = document.querySelector("#cards-container-computer")
-        json.forEach(element=>{
+        json.forEach((element,index)=>{
             let mainContainerComputer = document.createElement("div")
-            mainContainerComputer.setAttribute("class","mainContainer-computer") 
+            if(((index +1) % 2) == 0){
+                mainContainerComputer.setAttribute("class","mainContainer-computer background-light")
+            }
+            else{
+                mainContainerComputer.setAttribute("class","mainContainer-computer")
+            }
             mainContainerComputer.setAttribute("onclick",`showColapse("${element.id}")`)
 
             let handler = document.createElement("div")

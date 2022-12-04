@@ -38,8 +38,8 @@ router.put("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSala)
 
 //Computadores
 router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.updateComputer)
-router.post("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.postUP)
 router.get("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.createComputer)
+router.post("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.postUP)
 router.post("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.post)
 // router.delete("/Bloco/:blocoId/Sala/:salaId/ExcluirComputador/:computerId", ComputadoresController.deleteComp)
 
@@ -57,10 +57,10 @@ router.get("/Bloco/:blocoId/Sala/:salaId/calendar",ReservaController.getCalendar
 router.get("/getCalendar/:day/:mouth/:year",ReservaController.getReserva);
 router.post("/reservarSala",ReservaController.criarReserva)
 
-router.get("/teste", (rec,resp)=>{resp.render('test', {baseUrl:rec.baseUrl, sidebarName:'abc', title:'teste'})})
-router.get("/Filtro/:tipo", BuscaController.retornaNomes)
+// router.get("/teste", (rec,resp)=>{resp.render('test', {baseUrl:rec.baseUrl, sidebarName:'abc', title:'teste'})})
 
 
 //Busca
+router.get("/Filtro/:tipo", BuscaController.retornaNomes)
 router.post("/busca", BuscaController.getSearch)
 module.exports = router;

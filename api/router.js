@@ -31,6 +31,8 @@ router.put("/updateSala", SalasController.updateSala)
 //Computadores
 router.get("/:blocoId/:salaId/:computerId/attComputador", ComputerController.getUpdateComputer)
 router.get("/createComputador/:salaId", ComputerController.getCreateComputer)
+router.post("/postComputer", ComputerController.postComputer)
+router.put("/putComputer",ComputerController.postUP)
 // 
 //Usuários 
 router.get("/getUsers", UsersController.getUsers)

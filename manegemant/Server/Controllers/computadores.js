@@ -37,6 +37,8 @@ class ComputadoresController {
             const response = await axios.get(baseUrl+"/createComputador/"+req.params.salaId)
             if(response.status == 200){
               const json = response.data
+              console.log(json)
+
               res.status(200);
               res.render("AtualizarComputador",{title:"Criar Computador",baseUrl: req.baseUrl,JSON:json,sidebarName:"Criar Computador",render:"computador"});
             }
@@ -51,10 +53,32 @@ class ComputadoresController {
           }
     }
     async post(req,res){
-        let newComputador = computadoresService.post(req)
-        res.send(newComputador)
+      try{
+        let request = JSON.stringify(req.body)
+        const reponse = await axios.post(baseUrl+"/postComputer",{
+          req:request
+        })
+        res.status(201);
+        res.send(reponse.data)
+      }catch(err){
+        console.error(err)
+        res.status(404);
+        res.send("Not Found")
+      }
     }
     async postUP(req,res){
+      try{
+        let request = JSON.stringify(req.body)
+        const reponse = await axios.put(baseUrl+"/putComputer",{
+          req:request
+        })
+        res.status(200);
+        res.send(reponse.data)
+      }catch(err){
+        console.error(err)
+        res.status(404);
+        res.send("Not Found")
+      }
         let newComputador = computadoresService.postAtt(req)
         res.send(newComputador)
     }

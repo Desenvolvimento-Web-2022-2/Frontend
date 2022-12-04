@@ -20,7 +20,8 @@ function createButtons(permissions){
         let pathSplit = getPath()
 
         var SalvarAlteracaoComp = document.createElement("custom-button")
-        SalvarAlteracaoComp.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/computadores`)
+        SalvarAlteracaoComp.toggleAttribute("callFunction")
+        // SalvarAlteracaoComp.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/computadores`)
         SalvarAlteracaoComp.setAttribute("labelName","Salvar")
         SalvarAlteracaoComp.classList.add("save-button")
         SalvarAlteracaoComp.classList.add("color-white")
@@ -78,6 +79,6 @@ async function sendFormAttComputador(){
                 },
                 referrerPolicy: 'no-referrer',
                 body: JSON.stringify(form)
-            }).then(response=> window.location.href = document.referrer)
+            }).then(response=> window.location.assign(`http://localhost:3000/Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}`))
         }
 }

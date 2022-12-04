@@ -29,18 +29,18 @@ class ComputadoresService{
     post(req){
         let newId = !!computers.Computadores[computers.Computadores.length-1] ? parseInt(computers.Computadores[computers.Computadores.length-1].id)+1 : 1
         let newComputador = {
-            status: req.body.status,
-            model: req.body.model,
-            patrimonyTag: req.body.patrimonyTag,
-            CPU: req.body.CPU,
-            GPU: req.body.GPU,
-            memory: req.body.memory,
-            SO: req.body.SO,
+            status: req.status,
+            model: req.model,
+            patrimonyTag: req.patrimonyTag,
+            CPU: req.CPU,
+            GPU: req.GPU,
+            memory: req.memory,
+            SO: req.SO,
             id:newId.toString(),
-            salaId: req.body.salaId
+            salaId: req.salaId
         }
         computers.Computadores.push(newComputador)
-        fs.writeFileSync(path.join(__dirname, '../../public/Objects/Computadores.json'),JSON.stringify(computers),function(err) {
+        fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(computers),function(err) {
             if (err) throw err;
             console.log('Computador Cadastrado');
             return newComputador
@@ -48,18 +48,18 @@ class ComputadoresService{
     }
     postAtt(req){
         let attComputador = {
-            status: req.body.status,
-            model: req.body.model,
-            patrimonyTag: req.body.patrimonyTag,
-            CPU: req.body.CPU,
-            GPU: req.body.GPU,
-            memory: req.body.memory,
-            SO: req.body.SO,
-            id: req.body.id,
-            salaId: req.body.salaId
+            status: req.status,
+            model: req.model,
+            patrimonyTag: req.patrimonyTag,
+            CPU: req.CPU,
+            GPU: req.GPU,
+            memory: req.memory,
+            SO: req.SO,
+            id: req.id,
+            salaId: req.salaId
         }
-        computers.Computadores[req.body.id - 1] = attComputador
-        fs.writeFileSync(path.join(__dirname, '../../public/Objects/Computadores.json'),JSON.stringify(computers),function(err) {
+        computers.Computadores[req.id - 1] = attComputador
+        fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(computers),function(err) {
             if (err) throw err;
             console.log('Computador Cadastrado');
             return attComputador

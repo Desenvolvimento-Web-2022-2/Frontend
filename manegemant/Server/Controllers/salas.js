@@ -98,7 +98,8 @@ class SalaController{
         console.log(json)
 
         res.status(200)
-        res.render("salas",{title:"salas",baseUrl: req.baseUrl,ids:json.ids,JSONComputers:json.computers,sidebarName:json.name});
+        res.send(json)
+        // res.render("salas",{title:"salas",baseUrl: req.baseUrl,ids:json.ids,JSONComputers:json.computers,sidebarName:json.name});
       }
       else{
         res.status(404)

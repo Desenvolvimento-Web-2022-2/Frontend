@@ -26,13 +26,14 @@ router.get("/updateSala/:blocoId/:salaId", SalasController.getUpdateSala)
 
 router.post("/createSala", SalasController.createSala)
 router.put("/updateSala", SalasController.updateSala)
-
+router.delete("/deleteSala/:salaId", SalasController.deleteSala)
 
 //Computadores
 router.get("/:blocoId/:salaId/:computerId/attComputador", ComputerController.getUpdateComputer)
 router.get("/createComputador/:salaId", ComputerController.getCreateComputer)
 router.post("/postComputer", ComputerController.postComputer)
 router.put("/putComputer",ComputerController.postUP)
+router.delete("/deleteComputador/:computerId", ComputerController.deleteComputer)
 // 
 //Usuários 
 router.get("/getUsers", UsersController.getUsers)

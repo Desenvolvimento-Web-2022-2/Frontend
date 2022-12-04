@@ -3,6 +3,7 @@ const comps = require("../db/computadores.json")
 
 var fs = require('fs');
 var path = require('path');
+const { deleteSala } = require("../Controllers/salas");
 class SalasService{
     returnComputersJson(blocoId, salaId){
         let validComputers = []
@@ -66,6 +67,32 @@ class SalasService{
             console.log('sala atualizada');
         })
         return attSala
+
+    }
+    deleteSala(id){
+        let newComputers = []
+        let newSalas = []
+        for(let i=0; i<comps.Computadores.length; i++){
+            if(comps.Computadores.salaId == id){
+                newComputers.push(comps.Computadores[i])
+            }
+        }
+        for(let j=0; j<salas.Salas.length; j++){
+            if(salas.Salas.salaId != id) newSalas.push(salas.Salas[i])
+        }
+        let CompJSON = {
+            Computadores: newComputers
+        }
+        let SalasJSON = {
+            Salas: newSalas
+        }
+        fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+            if (err) throw err
+        })
+        fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(SalasJSON),function(err) {
+            if (err) throw err
+            return true
+        })
 
     }
 }

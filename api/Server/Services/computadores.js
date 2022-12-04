@@ -2,6 +2,7 @@ const computers = require("../db/Computadores.json")
 const SalasService = require("./salas")
 var fs = require('fs');
 var path = require('path');
+const { deleteComputer } = require("../Controllers/computadores");
 class ComputadoresService{
     returnComputer(computerId){
         let computer = computers.Computadores.find(computer=> computer.id == computerId)
@@ -64,6 +65,27 @@ class ComputadoresService{
             console.log('Computador Cadastrado');
             return attComputador
         })
+    }
+    deleteComp(id){
+        let status = {
+            isDeleted: true,
+            compId: id
+        }
+        let newComputers = []
+        for(let i=0; i<computers.Computadores.length; i++){
+            if(computers.Computadores[i].id != id){
+                newComputers.push(computers.Computadores[i])
+            }
+        }
+        let CompJSON = {
+            Computadores: newComputers
+        }
+        fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+            if (err) throw err;
+            console.log('Computador Apagado');
+            return status
+        })
+
     }
 
 

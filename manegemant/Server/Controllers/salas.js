@@ -89,5 +89,28 @@ class SalaController{
     let attSala = salasService.postAtt(req)
     res.send(attSala)
   }
+
+  async deleteSala(req, res){
+    try{
+      const response = await axios.delete(baseUrl+"/deleteSala/"+req.params.salaId)
+      if(response.status == 200){
+        const json = response.data
+        console.log(json)
+
+        res.status(200)
+        res.render("salas",{title:"salas",baseUrl: req.baseUrl,ids:json.ids,JSONComputers:json.computers,sidebarName:json.name});
+      }
+      else{
+        res.status(404)
+        res.send('Not Found')
+      }
+    }catch(err){
+      console.error(err)
+      res.status(404)
+      res.send('Not Found')
+    }
+
+  }
+
 }
 module.exports = new SalaController()

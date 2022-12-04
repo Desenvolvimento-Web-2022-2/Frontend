@@ -49,3 +49,15 @@
         </div>
     </div>
 </div>
+<script>
+    function removePC(id){
+        fetch(`/ExcluirComputador/${id}`, { method: 'DELETE' })
+        .then(response => {
+            console.log('executado com sucesso!')
+        })
+        .catch(function(err) {
+            console.log('erro encontrado');
+        });
+    }    
+
+</script>

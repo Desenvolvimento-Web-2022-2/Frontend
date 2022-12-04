@@ -33,6 +33,7 @@ router.get("/Bloco/:blocoId/CriarSala/", salaController.getCreateSala)
 
 router.post("/Bloco/:blocoId/CriarSala/", salaController.createSala)
 router.put("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSala)
+router.delete("/Bloco/:blocoId/ExcluiSala/:salaId/", salaController.deleteSala)
 // router.post("/Bloco/:blocoId/ExcluiSala/:salaId", salaController.deleteSala) //fazer esse dps
 
 
@@ -41,7 +42,7 @@ router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",Comput
 router.get("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.createComputer)
 router.post("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.postUP)
 router.post("/Bloco/:blocoId/Sala/:salaId/CriarComputador/",ComputadoresController.post)
-// router.delete("/Bloco/:blocoId/Sala/:salaId/ExcluirComputador/:computerId", ComputadoresController.deleteComp)
+router.delete("/ExcluirComputador/:computerId", ComputadoresController.deleteComputer)
 
 
 //Login

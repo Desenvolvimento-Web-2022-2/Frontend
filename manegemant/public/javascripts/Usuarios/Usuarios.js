@@ -13,6 +13,7 @@ window.onload = async function () {
         createButtonSalas(permissions)
     }
     setFontStorage()
+    callFilterItem("usuarios")
 
 }
 

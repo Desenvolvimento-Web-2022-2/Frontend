@@ -43,8 +43,8 @@
             <div class="colapButtons">                
                 <custom-button class="color-white" labelName="Atualizar Computador"
                 redirect="Bloco/<%=`${ids.bloco}`%>/Sala/<%=`${ids.sala}`%>/AtualizarComputador/<%=`${JSONComputer.id}`%>"></custom-button>
-                <custom-button class="color-red" labelName="Excluir Computador"
-                redirect="updateUser/${id}"></custom-button>
+                <custom-button class="color-red" labelName="Excluir Computador" callFunction onclick="removePC('<%=`${JSONComputer.id}`%>')"
+                ></custom-button>
             </div>
         </div>
     </div>

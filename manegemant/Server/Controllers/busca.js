@@ -8,15 +8,15 @@ class BuscaController{
     }
     async getSearch(req, res){
         try{
+            console.log(JSON.stringify(req.body))
             let request = JSON.stringify(req.body)
             const reponse = await axios.post(baseUrl+"/getSearch",{
               req:request
             })
-            console.log(reponse.data)
             res.status(200);
             res.send(reponse.data)
           }catch(err){
-            // console.error(err)
+            console.error(err)
             res.status(500);
             res.send("Internal Server Error")
           }

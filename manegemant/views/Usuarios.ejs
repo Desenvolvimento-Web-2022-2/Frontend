@@ -1,15 +1,7 @@
 <%- include('Partials/header'); %>
     <div class="main">
-        <div class="head">
-            <div class="TituloBuscador">
-                <h2>Usuarios</h2>
-                <input type="text" name="buscador" placeholder="Buscar">
-            </div>
-            <div class="FiltroAdd">
-                <button>Adicionar+</button>
-                <button>Filtros</button>
-            </div>
-        </div>
+        <%- include('Partials/searchBar',{searchName:"Usuarios",route:"Users"}); %>
+
         <div class="cards-container user" id="cards-container">
             <% JSONUsers.forEach((user,index) =>  { %>
                 <% if (index % 2 == 0) { %>
@@ -24,5 +16,7 @@
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomLabel/customLabel.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/Busca/Busca.js"></script>
+
 </body>
 </html>

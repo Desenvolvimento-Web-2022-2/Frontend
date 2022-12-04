@@ -1,4 +1,3 @@
-const { deleteSala } = require("../../../manegemant/Server/Controllers/salas")
 const salasService = require("../Services/salas")
 
 class SalaController {

@@ -1,8 +1,11 @@
 const blocos = require("../db/Blocos.json")
 const salas = require("../db/Salas.json")
+const comps = require("../db/computadores.json")
+
 
 var fs = require('fs');
 var path = require('path');
+const { deleteBloco } = require("../Controllers/blocos");
 
 class BlocoService{
     returnBlocosJson(){
@@ -60,6 +63,57 @@ class BlocoService{
             console.log('bloco atualizado');
             return upBloco
         })
+    }
+    deleteBloco(id){
+        let newBlocos = []
+        let newComputers = []
+        let newSalas = []
+        for(let i=0; i<salas.Salas.length; i++){
+            if(salas.Salas[i].blocoId == id){
+                let salaId = salas.Salas[i].salaId
+                for(let j=0; j<comps.Computadores.length; j++){  
+                    let aux = newComputers.find(item => item.id == comps.Computadores.id)      
+                    if(comps.Computadores[j].salaId != salaId && !aux == true){
+                        newComputers.push(comps.Computadores[j])
+                    }
+                }
+            }else newSalas.push(salas.Salas[i])
+        }
+        for(let k=0; k<blocos.Blocos.length; k++){
+            if(blocos.Blocos[k].id != id) newBlocos.push(blocos.Blocos[k])
+        }
+        let CompJSON = {
+            Computadores: newComputers
+        }
+        let SalasJSON = {
+            Salas: newSalas
+        }
+        let BlocosJSON = {
+            Blocos: newBlocos
+        }
+        try{
+            fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+                if (err) throw err
+            })
+            try{
+                fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(SalasJSON),function(err) {
+                    if (err) throw err
+                })
+                try{
+                    fs.writeFileSync(path.join(__dirname, '../db/Blocos.json'),JSON.stringify(BlocosJSON),function(err) {
+                        if (err) throw err
+                    })
+                    return true
+                }catch{
+                    return false
+                }
+            }catch{
+                return false
+            }
+        }catch{
+            return false
+        }
+
     }
 }
 module.exports = new BlocoService()

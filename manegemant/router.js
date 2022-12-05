@@ -18,7 +18,9 @@ router.get("/AtualizarBloco/:blocoId/", blocoController.getUpdateBloco)
 
 router.post("/CriarBloco/", blocoController.createBloco)
 router.put("/AtualizarBloco/:blocoId/", blocoController.updateBloco)
-// router.post("/ExcluirBloco/:blocoId/", blocoController.postDEL)
+router.delete("/ExcluirBloco/:blocoId/", blocoController.deleteBloco)
+
+
 
 //Users
 router.get("/Usuarios",usersController.getUser)

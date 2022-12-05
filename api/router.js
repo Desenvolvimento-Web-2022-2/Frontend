@@ -17,7 +17,7 @@ router.get("/updateBloco/:blocoId", BlocosController.getUpdateBloco)
 
 router.post("/createBloco", BlocosController.createBloco)
 router.put("/updateBloco", BlocosController.updateBloco)
-
+router.delete("/deleteBloco/:blocoId", BlocosController.deleteBloco)
 
 //Salas
 router.get("/getComputer/:blocoId/:salaId", SalasController.getComputers)

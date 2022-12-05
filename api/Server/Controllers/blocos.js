@@ -31,5 +31,9 @@ class BlocoController{
     let bloco = blocosService.updateBloco(request)
     res.send(JSON.stringify(bloco))
   }
+  async deleteBloco(req, res){
+    let response = blocosService.deleteBloco(req.params.blocoId)
+    res.send(JSON.stringify(response))
+  }
 }
 module.exports = new BlocoController()

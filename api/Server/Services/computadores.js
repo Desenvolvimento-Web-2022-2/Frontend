@@ -1,9 +1,17 @@
-const computers = require("../db/Computadores.json")
+// require("../db/Computadores.json")
 const SalasService = require("./salas")
 var fs = require('fs');
 var path = require('path');
+let blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+let salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+
 class ComputadoresService{
     returnComputer(computerId){
+        refreshbd()
         let computer = computers.Computadores.find(computer=> computer.id == computerId)
         return !!computer ? computer : 
         {
@@ -20,6 +28,7 @@ class ComputadoresService{
     }
 
     validateByBlocoAndSala(blocoId,salaId,computerId){
+        refreshbd()
         let salaValid = SalasService.validateByBloco(blocoId,salaId)
         let computer = this.returnComputer(computerId)
         computer.salaId == salaId
@@ -27,6 +36,7 @@ class ComputadoresService{
     }
 
     post(req){
+        refreshbd()
         let newId = !!computers.Computadores[computers.Computadores.length-1] ? parseInt(computers.Computadores[computers.Computadores.length-1].id)+1 : 1
         let newComputador = {
             status: req.status,
@@ -43,10 +53,11 @@ class ComputadoresService{
         fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(computers),function(err) {
             if (err) throw err;
             console.log('Computador Cadastrado');
-            return newComputador
         })
+        return newComputador
     }
     postAtt(req){
+        refreshbd()
         let attComputador = {
             status: req.status,
             model: req.model,
@@ -58,14 +69,20 @@ class ComputadoresService{
             id: req.id,
             salaId: req.salaId
         }
-        computers.Computadores[req.id - 1] = attComputador
+        for(let j=0; j<computers.Computadores.length; j++){
+            if(computers.Computadores[j].id == attComputador.id){
+                computers.Computadores[j] =attComputador
+            }
+        }
+        // computers.Computadores[req.id - 1] = attComputador
         fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(computers),function(err) {
             if (err) throw err;
             console.log('Computador Cadastrado');
-            return attComputador
         })
+        return attComputador
     }
     deleteComp(id){
+        refreshbd()
         let status = {
             isDeleted: true,
             compId: id
@@ -94,3 +111,11 @@ class ComputadoresService{
 
 }
 module.exports = new ComputadoresService()
+function refreshbd(){
+    blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+    salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+    users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+    computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+}

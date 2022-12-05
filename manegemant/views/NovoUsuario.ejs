@@ -44,9 +44,18 @@
 
         </div>
         <div class="upload">
-            <div>
-                <img src="<%=`${baseUrl}/`%>images/upload.png" alt="botão de upload">
+            <div id="UploadImg">
+                <div id="uploadCircle" ondrop="dropHandler(event);"
+                ondragover="dragOverHandler(event);">
+                <button style="border: none;background-color:transparent" onclick="thisFileUpload()">
+                    <img src="<%=`${baseUrl}/`%>images/upload.png" alt="botão de upload">
+                    <input class="input-button" type="file" name="imgButton" id="imgButton"
+                                    style="display: none;" accept="image/png,image/jpeg,image/jpg,image/svg+xml" 
+                                    onchange="uploadImgInput(event)">
+                </button>
+                </div>
             </div>
+
             <div class="textUpload">
                 <p>Upload da imagem de usuário</p>
                 <p>    - Opcional</p>
@@ -66,5 +75,7 @@
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/NovosUsuarios/NovoUsuario.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/UploadImage/UploadImage.js"></script>
+
 </body>
 </html>

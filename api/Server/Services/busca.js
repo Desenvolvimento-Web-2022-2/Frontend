@@ -1,10 +1,20 @@
-const blocos = require("../db/Blocos.json")
-const salas = require("../db/Salas.json")
-const computadores = require("../db/Computadores.json")
-const users = require("../db/Users.json")
+// const blocos = require("../db/Blocos.json")
+// const salas = require("../db/Salas.json")
+// const computadores = require("../db/Computadores.json")
+// const users = require("../db/Users.json")
+var fs = require('fs');
+var path = require('path');
 const profile = require("../db/Profiles.json")
+let blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+let salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+
 class BuscaService{
     getComputadores(body){
+        refreshbd()
         let computerArray = []
         if(body.input == ""){
             computadores.Computadores.forEach(computador=>{
@@ -24,6 +34,7 @@ class BuscaService{
         return computerArray
     }
     getUsers(body){
+        refreshbd()
         let usersArray = []
         if(body.input == ""){
             users.Users.forEach(user=>{
@@ -54,6 +65,7 @@ class BuscaService{
         return usersArray
     }
     getBlocos(body){
+        refreshbd()
         let blocosArray = []
         if(body.input == ""){
             blocos.Blocos.forEach(bloco=>{
@@ -70,6 +82,7 @@ class BuscaService{
         return blocosArray
     }
     getSalas(body){
+        refreshbd()
         let salasArray = []
         if(body.input == ""){
             salas.Salas.forEach(sala=>{
@@ -90,3 +103,12 @@ class BuscaService{
     }
 }
 module.exports = new BuscaService()
+
+function refreshbd(){
+    blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+    salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+    users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+    computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+}

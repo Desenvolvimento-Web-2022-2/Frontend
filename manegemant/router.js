@@ -49,6 +49,7 @@ router.delete("/ExcluirComputador/:computerId", ComputadoresController.deleteCom
 router.get("/Login",loginController.getLoginPage)
 router.post("/authenticate",loginController.authenticate)
 router.post("/validateToken",loginController.validateToken)
+router.post("/RecSenha",loginController.postNewPassword)
 
 //Esqueci a senha
 router.get("/RecSenha",loginController.getNewPassPage)

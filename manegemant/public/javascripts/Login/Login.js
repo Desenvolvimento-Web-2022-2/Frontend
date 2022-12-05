@@ -27,6 +27,13 @@ function revealSecret(button) {
 }
 
 async function sendForm() {
+    let login = document.querySelector(".login")
+    let p = document.createElement("p")
+
+    let e = document.getElementById("status")
+    if(!!e){
+        e.remove()
+    }
     let emailInput = document.querySelector("#email").value
     let passwordInput = document.querySelector("#senha").value
     let form = {
@@ -47,7 +54,24 @@ async function sendForm() {
         if (data.status == "valid"){
             sessionStorage.setItem("token", data.token)
             sessionStorage.setItem("userId",data.userId)
+            sessionStorage.setItem("userName",data.name)
+            sessionStorage.setItem("userImg",data.img)
+            p.innerHTML="Logado com sucess, redirecionando..."
+            p.setAttribute("id","status")
+            p.setAttribute("style","color:green")
+            login.appendChild(p)
             window.location.href = "/"
         }
+        else{
+            p.innerHTML = "usuario e/ou senha errados"
+            p.setAttribute("id","status")
+            p.setAttribute("style","color:red")
+            login.appendChild(p)
+        }
+    }).catch(err=>{
+        p.innerHTML = "usuario e/ou senha errados"
+        p.setAttribute("id","status")
+        p.setAttribute("style","color:red")
+        login.appendChild(p)
     })
 }

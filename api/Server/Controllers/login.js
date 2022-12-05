@@ -26,5 +26,19 @@ class LoginController{
       res.send("Unauthorized")
     }
   }
+  async postNewPassword(req,res){
+    let request = JSON.parse(req.body.req)
+    console.log(request)
+    let resp = loginService.postNewPassword(request)
+    console.log(resp)
+    if(resp.status ==201){
+      res.status(201)
+      res.send(JSON.stringify(resp))
+    }
+    else{
+      res.status(400);
+      res.send("Bad Request")
+    }
+  }
 }
 module.exports = new LoginController()

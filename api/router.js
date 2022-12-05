@@ -49,7 +49,7 @@ router.post("/reservarSala",ReservController.criarReserva)
 //Login
 router.post("/authenticate", LoginController.authenticate)
 router.post("/validateToken", LoginController.validateToken)
-
+router.post("/postNewPassword",LoginController.postNewPassword)
 //Busca
 router.post("/getSearch", BuscaController.getSearch)
 module.exports = router;

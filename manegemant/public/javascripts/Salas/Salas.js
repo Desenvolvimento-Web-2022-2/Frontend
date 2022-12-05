@@ -9,6 +9,7 @@ window.onload = async function () {
     changeMode()
     setFontStorage()
     callFilterItem("salas")
+    checkSideBarImg()
 }
 function createButtonSalas(permissions){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)

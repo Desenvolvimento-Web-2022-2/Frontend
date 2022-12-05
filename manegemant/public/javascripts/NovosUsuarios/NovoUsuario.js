@@ -47,7 +47,6 @@ async function sendForm() {
     let emailInput = document.querySelector("#email").value
     let passwordInput = document.querySelector("#senha").value
     let roleInput = document.querySelector("#role").value
-
     if (!!emailInput &&
         !!nomeInput &&
         !!passwordInput &&
@@ -57,7 +56,8 @@ async function sendForm() {
             name: nomeInput,
             email: emailInput,
             password: passwordInput,
-            profileId: profile[roleInput]
+            profileId: profile[roleInput],
+            img: jsonImage
         }
         await fetch(`/NovoUsuario`, {
             method: 'POST',

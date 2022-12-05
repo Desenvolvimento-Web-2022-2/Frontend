@@ -1,12 +1,21 @@
-const users = require("../db/Users.json")
+// const users = require("../db/Users.json")
+
 const profiles = require("../db/Profiles.json")
 
 const env = require("../../env.json")
 var fs = require('fs');
 var path = require('path');
 var Crypto = require("crypto-js");
+
+let blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+let salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
 class UsersService{
     returnUsersJson(){
+        refreshbd()
         let usersArray = []
         users.Users.forEach(user=>{
             let userObj = 
@@ -29,6 +38,7 @@ class UsersService{
         return usersArray
     }
     updateUser(id=""){
+        refreshbd()
         let returnObj
         let userObj = this.returnUsersJson()
         userObj = userObj.forEach(user=>{
@@ -47,6 +57,7 @@ class UsersService{
         return !!returnObj ? returnObj :userObj2
     }
     createUser(req){
+        refreshbd()
         let hash = Crypto.AES.encrypt(req.password,env.userKey,{
             keySize: 128/8,
             iv:Crypto.enc.Utf8.parse(env.userIv),
@@ -58,6 +69,7 @@ class UsersService{
             usersInfosName: req.name,
             usersInfosEmail: req.email,
             usersInfosPassword:hash,
+            img:req.img,
             userId:(parseInt(users.Users[users.Users.length-1].userId)+1).toString(),
             profileId:req.profileId,
             isActive:"true"
@@ -72,3 +84,13 @@ class UsersService{
     }
 }
 module.exports = new UsersService()
+
+
+function refreshbd(){
+    blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+    salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+    users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+    computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+}

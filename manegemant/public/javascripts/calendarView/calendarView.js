@@ -68,6 +68,7 @@ window.onload = async function(){
         viewType = "ano"
         renderViewByType(viewType)
     }
+    checkSideBarImg()
 }
 
 function changeType(type){

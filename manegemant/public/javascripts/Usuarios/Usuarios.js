@@ -14,7 +14,7 @@ window.onload = async function () {
     }
     setFontStorage()
     callFilterItem("usuarios")
-
+    checkSideBarImg()
 }
 
 function createButtonSalas(permissions){

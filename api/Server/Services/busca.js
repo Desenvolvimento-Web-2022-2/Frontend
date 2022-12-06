@@ -1,7 +1,3 @@
-// const blocos = require("../db/Blocos.json")
-// const salas = require("../db/Salas.json")
-// const computadores = require("../db/Computadores.json")
-// const users = require("../db/Users.json")
 var fs = require('fs');
 var path = require('path');
 const profile = require("../db/Profiles.json")
@@ -11,7 +7,6 @@ let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"),
 let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
 let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
 let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
-
 class BuscaService{
     getComputadores(body){
         refreshbd()

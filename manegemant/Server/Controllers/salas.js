@@ -72,7 +72,6 @@ class SalaController{
       res.send("Internal Server Error")
     }
   }
-  //TODO Levar para a API
   async updateSala(req,res){
     try{
       let request = JSON.stringify(req.body)
@@ -95,7 +94,6 @@ class SalaController{
       const response = await axios.delete(baseUrl+"/deleteSala/"+req.params.salaId)
       if(response.status == 200){
         const json = response.data
-        console.log(json)
 
         res.status(200)
         res.send(json)

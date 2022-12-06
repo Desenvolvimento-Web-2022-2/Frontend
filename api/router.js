@@ -41,6 +41,9 @@ router.get("/createUser", UsersController.getNewUser)
 router.get("/updateUser/:userId", UsersController.getUpdateUser)
 
 router.post("/createUser",UsersController.createUser)
+router.put("/updateUser", UsersController.updateUser)
+router.delete("/deleteUser/:userId", UsersController.deleteUser)
+
 //Reserva
 router.get("/getCalendar/:blocoId/:salaId", ReservController.getCalendar)
 router.get("/getReserva/:day/:mouth/:year", ReservController.getReserva)

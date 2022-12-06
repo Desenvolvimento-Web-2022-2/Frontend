@@ -19,7 +19,7 @@
             <div class="buttonsDiv">
                 <custom-button labelName="Atualizar" redirect="AtualizarUsuario/<%=`${JSON.userId}`%>">
                 </custom-button>
-                <custom-button class="color-red" labelName="Remover">
+                <custom-button class="color-red"redirect="/" labelName="Remover" onclick="removeUser('<%=`${JSON.userId}`%>')" callFunction>
                 </custom-button>
             </div>
     </div>

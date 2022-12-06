@@ -1,4 +1,3 @@
-// require("../db/Computadores.json")
 const SalasService = require("./salas")
 var fs = require('fs');
 var path = require('path');

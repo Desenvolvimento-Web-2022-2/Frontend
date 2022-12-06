@@ -28,9 +28,7 @@ class LoginController{
   }
   async postNewPassword(req,res){
     let request = JSON.parse(req.body.req)
-    console.log(request)
     let resp = loginService.postNewPassword(request)
-    console.log(resp)
     if(resp.status ==201){
       res.status(201)
       res.send(JSON.stringify(resp))

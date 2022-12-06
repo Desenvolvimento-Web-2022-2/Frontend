@@ -35,7 +35,6 @@ function getPath(){
     return path.split("/")
 }
 
-
 async function sendFormAttSala(){
     let pathSplit = getPath()
     let inputs = document.getElementsByTagName("input")

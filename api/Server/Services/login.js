@@ -1,5 +1,3 @@
-// const users = require("../db/Users.json")
-
 const profile = require("../db/Profiles.json")
 const env = require("../../env.json")
 var Crypto = require("crypto-js");

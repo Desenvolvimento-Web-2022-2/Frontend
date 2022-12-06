@@ -8,7 +8,6 @@ class BuscaController{
     }
     async getSearch(req, res){
         try{
-            console.log(JSON.stringify(req.body))
             let request = JSON.stringify(req.body)
             const reponse = await axios.post(baseUrl+"/getSearch",{
               req:request

@@ -1,7 +1,3 @@
-// const reservas = require("../db/Reserva.json")
-// const horarios = require("../db/Horario.json")
-// const users = require("../db/users.json")
-
 var fs = require('fs');
 var path = require('path');
 

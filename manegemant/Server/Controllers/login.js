@@ -42,7 +42,6 @@ class LoginController{
   async validateToken(req,res){
     try{
       let request = JSON.stringify(req.body)
-      console.log(request)
       const reponse = await axios.post(baseUrl+"/validateToken",{
         req:request
       })

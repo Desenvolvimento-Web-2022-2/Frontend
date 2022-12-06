@@ -1,5 +1,3 @@
-// const salas = require("../db/salas.json")
-// const comps = require("../db/computadores.json")
 var fs = require('fs');
 var path = require('path');
 
@@ -91,8 +89,6 @@ class SalasService{
         let newComputers = []
         let newSalas = []
         for(let i=0; i<computers.Computadores.length; i++){
-            console.log(computers.Computadores[i].salaId,id)
-
             if(computers.Computadores[i].salaId != id){
                 newComputers.push(computers.Computadores[i])
             }

@@ -1,5 +1,3 @@
-// const blocos = require("../db/Blocos.json")
-// const salas = require("../db/Salas.json")
 var fs = require('fs');
 var path = require('path');
 
@@ -20,7 +18,6 @@ class BlocoService{
         salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
         let validSalas = []
         salas.Salas.forEach(sala => {
-            console.log(sala)
             if(sala.blocoId == blocoId)
                 validSalas.push(sala)
         })

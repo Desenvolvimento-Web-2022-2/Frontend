@@ -22,7 +22,7 @@
 
     <div class="formAndUpload">
         <div class="form">
-            <h2>Novo Usuário</h2>
+            <h2><%= `${labelName}` %></h2>
             <div class="inputImg">            
                 <input type="text" placeholder="Nome" name="Nome" id="Nome" value="<%=`${JSON.usersInfosName}`%>">
                 <img src="<%=`${baseUrl}/`%>images/icons/nameInput.svg">
@@ -40,7 +40,7 @@
                 <button onclick="revealSecret('passwordConfirm',this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
             </div>
 
-            <custom-button callFunction onclick="sendForm()" class="color-gray" labelName="Cadastrar"></custom-button>
+            <custom-button callFunction onclick="sendForm()" class="color-gray" labelName="<%= `${buttonName}` %>"></custom-button>
 
         </div>
         <div class="upload">

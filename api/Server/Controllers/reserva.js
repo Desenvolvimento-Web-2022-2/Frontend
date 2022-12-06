@@ -16,7 +16,6 @@ class ReservaController{
   async getReserva(req, res){
     let date = `${req.params.year}-${req.params.mouth}-${req.params.day}`
     let json = reservaService.returnReservas(date)
-    console.log(json)
     res.send(json);
   }
   async criarReserva(req, res){

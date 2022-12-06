@@ -47,7 +47,6 @@ async function sendForm() {
     let emailInput = document.querySelector("#email").value
     let passwordInput = document.querySelector("#senha").value
     let roleInput = document.querySelector("#role").value
-
     if (!!emailInput &&
         !!nomeInput &&
         !!passwordInput &&
@@ -57,10 +56,22 @@ async function sendForm() {
             name: nomeInput,
             email: emailInput,
             password: passwordInput,
-            profileId: profile[roleInput]
+            profileId: profile[roleInput],
+            img: jsonImage
         }
-        await fetch(`/NovoUsuario`, {
-            method: 'POST',
+        let config = {}
+        if(window.location.pathname.includes("AtualizarUsuario")){
+            config.method = "PUT"
+            config.path = "/updateUser"
+            form.userId = window.location.pathname.split("/")[2]
+        }
+        else{
+            config.method = `POST`
+            config.path = `/NovoUsuario`
+        }   
+
+        await fetch(config.path, {
+            method: config.method,
             mode: 'cors',
             cache: 'no-cache',
             credentials: 'same-origin',

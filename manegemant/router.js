@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router();
-const computers = require("../manegemant/public/Objects/Computadores.json")
 
 const blocoController = require("./Server/Controllers/blocos")
 const usersController = require("./Server/Controllers/users")
@@ -20,13 +19,14 @@ router.post("/CriarBloco/", blocoController.createBloco)
 router.put("/AtualizarBloco/:blocoId/", blocoController.updateBloco)
 router.delete("/ExcluirBloco/:blocoId/", blocoController.deleteBloco)
 
-
-
 //Users
 router.get("/Usuarios",usersController.getUser)
 router.get("/NovoUsuario",usersController.newUser)
 router.get("/AtualizarUsuario/:userId",usersController.updateUser)
 router.post("/NovoUsuario",usersController.createUser)
+router.put("/updateUser", usersController.putUpdateUser)
+router.delete("/deleteUser/:userId", usersController.deleteUser)
+
 
 //Salas
 router.get("/Bloco/:blocoId/Sala/:salaId/",salaController.getSala)
@@ -36,8 +36,6 @@ router.get("/Bloco/:blocoId/CriarSala/", salaController.getCreateSala)
 router.post("/Bloco/:blocoId/CriarSala/", salaController.createSala)
 router.put("/Bloco/:blocoId/AtualizarSala/:salaId/", salaController.updateSala)
 router.delete("/ExcluiSala/:salaId/", salaController.deleteSala)
-// router.post("/Bloco/:blocoId/ExcluiSala/:salaId", salaController.deleteSala) //fazer esse dps
-
 
 //Computadores
 router.get("/Bloco/:blocoId/Sala/:salaId/AtualizarComputador/:computerId",ComputadoresController.updateComputer)
@@ -51,6 +49,7 @@ router.delete("/ExcluirComputador/:computerId", ComputadoresController.deleteCom
 router.get("/Login",loginController.getLoginPage)
 router.post("/authenticate",loginController.authenticate)
 router.post("/validateToken",loginController.validateToken)
+router.post("/RecSenha",loginController.postNewPassword)
 
 //Esqueci a senha
 router.get("/RecSenha",loginController.getNewPassPage)
@@ -59,9 +58,6 @@ router.get("/RecSenha",loginController.getNewPassPage)
 router.get("/Bloco/:blocoId/Sala/:salaId/calendar",ReservaController.getCalendar)
 router.get("/getCalendar/:day/:mouth/:year",ReservaController.getReserva);
 router.post("/reservarSala",ReservaController.criarReserva)
-
-// router.get("/teste", (rec,resp)=>{resp.render('test', {baseUrl:rec.baseUrl, sidebarName:'abc', title:'teste'})})
-
 
 //Busca
 router.get("/Filtro/:tipo", BuscaController.retornaNomes)

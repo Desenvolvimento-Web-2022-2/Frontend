@@ -13,6 +13,7 @@ window.onload = async function(){
     changeMode()
     setFontStorage()
     callFilterItem("computadores")
+    checkSideBarImg()
 
 }
 
@@ -72,7 +73,7 @@ async function removePC(id){
 async function removeSala(id){
     await fetch(`/ExcluiSala/${id}`, { method: 'DELETE' }).then(response => {
         console.log('executado com sucesso!')
-        window.location.reload()
+        window.location.href = "/"
     })
     .catch(function(err) {
         console.log('erro encontrado');

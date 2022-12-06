@@ -9,6 +9,7 @@ window.onload = async function () {
     changeMode()
     setFontStorage()
     callFilterItem("salas")
+    checkSideBarImg()
 }
 function createButtonSalas(permissions){
     let sidebar = document.getElementsByClassName("sidebarName").item(0)
@@ -23,7 +24,7 @@ function createButtonSalas(permissions){
         let removeDepartemet = document.createElement("custom-button")
         removeDepartemet.toggleAttribute("callFunction")
         removeDepartemet.setAttribute("onclick",`removeBloco(${pathSplit[2]})`)
-        removeDepartemet.setAttribute("redirect",`RemoverBloco/${pathSplit[(pathSplit.length-2)]}`)
+        removeDepartemet.setAttribute("redirect",`/`)
         removeDepartemet.setAttribute("labelName","Remover departamento")
         removeDepartemet.classList.add("color-red")
 
@@ -43,10 +44,9 @@ function getPath(){
     return path.split("/")
 }
 async function removeBloco(id){
-    console.log(id)
     await fetch(`/ExcluirBloco/${id}`, { method: 'DELETE' }).then(response => {
         console.log('executado com sucesso!')
-        window.location.reload()
+        window.location.href = "/"
     })
     .catch(function(err) {
         console.log('erro encontrado');

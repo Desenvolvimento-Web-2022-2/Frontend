@@ -59,7 +59,7 @@ body{
     background-color: #D9D9D9;
     padding: 1rem 2rem 3rem 2rem;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .upload div img{
@@ -67,7 +67,7 @@ body{
     aspect-ratio: 1/1;
     padding: 96px;
 }
-.upload div:nth-child(1){
+#uploadCircle{
     display: flex;
     justify-content: center;
     border: 5px solid black;

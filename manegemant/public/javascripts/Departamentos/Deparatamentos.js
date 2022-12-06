@@ -11,7 +11,7 @@ window.onload = async function () {
     setFontStorage()
     createButtonDept(permissions)
     callFilterItem("blocos")
-
+    checkSideBarImg()
 }
 
 function createButtonDept(permissions){

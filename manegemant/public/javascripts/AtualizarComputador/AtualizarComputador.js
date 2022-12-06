@@ -12,6 +12,7 @@ window.onload = async function(){
             window.location.href = "/"
     }
     setFontStorage()
+    checkSideBarImg()
 
 }
 function createButtons(permissions){

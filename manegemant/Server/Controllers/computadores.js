@@ -37,7 +37,6 @@ class ComputadoresController {
             const response = await axios.get(baseUrl+"/createComputador/"+req.params.salaId)
             if(response.status == 200){
               const json = response.data
-              console.log(json)
 
               res.status(200);
               res.render("AtualizarComputador",{title:"Criar Computador",baseUrl: req.baseUrl,JSON:json,sidebarName:"Criar Computador",render:"computador"});

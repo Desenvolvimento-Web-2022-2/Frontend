@@ -1,12 +1,18 @@
-const salas = require("../db/salas.json")
-const comps = require("../db/computadores.json")
-
 var fs = require('fs');
 var path = require('path');
+
+let blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+let salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+
 class SalasService{
     returnComputersJson(blocoId, salaId){
+        refreshbd()
         let validComputers = []
-        comps.Computadores.forEach(comp => {
+        computers.Computadores.forEach(comp => {
             if(comp.salaId == salaId)
                 validComputers.push(comp)
         })
@@ -22,10 +28,12 @@ class SalasService{
         })
     }
     validateByBloco(blocoId,salaId){
+        refreshbd()
         let sala = this.returnSalaJson(salaId)
         return sala.blocoId == blocoId 
     }
     returnSalaJson(salaId=""){
+        refreshbd()
         if(!salaId){
             return {name:"",subname:"",numberOrRole:"",id:"",blocoId:""}
 
@@ -36,12 +44,14 @@ class SalasService{
     }
 
     saveSala(req){
+        refreshbd()
         let newId = !!salas.Salas[salas.Salas.length-1] ? parseInt(salas.Salas[salas.Salas.length-1].id)+1 : 1
         let newSala = {
             name: req.name,
             subname: req.subname,
             numberOrRole: req.numberOrRole,
             blocoId: req.blocoID,
+            img: req.img,
             id:newId.toString()
         }
         
@@ -53,6 +63,7 @@ class SalasService{
         return newSala
     }
     updateSala(req){
+        refreshbd()
         let attSala = {
             name: req.name,
             subname: req.subname,
@@ -60,8 +71,13 @@ class SalasService{
             blocoId: req.blocoID,
             id: req.salaID
         }
-        salas.Salas[req.salaID - 1] = attSala
-        fs.writeFileSync(path.join(__dirname, '../db/salas.json'),JSON.stringify(salas),function(err) {
+        for(let j=0; j<salas.Salas.length; j++){
+            if(salas.Salas[j].id == attSala.id){
+                attSala.img = !!req.img ? req.img : salas.Salas[j].img
+                salas.Salas[j] = attSala
+            }
+        }
+        fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(salas),function(err) {
             if (err) throw err;
             console.log('sala atualizada');
         })
@@ -69,13 +85,12 @@ class SalasService{
 
     }
     deleteSala(id){
+        refreshbd()
         let newComputers = []
         let newSalas = []
-        for(let i=0; i<comps.Computadores.length; i++){
-            console.log(comps.Computadores[i].salaId,id)
-
-            if(comps.Computadores[i].salaId != id){
-                newComputers.push(comps.Computadores[i])
+        for(let i=0; i<computers.Computadores.length; i++){
+            if(computers.Computadores[i].salaId != id){
+                newComputers.push(computers.Computadores[i])
             }
         }
         for(let j=0; j<salas.Salas.length; j++){
@@ -109,3 +124,11 @@ class SalasService{
     }
 }
 module.exports = new SalasService()
+function refreshbd(){
+    blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+    salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+    users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+    computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+}

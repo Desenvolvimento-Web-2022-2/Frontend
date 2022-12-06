@@ -29,7 +29,24 @@ class UsersController{
   async createUser(req, res) {
     let request = JSON.parse(req.body.req)
     let newUser = usersService.createUser(request)
+    if(newUser == "Erro"){
+      res.status(400)
+      res.send("User Alredy exist")
+    }
+    else{
+      res.status(201)
+      res.send(newUser)
+    }
+  }
+  async updateUser(req, res) {
+    let request = JSON.parse(req.body.req)
+    let newUser = usersService.updateUserPut(request)
     res.send(newUser)
+  }
+  async deleteUser(req, res)  {
+    let deleteUser = usersService.deleteUser(req.params.userId)
+    if(!!deleteUser)
+    res.send(deleteUser)
   }
 }
 module.exports = new UsersController()

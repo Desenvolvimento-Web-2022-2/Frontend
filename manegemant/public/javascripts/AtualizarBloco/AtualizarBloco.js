@@ -51,7 +51,8 @@ async function sendFormAttSala(){
                 subname: nome,
                 numberOrRole: descricao,
                 blocoID: pathSplit[2],
-                salaID: pathSplit[4]
+                salaID: pathSplit[4],
+                img: jsonImage
             }
             let address
             if(pathSplit.includes('CriarSala')) 

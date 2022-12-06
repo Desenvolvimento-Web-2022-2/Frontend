@@ -51,6 +51,7 @@ class BlocoService{
             name: req.name,
             subname: req.subname,
             numberOrRole: req.numberOrRole,
+            img:req.img,
             id:newId.toString()
         }
         blocos.Blocos.push(newBloco)
@@ -70,6 +71,7 @@ class BlocoService{
         }
         for(let j=0; j<blocos.Blocos.length; j++){
             if(blocos.Blocos[j].id == upBloco.id){
+                upBloco.img = !!req.img ? req.img : blocos.Blocos[j].img
                 blocos.Blocos[j] =upBloco
             }
         }

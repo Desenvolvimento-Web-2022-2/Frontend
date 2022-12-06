@@ -12,8 +12,17 @@
                 <input type="text" placeholder="<%=`${render == 'bloco' ? 'Número':'Descrição'}`%>" value="<%=`${JSON.numberOrRole}`%>">
             </div>
             <div class="imageUpload">
-                <div class = "imageKeeper">
-                    <img src="<%=`${baseUrl}/`%>images/icons/download.svg" alt="" style="width: 144px; aspect-ratio: 1/1;">
+                <div id="UploadImg">
+                    <div class = "imageKeeper" ondrop="dropHandler(event);"
+                    ondragover="dragOverHandler(event);">
+                    <button style="border: none;background-color:transparent" onclick="thisFileUpload()">
+                        <img src="<%=`${baseUrl}/`%>images/icons/download.svg" alt="" style="width: 144px; aspect-ratio: 1/1;">
+                        <input class="input-button" type="file" name="imgButton" id="imgButton"
+                        style="display: none;" accept="image/png,image/jpeg,image/jpg,image/svg+xml" 
+                        onchange="uploadImgInput(event)">
+                    </button>
+                </div>
+                
                 </div>
                 <p>Upload da imagem do departamento<label> - Opcional</label></p>
             </div>
@@ -26,6 +35,7 @@
     <script src="<%=`${baseUrl}/`%>javascripts/Navbar/navbar.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>
     <script src="<%=`${baseUrl}/`%>javascripts/SideBar/SideBar.js"></script>
+    <script src="<%=`${baseUrl}/`%>javascripts/UploadImage/UploadImage.js"></script>
 
 </body>
 </html>

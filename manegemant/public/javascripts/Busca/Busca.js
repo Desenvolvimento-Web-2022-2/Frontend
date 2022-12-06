@@ -86,7 +86,13 @@ function constructPage(data,json){
             let blocoSalaHandler = data.page == "Blocos" ? "bloco" : "sala"
             newExt.setAttribute("onclick",`redirectToDep("${blocoSalaHandler}/${element.id}/")`)
             let img = document.createElement("img")
-            img.setAttribute("src","/images/ft-fachada-deti.jpg")
+            if(!!element.img){
+                img.setAttribute("src",element.img)
+            }
+            else{
+                img.setAttribute("src","/images/ft-fachada-deti.jpg")
+            }
+
             img.setAttribute("alt","imagem")
             let p1 = document.createElement("p")
             p1.innerHTML = element.name

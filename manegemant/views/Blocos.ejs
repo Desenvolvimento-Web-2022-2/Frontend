@@ -3,7 +3,7 @@
         <%- include('Partials/searchBar',{searchName:"Blocos",route:"Blocos"}); %>
 
         <div class="cards-container" id="cards-container">
-            <% JSONBloco.Blocos.forEach((bloco) =>  { %>
+            <% JSONBloco.Blocos.forEach((bloco) =>  { %>                
                 <%- include('Partials/card', {JSONCard: bloco,redirect: "bloco/"+bloco.id}) %>
             <% }) %>
         </div>

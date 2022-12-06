@@ -53,6 +53,7 @@ class SalasService{
             subname: req.subname,
             numberOrRole: req.numberOrRole,
             blocoId: req.blocoID,
+            img: req.img,
             id:newId.toString()
         }
         
@@ -65,7 +66,6 @@ class SalasService{
     }
     updateSala(req){
         refreshbd()
-        console.log(req)
         let attSala = {
             name: req.name,
             subname: req.subname,
@@ -75,7 +75,8 @@ class SalasService{
         }
         for(let j=0; j<salas.Salas.length; j++){
             if(salas.Salas[j].id == attSala.id){
-                salas.Salas[j] =attSala
+                attSala.img = !!req.img ? req.img : salas.Salas[j].img
+                salas.Salas[j] = attSala
             }
         }
         fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(salas),function(err) {

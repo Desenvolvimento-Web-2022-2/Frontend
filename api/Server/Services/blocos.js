@@ -72,12 +72,68 @@ class BlocoService{
                 blocos.Blocos[j] =upBloco
             }
         }
-        // blocos.Blocos[req.blocoID - 1] = upBloco
         fs.writeFileSync(path.join(__dirname, '../db/Blocos.json'),JSON.stringify(blocos),function(err) {
             if (err) throw err;
             console.log('bloco atualizado');
         })
         return upBloco
+    }
+    deleteBloco(id){
+        refreshbd()
+        let newBlocos = []
+        let newComputers = []
+        let newSalas = []
+        let a = []
+        for(let i=0; i<salas.Salas.length; i++){
+            if(salas.Salas[i].blocoId == id){
+                a.push(salas.Salas[i])
+            }
+            else{
+                newSalas.push(salas.Salas[i])
+            }
+        }
+        console.log(a)
+        for(let j=0; j<computers.Computadores.length; j++){
+            newSalas.forEach(sala=>{
+                if(computers.Computadores[j].salaId == sala.id)
+                    newComputers.push(computers.Computadores[j])
+            })
+        }
+        for(let k=0; k<blocos.Blocos.length; k++){
+            if(blocos.Blocos[k].id != id) newBlocos.push(blocos.Blocos[k])
+        }
+        let CompJSON = {
+            Computadores: newComputers
+        }
+        let SalasJSON = {
+            Salas: newSalas
+        }
+        let BlocosJSON = {
+            Blocos: newBlocos
+        }
+        try{
+            fs.writeFileSync(path.join(__dirname, '../db/Computadores.json'),JSON.stringify(CompJSON),function(err) {
+                if (err) throw err
+            })
+            try{
+                fs.writeFileSync(path.join(__dirname, '../db/Salas.json'),JSON.stringify(SalasJSON),function(err) {
+                    if (err) throw err
+                })
+                try{
+                    fs.writeFileSync(path.join(__dirname, '../db/Blocos.json'),JSON.stringify(BlocosJSON),function(err) {
+                        if (err) throw err
+                    })
+                    return true
+                }catch{
+                    return false
+                }
+            }catch{
+                return false
+            }
+        }catch{
+            return false
+        }
+
     }
 }
 module.exports = new BlocoService()
@@ -86,4 +142,6 @@ function refreshbd(){
     salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
     users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
     computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
 }

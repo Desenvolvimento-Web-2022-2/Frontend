@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router();
-const computers = require("../manegemant/public/Objects/Computadores.json")
 
 const blocoController = require("./Server/Controllers/blocos")
 const usersController = require("./Server/Controllers/users")
@@ -18,6 +17,7 @@ router.get("/AtualizarBloco/:blocoId/", blocoController.getUpdateBloco)
 
 router.post("/CriarBloco/", blocoController.createBloco)
 router.put("/AtualizarBloco/:blocoId/", blocoController.updateBloco)
+router.delete("/ExcluirBloco/:blocoId/", blocoController.deleteBloco)
 
 //Users
 router.get("/Usuarios",usersController.getUser)
@@ -58,9 +58,6 @@ router.get("/RecSenha",loginController.getNewPassPage)
 router.get("/Bloco/:blocoId/Sala/:salaId/calendar",ReservaController.getCalendar)
 router.get("/getCalendar/:day/:mouth/:year",ReservaController.getReserva);
 router.post("/reservarSala",ReservaController.criarReserva)
-
-// router.get("/teste", (rec,resp)=>{resp.render('test', {baseUrl:rec.baseUrl, sidebarName:'abc', title:'teste'})})
-
 
 //Busca
 router.get("/Filtro/:tipo", BuscaController.retornaNomes)

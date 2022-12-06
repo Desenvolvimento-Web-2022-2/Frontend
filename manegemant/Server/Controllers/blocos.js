@@ -70,5 +70,26 @@ class BlocoController{
       res.send("Not Found")
     }
   }
+  async deleteBloco(req, res){
+    try{
+      const response = await axios.delete(baseUrl+"/deleteBloco/"+req.params.blocoId)
+      if(response.status == 200){
+        const json = response.data
+        res.status(200)
+        res.send(json)
+      }
+      else{
+        res.status(404)
+        res.send('Not Found')
+      }
+    }catch(err){
+      console.error(err)
+      res.status(500)
+      res.send('Internal Server Error')
+    }
+  }
+
+
+
 }
 module.exports = new BlocoController()

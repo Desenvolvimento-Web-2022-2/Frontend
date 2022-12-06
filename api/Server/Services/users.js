@@ -158,9 +158,6 @@ class UsersService {
         users.Users = uToJson
         reservas.Reserva = rToJson
         horarios.Horario = hToJson
-        console.log(horarios)
-        console.log(reservas)
-        // console.log(users)
 
         fs.writeFileSync(path.join(__dirname, '../db/Horario.json'),JSON.stringify(horarios),function(err) {
             if (err) throw err;

@@ -1,1 +1,0 @@
-const comps = require("../db/computadores.json")

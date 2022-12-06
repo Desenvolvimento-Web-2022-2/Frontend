@@ -12,6 +12,7 @@ window.onload = async function(){
             window.location.href = "/"
     }
     setFontStorage()
+    checkSideBarImg()
 }
 
 function createButtons(permissions){
@@ -34,7 +35,6 @@ function getPath(){
     return path.split("/")
 }
 
-
 async function sendFormAttSala(){
     let pathSplit = getPath()
     let inputs = document.getElementsByTagName("input")
@@ -50,7 +50,8 @@ async function sendFormAttSala(){
                 subname: nome,
                 numberOrRole: descricao,
                 blocoID: pathSplit[2],
-                salaID: pathSplit[4]
+                salaID: pathSplit[4],
+                img: jsonImage
             }
             let address
             if(pathSplit.includes('CriarSala')) 

@@ -14,7 +14,7 @@ window.onload = async function () {
     }
     setFontStorage()
     callFilterItem("usuarios")
-
+    checkSideBarImg()
 }
 
 function createButtonSalas(permissions){
@@ -29,4 +29,17 @@ function createButtonSalas(permissions){
 
         sidebar.appendChild(addUser)
     }
+}
+async function removeUser(userId){
+    await fetch("http://localhost:3000/deleteUser/"+userId, {
+        method: 'DELETE',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        referrerPolicy: 'no-referrer',
+    }).then(response => window.location.reload())
+
 }

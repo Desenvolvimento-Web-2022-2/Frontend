@@ -1,13 +1,16 @@
-const reservas = require("../db/Reserva.json")
-const horarios = require("../db/Horario.json")
-const users = require("../db/users.json")
-
 var fs = require('fs');
 var path = require('path');
 
+let blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+let salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+
 class ReservaService{
     returnReservas(data){
-        console.log(data)
+        refreshbd()
         let respArray = []
         reservas.Reserva.forEach(reserva=>{
             if(reserva.dia == data){
@@ -53,6 +56,7 @@ class ReservaService{
     }
 
     criarReserva(body){
+        refreshbd()
         let objReturn = {
             dia:"",
             userId:"",
@@ -110,10 +114,17 @@ class ReservaService{
             newReservaId ++
             newHorarioId ++
         })
-
         return "Ok"
         }
          
     
 }
 module.exports = new ReservaService()
+function refreshbd(){
+    blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+    salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+    users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+    computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+}

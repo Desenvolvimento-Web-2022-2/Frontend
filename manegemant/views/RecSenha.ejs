@@ -32,7 +32,7 @@
                 <input type="password" placeholder="Nova senha" name="senha" id="senha">
                 <button onclick="revealSecret(this)"><img src="<%=`${baseUrl}/`%>images/icons/locker.svg"></button>
             </div>            
-            <custom-button labelName="Redefinir" class="color-white"></custom-button>
+            <custom-button labelName="Redefinir" class="color-white" callFunction onclick="recPassword()"></custom-button>
         </div>    
     </div>
     <script src="<%=`${baseUrl}/`%>javascripts/CustomButton/customButton.js"></script>

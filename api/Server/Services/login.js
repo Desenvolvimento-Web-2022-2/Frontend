@@ -1,8 +1,9 @@
-const users = require("../db/Users.json")
 const profile = require("../db/Profiles.json")
 const env = require("../../env.json")
 var Crypto = require("crypto-js");
-
+var fs = require('fs');
+var path = require('path');
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
 class LoginService{
     authenticate(req){
         let token = {
@@ -31,9 +32,10 @@ class LoginService{
                     padding:Crypto.pad.Pkcs7,
                     mode:Crypto.mode.CBC
                   }).toString()
-                token.name = JSON.stringify(user)
+                token.name = user.usersInfosName
                 token.status = "valid"
                 token.userId = user.userId
+                token.img = !!user.img ? user.img : "Not Found"
                 return token
             }
         }
@@ -53,6 +55,27 @@ class LoginService{
         return (!!profileFinder && (json.expires >= date)) ? profileFinder.name : "Invalid Token"
 
     }
+    postNewPassword(req){
+        let user = users.Users.find(user => user.usersInfosEmail == req.email)
+        if(!!user){
+            let newPasswordEnc = Crypto.AES.encrypt(req.password,env.userKey,{
+                keySize: 128/8,
+                iv:Crypto.enc.Utf8.parse(env.userIv),
+                padding:Crypto.pad.Pkcs7,
+                mode:Crypto.mode.CBC
+              }).toString()
+            user.usersInfosPassword = newPasswordEnc
+            users.Users[user.userId - 1] = user
+            fs.writeFileSync(path.join(__dirname, '../db/Users.json'),JSON.stringify(users),function(err) {
+                if (err) throw err;
+            })
+            users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+            return {status:201,msg:"Created"}
 
+        }
+        else{
+            return {status:400,msg:"Bad Request"}
+        }
+    }
 }
 module.exports = new LoginService()

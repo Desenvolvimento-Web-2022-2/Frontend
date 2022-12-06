@@ -59,7 +59,7 @@ body{
     background-color: black;
     padding: 1rem 2rem 3rem 2rem;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .upload div img{
@@ -68,7 +68,7 @@ body{
     padding: 96px;
     filter:invert(100%) sepia(0%) saturate(7440%) hue-rotate(260deg) brightness(114%) contrast(88%);
 }
-.upload div:nth-child(1){
+#uploadCircle{
     display: flex;
     justify-content: center;
     border: 5px solid white;

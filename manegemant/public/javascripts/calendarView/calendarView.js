@@ -65,8 +65,15 @@ window.onload = async function(){
         window.location.href = "/login"
     else{
         permissions = await validateToken(token)
-        viewType = "ano"
-        renderViewByType(viewType)
+        if(permissions == "Aluno"){
+            window.location.href = "/"
+
+        }
+        else{
+            viewType = "ano"
+            renderViewByType(viewType)
+        }
+
     }
     checkSideBarImg()
 }

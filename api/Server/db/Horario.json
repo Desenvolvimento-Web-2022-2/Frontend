@@ -1,1 +1,1 @@
-{"Horario":[{"reservHour":"08:00 - 10:00","weekDay":"Sabado","reservType":"Day","horarioId":"1"}]}
+{"Horario":[{"reservHour":"08:00 - 10:00","weekDay":"Sabado","reservType":"Day","horarioId":"1"},{"reservHour":"12:00 - 14:00","weekDay":"Sabado","reservType":"Day","horarioId":"2"},{"reservHour":"10:00 - 12:00","weekDay":"Sabado","reservType":"Day","horarioId":"3"}]}

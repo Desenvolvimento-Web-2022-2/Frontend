@@ -1,3 +1,4 @@
+let permissions
 window.onload = async function () {
     let buttons = document.querySelectorAll(`.buttonDiv`)
     buttons.forEach(content=> content.style.display = 'none')
@@ -31,15 +32,16 @@ function createButtonSalas(permissions){
     }
 }
 async function removeUser(userId){
-    await fetch("http://localhost:3000/deleteUser/"+userId, {
-        method: 'DELETE',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        referrerPolicy: 'no-referrer',
-    }).then(response => window.location.reload())
-
+    if(permissions == "Administrador"){
+        await fetch("http://localhost:3000/deleteUser/"+userId, {
+            method: 'DELETE',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            referrerPolicy: 'no-referrer',
+        }).then(response => window.location.reload())
+    }
 }

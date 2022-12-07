@@ -16,6 +16,19 @@ async function callFilterItem(route){
 }
 
 async function searchFilter(route){
+    let permissions
+    let token = sessionStorage.getItem("token")
+    if(!token)
+        window.location.href = "/login"
+    else{
+        permissions = await validateToken(token)
+        if(permissions == "Administrador"){
+        }
+        else
+            window.location.href = "/"
+    }
+
+
     let ids={
         blocoId:"",
         salaId:""  
@@ -242,14 +255,22 @@ function constructPage(data,json){
             let customButton1 = document.createElement("custom-button")
             customButton1.setAttribute("class","color-white")
             customButton1.setAttribute("labelname","Atualizar Computador")
-            customButton1.setAttribute("redirect",`Bloco/${data.ids.blocoId}/Sala/${data.ids.salaId}/AtualizarComputador/${element.id}`)
+            if(permissions == "Administrador"){
+                customButton1.setAttribute("redirect",`Bloco/${data.ids.blocoId}/Sala/${data.ids.salaId}/AtualizarComputador/${element.id}`)
+            }
+            else{
+                customButton1.toggleAttribute("callFunction")
+                customButton1.setAttribute("redirect",`/`)
+            } 
 
             colapButtons.appendChild(customButton1)
 
             let customButton2 = document.createElement("custom-button")
             customButton2.setAttribute("class","color-red")
             customButton2.setAttribute("labelname","Excluir Computador")
-            customButton2.setAttribute("onclick",`removePC('${element.id}')`)
+            if(permissions == "Administrador"){
+                customButton2.setAttribute("onclick",`removePC('${element.id}')`)
+            }
             customButton2.toggleAttribute("callFunction")
 
             colapButtons.appendChild(customButton2)
@@ -320,14 +341,22 @@ function constructPage(data,json){
             let customButton1 = document.createElement("custom-button")
             customButton1.setAttribute("class","color-white")
             customButton1.setAttribute("labelname","Atualizar")
-            customButton1.setAttribute("redirect",`AtualizarUsuario/${element.id}`)
+            if(permissions == "Administrador"){
+                customButton1.setAttribute("redirect",`AtualizarUsuario/${element.id}`)
+            }
+            else{
+                customButton1.toggleAttribute("callFunction")
+                customButton1.setAttribute("redirect",`/`)
+            }
 
             buttonsDiv.appendChild(customButton1)
 
             let customButton2 = document.createElement("custom-button")
             customButton2.setAttribute("class","color-red")
             customButton2.setAttribute("labelname","Remover")
-            customButton2.setAttribute("onclick",`removeUser('${element.id}')`)
+            if(permissions == "Administrador"){
+                customButton2.setAttribute("onclick",`removeUser('${element.id}')`)
+            }
             customButton2.toggleAttribute("callFunction")
 
             buttonsDiv.appendChild(customButton2)

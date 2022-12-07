@@ -55,27 +55,42 @@ function createButtons(){
         sidebar.appendChild(CriarComp)
 
     }
+    else if(permissions == "Professor"){
+        let ReservarSala = document.createElement("custom-button")
+        ReservarSala.setAttribute("redirect",`Bloco/${pathSplit[2]}/Sala/${pathSplit[4]}/calendar`)
+        let Reservalabel = permissions == "Administrador" ? "Reservar Sala" : "Visualizar reservas"
+        ReservarSala.setAttribute("labelName",Reservalabel)
+        ReservarSala.classList.add("save-button")
+        ReservarSala.classList.add("color-green")
+
+        sidebar.appendChild(ReservarSala)
+    }
 }
 function getPath(){
     let path = window.location.pathname
     return path.split("/")
 }
 async function removePC(id){
-    await fetch(`/ExcluirComputador/${id}`, { method: 'DELETE' })
-    .then(response => {
-        console.log('executado com sucesso!')
-        window.location.reload()
-    })
-    .catch(function(err) {
-        console.log('erro encontrado');
-    });
+    if(permissions == "Administrador"){
+        await fetch(`/ExcluirComputador/${id}`, { method: 'DELETE' })
+        .then(response => {
+            console.log('executado com sucesso!')
+            window.location.reload()
+        })
+        .catch(function(err) {
+            console.log('erro encontrado');
+        });
+    }
 }    
 async function removeSala(id){
-    await fetch(`/ExcluiSala/${id}`, { method: 'DELETE' }).then(response => {
-        console.log('executado com sucesso!')
-        window.location.href = "/"
-    })
-    .catch(function(err) {
-        console.log('erro encontrado');
-    });
+    if(permissions == "Administrador"){
+
+        await fetch(`/ExcluiSala/${id}`, { method: 'DELETE' }).then(response => {
+            console.log('executado com sucesso!')
+            window.location.href = "/"
+        })
+        .catch(function(err) {
+            console.log('erro encontrado');
+        });
+    }
 }

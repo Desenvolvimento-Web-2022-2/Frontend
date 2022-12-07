@@ -3,9 +3,16 @@ const env = require("../../env.json")
 var Crypto = require("crypto-js");
 var fs = require('fs');
 var path = require('path');
+// let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+let salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
 let users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+let computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+let reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+let horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
 class LoginService{
     authenticate(req){
+        refreshbd()
         let token = {
             token:"",
             status:"invalid",
@@ -43,6 +50,7 @@ class LoginService{
         return token
     }
     validateToken(token){
+        refreshbd()
         let date = Math.round(new Date().getTime() / 1000)
         let tokenDecrypted = Crypto.AES.decrypt(token, env.authKey,{
             keySize: 128/8,
@@ -56,6 +64,7 @@ class LoginService{
 
     }
     postNewPassword(req){
+        refreshbd()
         let user = users.Users.find(user => user.usersInfosEmail == req.email)
         if(!!user){
             let newPasswordEnc = Crypto.AES.encrypt(req.password,env.userKey,{
@@ -79,3 +88,11 @@ class LoginService{
     }
 }
 module.exports = new LoginService()
+function refreshbd(){
+    blocos = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Blocos.json'), 'utf8'))
+    salas = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Salas.json'), 'utf8'))
+    users = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Users.json"), 'utf8'))
+    computers = JSON.parse(fs.readFileSync(path.join(__dirname, '../db/Computadores.json'), 'utf8'))
+    reservas = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Reserva.json"), 'utf8'))
+    horarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../db/Horario.json"), 'utf8'))
+}

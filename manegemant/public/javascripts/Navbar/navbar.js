@@ -97,4 +97,6 @@ function changeFontSize(index){
   }
 }
 
-
+function navigateToHome(){
+  window.location.href ="/"
+}

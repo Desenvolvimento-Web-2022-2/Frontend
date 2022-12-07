@@ -104,6 +104,7 @@ class UsersService {
         console.log(upUser)
         for (let j = 0; j < users.Users.length; j++) {
             if (users.Users[j].userId == upUser.userId) {
+                upUser.img = !!req.img ? req.img : users.Users[j].img
                 users.Users[j] = upUser
             }
         }
